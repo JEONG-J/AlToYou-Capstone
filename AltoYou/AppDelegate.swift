@@ -25,16 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         backImg.image = splashImg
         backImg.contentMode = .scaleAspectFill
         launchViewController.view.addSubview(backImg)
-        
         window.rootViewController = launchViewController
         window.makeKeyAndVisible()
         
+        //MainTabBarTransition
+        let mainTabBarController = MainTabBarController()
+        mainTabBarController.view.frame = window.bounds
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 launchViewController.view.alpha = 0
             }, completion: { _ in
-                let mainTabBarController = MainTabBarController()
                 self.window?.rootViewController = mainTabBarController
+                self.window?.makeKeyAndVisible()
             })
         }
         return true
