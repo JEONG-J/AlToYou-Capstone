@@ -14,33 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+         
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         
-        //Splash
-        let launchViewController = UIViewController()
-        let splashImg = UIImage(named: "splash.png")
-        let backImg = UIImageView(frame: launchViewController.view.bounds)
-        backImg.image = splashImg
-        backImg.contentMode = .scaleAspectFill
-        launchViewController.view.addSubview(backImg)
-        window.rootViewController = launchViewController
+        let animationViewController = SplashViewController()
+        animationViewController.appDelegate = self
+        window.rootViewController = animationViewController
         window.makeKeyAndVisible()
         
-        //MainTabBarTransition
-        let mainTabBarController = MainTabBarController()
-        mainTabBarController.view.frame = window.bounds
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-            UIView.animate(withDuration: 0.3, animations: {
-                launchViewController.view.alpha = 0
-            }, completion: { _ in
-                self.window?.rootViewController = mainTabBarController
-                self.window?.makeKeyAndVisible()
-            })
-        }
         return true
+        
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -62,8 +46,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.landscapeRight
-    }
-    
-    
+    }    
 }
 
+/*
+DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+    UIView.animate(withDuration: 0.3, animations: {
+        launchViewController.view.alpha = 0
+    }, completion: { _ in
+        self.window?.rootViewController = mainTabBarController
+        self.window?.makeKeyAndVisible()
+    })
+}
+return true
+ */
