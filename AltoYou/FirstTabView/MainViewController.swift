@@ -11,14 +11,14 @@ import SnapKit
 class MainViewController: UIViewController {
     
     private lazy var topView: TopView = {
-        let view = TopView()
+        let view = TopView(frame: self.view.bounds)
         return view
     }()
     
     // MARK: - init
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor(red: 0.15, green: 0.12, blue: 0.24, alpha: 1.00)
         makeConstraints()
     }
     
@@ -28,8 +28,7 @@ class MainViewController: UIViewController {
         
         topView.snp.makeConstraints{ (make) -> Void in
             make.top.left.right.equalToSuperview()
-            make.height.equalTo(390)
-        
+            make.height.lessThanOrEqualTo(439)
         }
     }
     
