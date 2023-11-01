@@ -10,8 +10,17 @@ import SnapKit
 
 class MainViewController: UIViewController {
     
+    //NOTE: - 글꼴 정보 Goryeong-Strawberry
+    
+    ///MARk: - 상단뷰 불러오기
     private lazy var topView: TopView = {
         let view = TopView(frame: self.view.bounds)
+        return view
+    }()
+    
+    ///MARK: - 하단뷰 불러오기
+    private lazy var bottomView: BottomView = {
+        let view = BottomView(frame: self.view.bounds)
         return view
     }()
     
@@ -23,12 +32,23 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Function
-    private func makeConstraints(){
+    
+    ///MARK: - 뷰 추가
+    private func addView(){
         self.view.addSubview(topView)
+        self.view.addSubview(bottomView)
+    }
+    private func makeConstraints(){
+        addView()
         
         topView.snp.makeConstraints{ (make) -> Void in
             make.top.left.right.equalToSuperview()
             make.height.lessThanOrEqualTo(439)
+        }
+        
+        bottomView.snp.makeConstraints{ (make) -> Void in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(topView.snp.bottom).offset(16)
         }
     }
     
