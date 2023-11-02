@@ -21,6 +21,7 @@
 		485A99882ACBFC0600C94740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 485A99872ACBFC0600C94740 /* Assets.xcassets */; };
 		485A998B2ACBFC0600C94740 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 485A998A2ACBFC0600C94740 /* Preview Assets.xcassets */; };
 		485A99922ACBFC5700C94740 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A99912ACBFC5700C94740 /* MainViewController.swift */; };
+		486AFC042AF3983E005F9803 /* cloudAni.json in Resources */ = {isa = PBXBuildFile; fileRef = 486AFC032AF3983E005F9803 /* cloudAni.json */; };
 		486D45912ACC660300D96EB1 /* SecondMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D45902ACC660300D96EB1 /* SecondMainViewController.swift */; };
 		486D459A2ACC6CEA00D96EB1 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D45992ACC6CEA00D96EB1 /* MainTabBarController.swift */; };
 		486D459C2ACC71E400D96EB1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D459B2ACC71E400D96EB1 /* Extension.swift */; };
@@ -49,6 +50,7 @@
 		485A99872ACBFC0600C94740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		485A998A2ACBFC0600C94740 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		485A99912ACBFC5700C94740 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		486AFC032AF3983E005F9803 /* cloudAni.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cloudAni.json; sourceTree = "<group>"; };
 		486D45902ACC660300D96EB1 /* SecondMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMainViewController.swift; sourceTree = "<group>"; };
 		486D45992ACC6CEA00D96EB1 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		486D459B2ACC71E400D96EB1 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		48B806C42AEFA461003AA2C0 /* Top */ = {
 			isa = PBXGroup;
 			children = (
+				486AFC032AF3983E005F9803 /* cloudAni.json */,
 				487007D12ACF5088009C6EC9 /* TopView.swift */,
 			);
 			path = Top;
@@ -264,6 +267,7 @@
 				48BF0B3D2ACF5FDF00565FA5 /* toy_drummer_idle.usdz in Resources */,
 				487007D82ACF59E9009C6EC9 /* goryeong.otf in Resources */,
 				480EDA892AEF55DD0007DDDF /* toy_biplane_idle.usdz in Resources */,
+				486AFC042AF3983E005F9803 /* cloudAni.json in Resources */,
 				485A99882ACBFC0600C94740 /* Assets.xcassets in Resources */,
 				480EDA872AEF55D10007DDDF /* animation_lo1aspnb.json in Resources */,
 				48433B912ACFCDB7007F017D /* Katuri.otf in Resources */,

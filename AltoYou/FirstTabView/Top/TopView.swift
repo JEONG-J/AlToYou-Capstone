@@ -11,8 +11,10 @@
 import UIKit
 import SnapKit
 import SceneKit
+import Lottie
 
-class TopView: UIImageView {
+class TopView: UIView {
+    
     ///MARK: - 3D 이미지 뷰
     private lazy var sceneView: SCNView = {
         let sceneView = SCNView()
@@ -102,8 +104,7 @@ class TopView: UIImageView {
     
     ///MARK: - self 설정
     private func setSelf(){
-        let image = UIImage(named: "topBackground")
-        self.image = image
+        self.backgroundColor = .clear
         self.layer.cornerRadius = 20
         self.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
         self.layer.masksToBounds = true
