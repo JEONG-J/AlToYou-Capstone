@@ -23,5 +23,8 @@ extension AttendanceView: UICollectionViewDelegate, UICollectionViewDataSource, 
         return CGSize(width: 66, height: 66)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 19
+    }
     
 }

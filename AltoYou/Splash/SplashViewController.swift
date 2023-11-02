@@ -11,7 +11,7 @@ import Lottie
 class SplashViewController: UIViewController {
     
     weak var appDelegate: AppDelegate?
-    let animationView: LottieAnimationView = .init(name: "animation_lo1aspnb")
+    private let animationView: LottieAnimationView = .init(name: "animation_lo1aspnb")
     var monitor: CADisplayLink?
     private lazy var mainTabBarView: MainTabBarController = {
         let view = MainTabBarController()

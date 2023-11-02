@@ -25,14 +25,6 @@ class BottomStackView: UIStackView {
         view.layer.cornerRadius = 20
         return view
     }()
-    
-    ///MARK: - 사용자 이름
-    private lazy var userName: UILabel = {
-        let name = UILabel()
-        name.font = UIFont(name:"Goryeong-Strawberry", size: 50)
-        name.text = "푸앙푸앙"
-        return name
-    }()
 
     ///MARK: - 랜덤 텍스트 생성
     private lazy var randomText: UILabel = {
@@ -68,11 +60,6 @@ class BottomStackView: UIStackView {
     ///MARK: - 이미지 내 텍스트 삽입
     private func addTextInImgView(){
         randomTextView.addSubview(randomText)
-        
-        
-        userName.snp.makeConstraints{ make in
-            make.centerX.centerY.equalToSuperview()
-        }
         
         randomText.snp.makeConstraints{ make in
             make.centerX.centerY.equalToSuperview()
