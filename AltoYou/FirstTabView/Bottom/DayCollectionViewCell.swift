@@ -56,6 +56,7 @@ class DayCollectionViewCell: UICollectionViewCell {
     private func makeConstraintsTitle(){
         self.addSubview(dayTitle)
         self.bringSubviewToFront(dayTitle)
+        
         dayTitle.snp.makeConstraints{ (make) -> Void in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()

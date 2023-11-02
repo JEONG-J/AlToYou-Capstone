@@ -12,6 +12,7 @@
 		480EDA8B2AEF5A5A0007DDDF /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480EDA8A2AEF5A590007DDDF /* BottomView.swift */; };
 		4813682A2AF0CBCF00B03E97 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481368292AF0CBCF00B03E97 /* AttendanceView.swift */; };
 		4813682C2AF0D22D00B03E97 /* CellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813682B2AF0D22D00B03E97 /* CellExtension.swift */; };
+		482639902AF3FB5E00EE547B /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4826398F2AF3FB5E00EE547B /* CharacterCollectionViewCell.swift */; };
 		48433B912ACFCDB7007F017D /* Katuri.otf in Resources */ = {isa = PBXBuildFile; fileRef = 48433B902ACFCDB7007F017D /* Katuri.otf */; };
 		484F5DE02AF23AC00085CADA /* ScrollExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484F5DDF2AF23AC00085CADA /* ScrollExtension.swift */; };
 		4859E6252AE5242F00871CC1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4859E6242AE5242F00871CC1 /* Lottie */; };
@@ -41,6 +42,7 @@
 		480EDA8A2AEF5A590007DDDF /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		481368292AF0CBCF00B03E97 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		4813682B2AF0D22D00B03E97 /* CellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellExtension.swift; sourceTree = "<group>"; };
+		4826398F2AF3FB5E00EE547B /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		48433B902ACFCDB7007F017D /* Katuri.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Katuri.otf; sourceTree = "<group>"; };
 		484F5DDF2AF23AC00085CADA /* ScrollExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollExtension.swift; sourceTree = "<group>"; };
 		4859E62A2AE5248000871CC1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				486D45902ACC660300D96EB1 /* SecondMainViewController.swift */,
+				4826398F2AF3FB5E00EE547B /* CharacterCollectionViewCell.swift */,
 			);
 			path = SecondTabView;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482639902AF3FB5E00EE547B /* CharacterCollectionViewCell.swift in Sources */,
 				4813682A2AF0CBCF00B03E97 /* AttendanceView.swift in Sources */,
 				487007D22ACF5088009C6EC9 /* TopView.swift in Sources */,
 				484F5DE02AF23AC00085CADA /* ScrollExtension.swift in Sources */,

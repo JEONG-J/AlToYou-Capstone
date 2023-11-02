@@ -18,13 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         
-        /*
+        
         let animationViewController = SplashViewController()
         animationViewController.appDelegate = self
          
         window.rootViewController = animationViewController
-         */
-        window.rootViewController = MainViewController()
+        //window.rootViewController = MainViewController()
         window.makeKeyAndVisible()
         
         return true

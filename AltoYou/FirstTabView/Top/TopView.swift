@@ -26,7 +26,7 @@ class TopView: UIView {
         scene?.rootNode.addChildNode(cameraNode)
         
         if let object = scene?.rootNode.childNodes.first{
-            object.scale = SCNVector3(x: 1.2, y: 1.2, z: 1.2)
+            object.scale = SCNVector3(x: 1.1, y: 1.1, z: 1.1)
             
             let jumpAnimation = CAKeyframeAnimation(keyPath: "position.y")
             jumpAnimation.values = [object.position.y, object.position.y+2, object.position.y]
