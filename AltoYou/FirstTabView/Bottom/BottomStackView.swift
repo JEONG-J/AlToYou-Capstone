@@ -16,18 +16,6 @@ class BottomStackView: UIStackView {
         return view
     }()
     
-    //TODO: - 프로필 뷰 따로 분리하기
-    ///MARK: - 프로필 닉네임 뷰
-    private lazy var profileView: UIImageView = {
-        let view = UIImageView()
-        let img = UIImage(named: "nicknameView")
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = 20
-        view.image = img
-        view.isUserInteractionEnabled = true
-        return view
-    }()
-    
     ///MARK: - 랜덤 텍스브 뷰
     private lazy var randomTextView: UIImageView = {
         let view = UIImageView()
@@ -79,7 +67,6 @@ class BottomStackView: UIStackView {
     
     ///MARK: - 이미지 내 텍스트 삽입
     private func addTextInImgView(){
-        profileView.addSubview(userName)
         randomTextView.addSubview(randomText)
         
         

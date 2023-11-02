@@ -14,6 +14,19 @@ class BottomView: UIImageView{
         return stack
     }()
     
+    //TODO: - 프로필 뷰 따로 분리하기
+    ///MARK: - 프로필 닉네임 뷰
+    private lazy var profileView: UIImageView = {
+        let view = UIImageView()
+        let img = UIImage(named: "nicknameView")
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 20
+        view.image = img
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+    
+    
     private lazy var horizonScrollView: UIScrollView = {
         let view = UIScrollView()
         view.delegate = self
