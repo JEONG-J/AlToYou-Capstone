@@ -10,6 +10,8 @@ import SnapKit
 
 class SecondMainViewController: UIViewController {
     
+    var currentIndexPath: IndexPath?
+    
     ///MARK: - 배경 이미지 프로퍼티
     private lazy var backgroundView: UIImageView = {
         let view = UIImageView()
@@ -30,8 +32,10 @@ class SecondMainViewController: UIViewController {
     ///MARK: - 컬렉션 뷰
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 133
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.register(CharacterCollectionViewCell.self, forCellWithReuseIdentifier: CharacterCollectionViewCell.identifier)
+        cv.dataSource = self
+        cv.delegate = self
         cv.layer.backgroundColor = UIColor.clear.cgColor
         return cv
     }()
@@ -47,6 +51,7 @@ class SecondMainViewController: UIViewController {
     private func addView(){
         self.view.addSubview(backgroundView)
         self.view.addSubview(titleText)
+        self.view.addSubview(collectionView)
     }
     
     private func makeConstraints(){
@@ -60,6 +65,14 @@ class SecondMainViewController: UIViewController {
             make.top.equalTo(123)
             make.centerX.equalToSuperview()
             make.width.lessThanOrEqualTo(911)
+        }
+        
+        collectionView.snp.makeConstraints{ make in
+            make.top.equalTo(titleText.snp.bottom).offset(101)
+            make.centerX.equalToSuperview()
+            make.width.greaterThanOrEqualTo(1073)
+            make.height.greaterThanOrEqualTo(360)
+            
         }
     }
 }

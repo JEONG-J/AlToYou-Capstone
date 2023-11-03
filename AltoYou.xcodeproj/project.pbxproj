@@ -11,8 +11,10 @@
 		480EDA892AEF55DD0007DDDF /* toy_biplane_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 480EDA882AEF55DD0007DDDF /* toy_biplane_idle.usdz */; };
 		480EDA8B2AEF5A5A0007DDDF /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480EDA8A2AEF5A590007DDDF /* BottomView.swift */; };
 		4813682A2AF0CBCF00B03E97 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481368292AF0CBCF00B03E97 /* AttendanceView.swift */; };
-		4813682C2AF0D22D00B03E97 /* CellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813682B2AF0D22D00B03E97 /* CellExtension.swift */; };
+		4813682C2AF0D22D00B03E97 /* AttendCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813682B2AF0D22D00B03E97 /* AttendCellExtension.swift */; };
 		482639902AF3FB5E00EE547B /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4826398F2AF3FB5E00EE547B /* CharacterCollectionViewCell.swift */; };
+		484322072AF4D13A005C064C /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484322062AF4D13A005C064C /* CharacterModel.swift */; };
+		484322092AF4DC37005C064C /* CharacterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484322082AF4DC37005C064C /* CharacterExtension.swift */; };
 		48433B912ACFCDB7007F017D /* Katuri.otf in Resources */ = {isa = PBXBuildFile; fileRef = 48433B902ACFCDB7007F017D /* Katuri.otf */; };
 		484F5DE02AF23AC00085CADA /* ScrollExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484F5DDF2AF23AC00085CADA /* ScrollExtension.swift */; };
 		4859E6252AE5242F00871CC1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4859E6242AE5242F00871CC1 /* Lottie */; };
@@ -41,8 +43,10 @@
 		480EDA882AEF55DD0007DDDF /* toy_biplane_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane_idle.usdz; sourceTree = "<group>"; };
 		480EDA8A2AEF5A590007DDDF /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		481368292AF0CBCF00B03E97 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
-		4813682B2AF0D22D00B03E97 /* CellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellExtension.swift; sourceTree = "<group>"; };
+		4813682B2AF0D22D00B03E97 /* AttendCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendCellExtension.swift; sourceTree = "<group>"; };
 		4826398F2AF3FB5E00EE547B /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		484322062AF4D13A005C064C /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		484322082AF4DC37005C064C /* CharacterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtension.swift; sourceTree = "<group>"; };
 		48433B902ACFCDB7007F017D /* Katuri.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Katuri.otf; sourceTree = "<group>"; };
 		484F5DDF2AF23AC00085CADA /* ScrollExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollExtension.swift; sourceTree = "<group>"; };
 		4859E62A2AE5248000871CC1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 			children = (
 				486D45902ACC660300D96EB1 /* SecondMainViewController.swift */,
 				4826398F2AF3FB5E00EE547B /* CharacterCollectionViewCell.swift */,
+				484322062AF4D13A005C064C /* CharacterModel.swift */,
+				484322082AF4DC37005C064C /* CharacterExtension.swift */,
 			);
 			path = SecondTabView;
 			sourceTree = "<group>";
@@ -175,7 +181,7 @@
 				481368292AF0CBCF00B03E97 /* AttendanceView.swift */,
 				48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */,
 				484F5DDF2AF23AC00085CADA /* ScrollExtension.swift */,
-				4813682B2AF0D22D00B03E97 /* CellExtension.swift */,
+				4813682B2AF0D22D00B03E97 /* AttendCellExtension.swift */,
 				48BF0B432ACF6BD100565FA5 /* DayModel.swift */,
 			);
 			path = Bottom;
@@ -287,18 +293,20 @@
 				482639902AF3FB5E00EE547B /* CharacterCollectionViewCell.swift in Sources */,
 				4813682A2AF0CBCF00B03E97 /* AttendanceView.swift in Sources */,
 				487007D22ACF5088009C6EC9 /* TopView.swift in Sources */,
+				484322092AF4DC37005C064C /* CharacterExtension.swift in Sources */,
 				484F5DE02AF23AC00085CADA /* ScrollExtension.swift in Sources */,
 				485A99922ACBFC5700C94740 /* MainViewController.swift in Sources */,
 				486D45912ACC660300D96EB1 /* SecondMainViewController.swift in Sources */,
 				48BF0B442ACF6BD100565FA5 /* DayModel.swift in Sources */,
 				480EDA8B2AEF5A5A0007DDDF /* BottomView.swift in Sources */,
 				48BF0B422ACF684800565FA5 /* DayCollectionViewCell.swift in Sources */,
-				4813682C2AF0D22D00B03E97 /* CellExtension.swift in Sources */,
+				4813682C2AF0D22D00B03E97 /* AttendCellExtension.swift in Sources */,
 				486D459A2ACC6CEA00D96EB1 /* MainTabBarController.swift in Sources */,
 				486D459C2ACC71E400D96EB1 /* Extension.swift in Sources */,
 				485A99862ACBFC0500C94740 /* ContentView.swift in Sources */,
 				485A99842ACBFC0500C94740 /* AppDelegate.swift in Sources */,
 				48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */,
+				484322072AF4D13A005C064C /* CharacterModel.swift in Sources */,
 				4859E62B2AE5248000871CC1 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

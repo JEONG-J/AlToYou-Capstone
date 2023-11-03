@@ -48,8 +48,6 @@ class DayCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         dayTitle.text = nil
-        dayTitle.layer.borderColor = UIColor.clear.cgColor
-        dayTitle.layer.borderWidth = 0
     }
     
     ///MARK: - 제약 조건 생성
@@ -71,6 +69,7 @@ class DayCollectionViewCell: UICollectionViewCell {
             make.centerY.equalToSuperview()
         }
     }
+    
     ///MARK: - 출석체크
     private func isCheck(){
         makeConstraintsImg()
