@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         animationViewController.appDelegate = self
          
         window.rootViewController = animationViewController
-        //window.rootViewController = MainViewController()
         window.makeKeyAndVisible()
         
         return true
