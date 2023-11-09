@@ -13,6 +13,7 @@
 		4813682A2AF0CBCF00B03E97 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481368292AF0CBCF00B03E97 /* AttendanceView.swift */; };
 		4813682C2AF0D22D00B03E97 /* AttendCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813682B2AF0D22D00B03E97 /* AttendCellExtension.swift */; };
 		482639902AF3FB5E00EE547B /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4826398F2AF3FB5E00EE547B /* CharacterCollectionViewCell.swift */; };
+		483A07172AFC7DEF00009C61 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483A07162AFC7DEF00009C61 /* PopUpViewController.swift */; };
 		484322072AF4D13A005C064C /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484322062AF4D13A005C064C /* CharacterModel.swift */; };
 		484322092AF4DC37005C064C /* CharacterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484322082AF4DC37005C064C /* CharacterExtension.swift */; };
 		48433B912ACFCDB7007F017D /* Katuri.otf in Resources */ = {isa = PBXBuildFile; fileRef = 48433B902ACFCDB7007F017D /* Katuri.otf */; };
@@ -30,6 +31,7 @@
 		486D459C2ACC71E400D96EB1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D459B2ACC71E400D96EB1 /* Extension.swift */; };
 		487007D22ACF5088009C6EC9 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487007D12ACF5088009C6EC9 /* TopView.swift */; };
 		487007D82ACF59E9009C6EC9 /* goryeong.otf in Resources */ = {isa = PBXBuildFile; fileRef = 487007D72ACF59E9009C6EC9 /* goryeong.otf */; };
+		48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF46572AFCC37800C1F98F /* PopupExtension.swift */; };
 		48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */; };
 		48BF0B3D2ACF5FDF00565FA5 /* toy_drummer_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */; };
 		48BF0B422ACF684800565FA5 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */; };
@@ -45,6 +47,7 @@
 		481368292AF0CBCF00B03E97 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		4813682B2AF0D22D00B03E97 /* AttendCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendCellExtension.swift; sourceTree = "<group>"; };
 		4826398F2AF3FB5E00EE547B /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		483A07162AFC7DEF00009C61 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		484322062AF4D13A005C064C /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		484322082AF4DC37005C064C /* CharacterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtension.swift; sourceTree = "<group>"; };
 		48433B902ACFCDB7007F017D /* Katuri.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Katuri.otf; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		487007D12ACF5088009C6EC9 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		487007D42ACF5735009C6EC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		487007D72ACF59E9009C6EC9 /* goryeong.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = goryeong.otf; sourceTree = "<group>"; };
+		48AF46572AFCC37800C1F98F /* PopupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupExtension.swift; sourceTree = "<group>"; };
 		48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStackView.swift; sourceTree = "<group>"; };
 		48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer_idle.usdz; sourceTree = "<group>"; };
 		48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -83,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		483A07152AFC7DC400009C61 /* CustomPopUpView */ = {
+			isa = PBXGroup;
+			children = (
+				483A07162AFC7DEF00009C61 /* PopUpViewController.swift */,
+				48AF46572AFCC37800C1F98F /* PopupExtension.swift */,
+			);
+			path = CustomPopUpView;
+			sourceTree = "<group>";
+		};
 		4859E6282AE5245F00871CC1 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +126,7 @@
 			children = (
 				487007D42ACF5735009C6EC9 /* Info.plist */,
 				48BF0B3E2ACF5FE800565FA5 /* Font */,
+				483A07152AFC7DC400009C61 /* CustomPopUpView */,
 				48BF0B3F2ACF601000565FA5 /* 3D Characters */,
 				4865AE6E2ACD74C90085A4C7 /* MainTabBar */,
 				486D458F2ACC65C800D96EB1 /* SecondTabView */,
@@ -294,6 +308,7 @@
 				4813682A2AF0CBCF00B03E97 /* AttendanceView.swift in Sources */,
 				487007D22ACF5088009C6EC9 /* TopView.swift in Sources */,
 				484322092AF4DC37005C064C /* CharacterExtension.swift in Sources */,
+				48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */,
 				484F5DE02AF23AC00085CADA /* ScrollExtension.swift in Sources */,
 				485A99922ACBFC5700C94740 /* MainViewController.swift in Sources */,
 				486D45912ACC660300D96EB1 /* SecondMainViewController.swift in Sources */,
@@ -304,6 +319,7 @@
 				486D459A2ACC6CEA00D96EB1 /* MainTabBarController.swift in Sources */,
 				486D459C2ACC71E400D96EB1 /* Extension.swift in Sources */,
 				485A99862ACBFC0500C94740 /* ContentView.swift in Sources */,
+				483A07172AFC7DEF00009C61 /* PopUpViewController.swift in Sources */,
 				485A99842ACBFC0500C94740 /* AppDelegate.swift in Sources */,
 				48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */,
 				484322072AF4D13A005C064C /* CharacterModel.swift in Sources */,
@@ -441,6 +457,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AltoYou/Preview Content\"";
+				DEVELOPMENT_TEAM = 8B8B4462NV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AltoYou/Info.plist;
@@ -472,6 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AltoYou/Preview Content\"";
+				DEVELOPMENT_TEAM = 8B8B4462NV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AltoYou/Info.plist;

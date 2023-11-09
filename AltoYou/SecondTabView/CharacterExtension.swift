@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 extension SecondMainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
@@ -40,9 +41,20 @@ extension SecondMainViewController: UICollectionViewDelegate, UICollectionViewDa
             previousCell.chracterBackgroundView.layer.borderWidth = 0
         }
         
-        cell.chracterBackgroundView.layer.borderColor = UIColor.green.cgColor
+        cell.chracterBackgroundView.layer.borderColor = UIColor(red: 0.60, green: 0.97, blue: 0.59, alpha: 1.00).cgColor
         cell.chracterBackgroundView.layer.borderWidth = 5
         
         currentIndexPath = indexPath
+        
+        showPopUp(message: "학습을 진행해볼래요?", leftActionTitle: "Yes",rightActionTitle: "No", leftActionCompletion: { [weak self] in
+            guard let strongSelf = self else { return }
+            let contentView = ContentView()
+            let hostingController = UIHostingController(rootView: contentView)
+            
+            hostingController.modalPresentationStyle = .fullScreen
+            DispatchQueue.main.async{
+                strongSelf.present(hostingController, animated: true, completion: nil)
+            }
+        })
     }
 }
