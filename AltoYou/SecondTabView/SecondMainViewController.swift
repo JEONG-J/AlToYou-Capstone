@@ -26,6 +26,7 @@ class SecondMainViewController: UIViewController {
         let text = UILabel()
         text.font = UIFont(name: "Goryeong-Strawberry", size: 50)
         text.text = "같이 얘기하고 싶은 동물 친구를 골라볼래요??"
+        text.textColor = UIColor.black
         return text
     }()
     

@@ -36,9 +36,21 @@
 		48BF0B3D2ACF5FDF00565FA5 /* toy_drummer_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */; };
 		48BF0B422ACF684800565FA5 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */; };
 		48BF0B442ACF6BD100565FA5 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B432ACF6BD100565FA5 /* DayModel.swift */; };
-		48FD62A32ACD90F40010FBD9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48FD62A22ACD90F40010FBD9 /* SnapKit */; };
-		48FD62A52ACD90F40010FBD9 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 48FD62A42ACD90F40010FBD9 /* SnapKit-Dynamic */; };
+		48D7385F2AFCE4DA003F1EFC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48D7385E2AFCE4DA003F1EFC /* SnapKit */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		48D738632AFCE4DF003F1EFC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		480EDA862AEF55D10007DDDF /* animation_lo1aspnb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_lo1aspnb.json; sourceTree = "<group>"; };
@@ -78,9 +90,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48FD62A32ACD90F40010FBD9 /* SnapKit in Frameworks */,
-				48FD62A52ACD90F40010FBD9 /* SnapKit-Dynamic in Frameworks */,
 				4859E6252AE5242F00871CC1 /* Lottie in Frameworks */,
+				48D7385F2AFCE4DA003F1EFC /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +121,7 @@
 			children = (
 				485A99822ACBFC0500C94740 /* AltoYou */,
 				485A99812ACBFC0500C94740 /* Products */,
+				48D7385A2AFCE396003F1EFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,6 +231,13 @@
 			path = "3D Characters";
 			sourceTree = "<group>";
 		};
+		48D7385A2AFCE396003F1EFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -229,6 +248,7 @@
 				485A997C2ACBFC0500C94740 /* Sources */,
 				485A997D2ACBFC0500C94740 /* Frameworks */,
 				485A997E2ACBFC0500C94740 /* Resources */,
+				48D738632AFCE4DF003F1EFC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,9 +256,8 @@
 			);
 			name = AltoYou;
 			packageProductDependencies = (
-				48FD62A22ACD90F40010FBD9 /* SnapKit */,
-				48FD62A42ACD90F40010FBD9 /* SnapKit-Dynamic */,
 				4859E6242AE5242F00871CC1 /* Lottie */,
+				48D7385E2AFCE4DA003F1EFC /* SnapKit */,
 			);
 			productName = AltoYou;
 			productReference = 485A99802ACBFC0500C94740 /* AltoYou.app */;
@@ -269,8 +288,8 @@
 			);
 			mainGroup = 485A99772ACBFC0500C94740;
 			packageReferences = (
-				48FD62A12ACD90F40010FBD9 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4859E6232AE5242F00871CC1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				48D7385D2AFCE4DA003F1EFC /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 485A99812ACBFC0500C94740 /* Products */;
 			projectDirPath = "";
@@ -545,7 +564,7 @@
 				minimumVersion = 4.3.3;
 			};
 		};
-		48FD62A12ACD90F40010FBD9 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		48D7385D2AFCE4DA003F1EFC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
 			requirement = {
@@ -561,15 +580,10 @@
 			package = 4859E6232AE5242F00871CC1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
-		48FD62A22ACD90F40010FBD9 /* SnapKit */ = {
+		48D7385E2AFCE4DA003F1EFC /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 48FD62A12ACD90F40010FBD9 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 48D7385D2AFCE4DA003F1EFC /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		48FD62A42ACD90F40010FBD9 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 48FD62A12ACD90F40010FBD9 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
