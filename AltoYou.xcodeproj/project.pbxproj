@@ -31,6 +31,7 @@
 		486D459C2ACC71E400D96EB1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D459B2ACC71E400D96EB1 /* Extension.swift */; };
 		487007D22ACF5088009C6EC9 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487007D12ACF5088009C6EC9 /* TopView.swift */; };
 		487007D82ACF59E9009C6EC9 /* goryeong.otf in Resources */ = {isa = PBXBuildFile; fileRef = 487007D72ACF59E9009C6EC9 /* goryeong.otf */; };
+		487F55852B009D710058124C /* BackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487F55842B009D710058124C /* BackgroundMusic.mp3 */; };
 		48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF46572AFCC37800C1F98F /* PopupExtension.swift */; };
 		48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */; };
 		48BF0B3D2ACF5FDF00565FA5 /* toy_drummer_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */; };
@@ -78,6 +79,7 @@
 		487007D12ACF5088009C6EC9 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		487007D42ACF5735009C6EC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		487007D72ACF59E9009C6EC9 /* goryeong.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = goryeong.otf; sourceTree = "<group>"; };
+		487F55842B009D710058124C /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusic.mp3; sourceTree = "<group>"; };
 		48AF46572AFCC37800C1F98F /* PopupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupExtension.swift; sourceTree = "<group>"; };
 		48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStackView.swift; sourceTree = "<group>"; };
 		48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer_idle.usdz; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		485A99822ACBFC0500C94740 /* AltoYou */ = {
 			isa = PBXGroup;
 			children = (
+				487F55832B009D470058124C /* AudioFile */,
 				487007D42ACF5735009C6EC9 /* Info.plist */,
 				48BF0B3E2ACF5FE800565FA5 /* Font */,
 				483A07152AFC7DC400009C61 /* CustomPopUpView */,
@@ -188,6 +191,14 @@
 				484322082AF4DC37005C064C /* CharacterExtension.swift */,
 			);
 			path = SecondTabView;
+			sourceTree = "<group>";
+		};
+		487F55832B009D470058124C /* AudioFile */ = {
+			isa = PBXGroup;
+			children = (
+				487F55842B009D710058124C /* BackgroundMusic.mp3 */,
+			);
+			path = AudioFile;
 			sourceTree = "<group>";
 		};
 		48B806C42AEFA461003AA2C0 /* Top */ = {
@@ -305,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				487F55852B009D710058124C /* BackgroundMusic.mp3 in Resources */,
 				485A998B2ACBFC0600C94740 /* Preview Assets.xcassets in Resources */,
 				48BF0B3D2ACF5FDF00565FA5 /* toy_drummer_idle.usdz in Resources */,
 				487007D82ACF59E9009C6EC9 /* goryeong.otf in Resources */,

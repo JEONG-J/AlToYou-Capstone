@@ -7,11 +7,13 @@
 
 import UIKit
 import SwiftUI
+import AVFoundation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var backgroundMusicPlayer: AVAudioPlayer?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
          
@@ -23,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         animationViewController.appDelegate = self
          
         window.rootViewController = animationViewController
+        startMusic()
         window.makeKeyAndVisible()
         
         return true
@@ -48,17 +51,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.landscapeRight
-    }    
+    }
+    
+    ///MARK: - 배경화면 음악 재생 함수
+    private func startMusic(){
+        if let bundle = Bundle.main.path(forResource: "BackgroundMusic", ofType: "mp3"){
+            let backgroundMusicUrl = URL(fileURLWithPath: bundle)
+            
+            do{
+                backgroundMusicPlayer = try AVAudioPlayer(contentsOf: backgroundMusicUrl)
+                guard let backgroundMusicPlayer = backgroundMusicPlayer else { return }
+                backgroundMusicPlayer.numberOfLoops = -1
+                backgroundMusicPlayer.volume = 0.3
+                
+                backgroundMusicPlayer.prepareToPlay()
+                backgroundMusicPlayer.play()
+            } catch{
+                fatalError()
+            }
+        }
+    }
 }
-
-/*
-DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-    UIView.animate(withDuration: 0.3, animations: {
-        launchViewController.view.alpha = 0
-    }, completion: { _ in
-        self.window?.rootViewController = mainTabBarController
-        self.window?.makeKeyAndVisible()
-    })
-}
-return true
- */
