@@ -13,7 +13,6 @@ import AVFoundation
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var backgroundMusicPlayer: AVAudioPlayer?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
          
@@ -25,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         animationViewController.appDelegate = self
          
         window.rootViewController = animationViewController
-        startMusic()
+        startMusic("BackgroundMusic")
         window.makeKeyAndVisible()
         
         return true
@@ -54,21 +53,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     ///MARK: - 배경화면 음악 재생 함수
-    private func startMusic(){
-        if let bundle = Bundle.main.path(forResource: "BackgroundMusic", ofType: "mp3"){
-            let backgroundMusicUrl = URL(fileURLWithPath: bundle)
-            
-            do{
-                backgroundMusicPlayer = try AVAudioPlayer(contentsOf: backgroundMusicUrl)
-                guard let backgroundMusicPlayer = backgroundMusicPlayer else { return }
-                backgroundMusicPlayer.numberOfLoops = -1
-                backgroundMusicPlayer.volume = 0.3
-                
-                backgroundMusicPlayer.prepareToPlay()
-                backgroundMusicPlayer.play()
-            } catch{
-                fatalError()
-            }
-        }
     }
-}
