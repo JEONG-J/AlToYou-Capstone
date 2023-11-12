@@ -15,6 +15,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     private lazy var nameText: UILabel = {
         let text = UILabel()
         text.text = "흰둥이"
+        text.textColor = UIColor.black
         text.font = UIFont(name: "Goryeong-Strawberry", size: 35)
         return text
     }()

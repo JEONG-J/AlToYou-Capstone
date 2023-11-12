@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         animationViewController.appDelegate = self
          
         window.rootViewController = animationViewController
-        startMusic("backgroundMusic")
+       startMusic("backgroundMusic")
         window.makeKeyAndVisible()
         
         return true
