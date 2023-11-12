@@ -46,6 +46,7 @@
 		48BF0B3D2ACF5FDF00565FA5 /* toy_drummer_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */; };
 		48BF0B422ACF684800565FA5 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */; };
 		48BF0B442ACF6BD100565FA5 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B432ACF6BD100565FA5 /* DayModel.swift */; };
+		48C0C25B2B01220900A6BD67 /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C0C25A2B01220900A6BD67 /* ExitButton.swift */; };
 		48D7385F2AFCE4DA003F1EFC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48D7385E2AFCE4DA003F1EFC /* SnapKit */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer_idle.usdz; sourceTree = "<group>"; };
 		48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		48BF0B432ACF6BD100565FA5 /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
+		48C0C25A2B01220900A6BD67 /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 			children = (
 				485A99852ACBFC0500C94740 /* ContentView.swift */,
 				487CE8572B0101F50067C619 /* MICButton.swift */,
+				48C0C25A2B01220900A6BD67 /* ExitButton.swift */,
 			);
 			path = ARView;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				482639902AF3FB5E00EE547B /* CharacterCollectionViewCell.swift in Sources */,
+				48C0C25B2B01220900A6BD67 /* ExitButton.swift in Sources */,
 				4813682A2AF0CBCF00B03E97 /* AttendanceView.swift in Sources */,
 				487007D22ACF5088009C6EC9 /* TopView.swift in Sources */,
 				484322092AF4DC37005C064C /* CharacterExtension.swift in Sources */,

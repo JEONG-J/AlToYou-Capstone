@@ -11,16 +11,32 @@ import AVFoundation
 import Alamofire
 
 struct ContentView : View {
+    @State private var showARView = true
     
     var body: some View {
         ZStack{
-            ARViewContainer().edgesIgnoringSafeArea(.all)
+            if showARView{
+                ARViewContainer().edgesIgnoringSafeArea(.all)
+            }
+            VStack{
+                HStack{
+                    ExitButton()
+                    .padding()
+                    Spacer()
+                }
+                Spacer()
+            }
             VStack{
                 Spacer()
-                MICButton()
-                    .padding()
-                    .padding(.trailing, 50)
+                HStack{
+                    Spacer()
+                    MICButton()
+                        .padding()
+                }
             }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("CloseARView"))) { _ in
+            self.showARView = false
         }
     }
     
