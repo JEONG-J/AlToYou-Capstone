@@ -34,6 +34,7 @@
 		487F55852B009D710058124C /* BackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487F55842B009D710058124C /* BackgroundMusic.mp3 */; };
 		487F55872B00AACF0058124C /* propeller.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487F55862B00AACF0058124C /* propeller.mp3 */; };
 		487F55892B00AB550058124C /* AudioPlayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487F55882B00AB550058124C /* AudioPlayModel.swift */; };
+		487F558B2B00B5B10058124C /* PresentMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487F558A2B00B5B10058124C /* PresentMessage.swift */; };
 		48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF46572AFCC37800C1F98F /* PopupExtension.swift */; };
 		48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */; };
 		48BF0B3D2ACF5FDF00565FA5 /* toy_drummer_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */; };
@@ -84,6 +85,7 @@
 		487F55842B009D710058124C /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusic.mp3; sourceTree = "<group>"; };
 		487F55862B00AACF0058124C /* propeller.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = propeller.mp3; sourceTree = "<group>"; };
 		487F55882B00AB550058124C /* AudioPlayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayModel.swift; sourceTree = "<group>"; };
+		487F558A2B00B5B10058124C /* PresentMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentMessage.swift; sourceTree = "<group>"; };
 		48AF46572AFCC37800C1F98F /* PopupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupExtension.swift; sourceTree = "<group>"; };
 		48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStackView.swift; sourceTree = "<group>"; };
 		48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer_idle.usdz; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				484F5DDF2AF23AC00085CADA /* ScrollExtension.swift */,
 				4813682B2AF0D22D00B03E97 /* AttendCellExtension.swift */,
 				48BF0B432ACF6BD100565FA5 /* DayModel.swift */,
+				487F558A2B00B5B10058124C /* PresentMessage.swift */,
 			);
 			path = Bottom;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				485A99862ACBFC0500C94740 /* ContentView.swift in Sources */,
 				483A07172AFC7DEF00009C61 /* PopUpViewController.swift in Sources */,
 				485A99842ACBFC0500C94740 /* AppDelegate.swift in Sources */,
+				487F558B2B00B5B10058124C /* PresentMessage.swift in Sources */,
 				48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */,
 				484322072AF4D13A005C064C /* CharacterModel.swift in Sources */,
 				4859E62B2AE5248000871CC1 /* SplashViewController.swift in Sources */,

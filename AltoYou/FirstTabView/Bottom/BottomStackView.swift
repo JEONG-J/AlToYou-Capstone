@@ -23,16 +23,22 @@ class BottomStackView: UIStackView {
         view.image = img
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 20
+        view.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(changeText))
+        view.addGestureRecognizer(tapGesture)
+        
         return view
     }()
 
     ///MARK: - 랜덤 텍스트 생성
     private lazy var randomText: UILabel = {
         let text = UILabel()
-        text.font = UIFont(name: "Goryeong-Strawberry", size: 40)
-        text.text = "안녕 잘 지냈어??"
+        text.font = UIFont(name: "Goryeong-Strawberry", size: 43)
         text.numberOfLines = 0
+        text.text = Message.texts.randomElement()
         text.lineBreakMode = .byWordWrapping
+        text.textAlignment = .center
         return text
     }()
     
@@ -62,7 +68,10 @@ class BottomStackView: UIStackView {
         randomTextView.addSubview(randomText)
         
         randomText.snp.makeConstraints{ make in
-            make.centerX.centerY.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(100)
+            make.width.greaterThanOrEqualTo(500)
+            make.height.greaterThanOrEqualTo(50)
         }
     }
     
@@ -76,6 +85,20 @@ class BottomStackView: UIStackView {
         attendanceView.snp.makeConstraints{ make in
             make.top.left.bottom.equalToSuperview()
         }
+    }
+    
+    //MARK: - Objc Function
+    
+    ///MARK: - 랜덤 텍스트 생성 액션 버튼
+    @objc func changeText(){
+        randomText.text = Message.texts.randomElement()
         
+        UIView.animate(withDuration: 0.1){
+            self.randomText.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        } completion: { _ in
+            UIView.animate(withDuration: 0.1){
+                self.randomText.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            }
+        }
     }
 }
