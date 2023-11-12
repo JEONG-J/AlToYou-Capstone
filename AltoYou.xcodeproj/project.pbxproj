@@ -35,6 +35,8 @@
 		487CE8512B00E8EE0067C619 /* Hindung.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487CE8502B00E8EE0067C619 /* Hindung.mp3 */; };
 		487CE8532B00E8F40067C619 /* Mongmongi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487CE8522B00E8F40067C619 /* Mongmongi.mp3 */; };
 		487CE8552B00E8F90067C619 /* Jjijjigi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487CE8542B00E8F90067C619 /* Jjijjigi.mp3 */; };
+		487CE8582B0101F50067C619 /* MICButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487CE8572B0101F50067C619 /* MICButton.swift */; };
+		487CE85B2B01084D0067C619 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 487CE85A2B01084D0067C619 /* Alamofire */; };
 		487F55852B009D710058124C /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487F55842B009D710058124C /* backgroundMusic.mp3 */; };
 		487F55872B00AACF0058124C /* propeller.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487F55862B00AACF0058124C /* propeller.mp3 */; };
 		487F55892B00AB550058124C /* AudioPlayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487F55882B00AB550058124C /* AudioPlayModel.swift */; };
@@ -90,6 +92,7 @@
 		487CE8502B00E8EE0067C619 /* Hindung.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hindung.mp3; sourceTree = "<group>"; };
 		487CE8522B00E8F40067C619 /* Mongmongi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mongmongi.mp3; sourceTree = "<group>"; };
 		487CE8542B00E8F90067C619 /* Jjijjigi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Jjijjigi.mp3; sourceTree = "<group>"; };
+		487CE8572B0101F50067C619 /* MICButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MICButton.swift; sourceTree = "<group>"; };
 		487F55842B009D710058124C /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
 		487F55862B00AACF0058124C /* propeller.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = propeller.mp3; sourceTree = "<group>"; };
 		487F55882B00AB550058124C /* AudioPlayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayModel.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				487CE85B2B01084D0067C619 /* Alamofire in Frameworks */,
 				4859E6252AE5242F00871CC1 /* Lottie in Frameworks */,
 				48D7385F2AFCE4DA003F1EFC /* SnapKit in Frameworks */,
 			);
@@ -161,8 +165,8 @@
 				486D458F2ACC65C800D96EB1 /* SecondTabView */,
 				486D458E2ACC65BA00D96EB1 /* FirstTabView */,
 				4859E6282AE5245F00871CC1 /* Splash */,
+				487CE8562B0101D70067C619 /* ARView */,
 				485A99832ACBFC0500C94740 /* AppDelegate.swift */,
-				485A99852ACBFC0500C94740 /* ContentView.swift */,
 				485A99872ACBFC0600C94740 /* Assets.xcassets */,
 				485A99892ACBFC0600C94740 /* Preview Content */,
 			);
@@ -205,6 +209,15 @@
 				484322082AF4DC37005C064C /* CharacterExtension.swift */,
 			);
 			path = SecondTabView;
+			sourceTree = "<group>";
+		};
+		487CE8562B0101D70067C619 /* ARView */ = {
+			isa = PBXGroup;
+			children = (
+				485A99852ACBFC0500C94740 /* ContentView.swift */,
+				487CE8572B0101F50067C619 /* MICButton.swift */,
+			);
+			path = ARView;
 			sourceTree = "<group>";
 		};
 		487F55832B009D470058124C /* Audio */ = {
@@ -290,6 +303,7 @@
 			packageProductDependencies = (
 				4859E6242AE5242F00871CC1 /* Lottie */,
 				48D7385E2AFCE4DA003F1EFC /* SnapKit */,
+				487CE85A2B01084D0067C619 /* Alamofire */,
 			);
 			productName = AltoYou;
 			productReference = 485A99802ACBFC0500C94740 /* AltoYou.app */;
@@ -322,6 +336,7 @@
 			packageReferences = (
 				4859E6232AE5242F00871CC1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				48D7385D2AFCE4DA003F1EFC /* XCRemoteSwiftPackageReference "SnapKit" */,
+				487CE8592B01084D0067C619 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 485A99812ACBFC0500C94740 /* Products */;
 			projectDirPath = "";
@@ -367,6 +382,7 @@
 				484322092AF4DC37005C064C /* CharacterExtension.swift in Sources */,
 				48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */,
 				484F5DE02AF23AC00085CADA /* ScrollExtension.swift in Sources */,
+				487CE8582B0101F50067C619 /* MICButton.swift in Sources */,
 				485A99922ACBFC5700C94740 /* MainViewController.swift in Sources */,
 				486D45912ACC660300D96EB1 /* SecondMainViewController.swift in Sources */,
 				48BF0B442ACF6BD100565FA5 /* DayModel.swift in Sources */,
@@ -604,6 +620,14 @@
 				minimumVersion = 4.3.3;
 			};
 		};
+		487CE8592B01084D0067C619 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 		48D7385D2AFCE4DA003F1EFC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -619,6 +643,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4859E6232AE5242F00871CC1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		487CE85A2B01084D0067C619 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 487CE8592B01084D0067C619 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		48D7385E2AFCE4DA003F1EFC /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
