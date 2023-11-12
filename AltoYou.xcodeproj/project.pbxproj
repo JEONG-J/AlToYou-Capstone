@@ -32,6 +32,8 @@
 		487007D22ACF5088009C6EC9 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487007D12ACF5088009C6EC9 /* TopView.swift */; };
 		487007D82ACF59E9009C6EC9 /* goryeong.otf in Resources */ = {isa = PBXBuildFile; fileRef = 487007D72ACF59E9009C6EC9 /* goryeong.otf */; };
 		487F55852B009D710058124C /* BackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487F55842B009D710058124C /* BackgroundMusic.mp3 */; };
+		487F55872B00AACF0058124C /* propeller.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487F55862B00AACF0058124C /* propeller.mp3 */; };
+		487F55892B00AB550058124C /* AudioPlayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487F55882B00AB550058124C /* AudioPlayModel.swift */; };
 		48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF46572AFCC37800C1F98F /* PopupExtension.swift */; };
 		48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */; };
 		48BF0B3D2ACF5FDF00565FA5 /* toy_drummer_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */; };
@@ -80,6 +82,8 @@
 		487007D42ACF5735009C6EC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		487007D72ACF59E9009C6EC9 /* goryeong.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = goryeong.otf; sourceTree = "<group>"; };
 		487F55842B009D710058124C /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusic.mp3; sourceTree = "<group>"; };
+		487F55862B00AACF0058124C /* propeller.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = propeller.mp3; sourceTree = "<group>"; };
+		487F55882B00AB550058124C /* AudioPlayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayModel.swift; sourceTree = "<group>"; };
 		48AF46572AFCC37800C1F98F /* PopupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupExtension.swift; sourceTree = "<group>"; };
 		48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStackView.swift; sourceTree = "<group>"; };
 		48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer_idle.usdz; sourceTree = "<group>"; };
@@ -138,8 +142,8 @@
 		485A99822ACBFC0500C94740 /* AltoYou */ = {
 			isa = PBXGroup;
 			children = (
-				487F55832B009D470058124C /* AudioFile */,
 				487007D42ACF5735009C6EC9 /* Info.plist */,
+				487F55832B009D470058124C /* Audio */,
 				48BF0B3E2ACF5FE800565FA5 /* Font */,
 				483A07152AFC7DC400009C61 /* CustomPopUpView */,
 				48BF0B3F2ACF601000565FA5 /* 3D Characters */,
@@ -193,12 +197,14 @@
 			path = SecondTabView;
 			sourceTree = "<group>";
 		};
-		487F55832B009D470058124C /* AudioFile */ = {
+		487F55832B009D470058124C /* Audio */ = {
 			isa = PBXGroup;
 			children = (
 				487F55842B009D710058124C /* BackgroundMusic.mp3 */,
+				487F55862B00AACF0058124C /* propeller.mp3 */,
+				487F55882B00AB550058124C /* AudioPlayModel.swift */,
 			);
-			path = AudioFile;
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		48B806C42AEFA461003AA2C0 /* Top */ = {
@@ -324,6 +330,7 @@
 				486AFC042AF3983E005F9803 /* cloudAni.json in Resources */,
 				485A99882ACBFC0600C94740 /* Assets.xcassets in Resources */,
 				480EDA872AEF55D10007DDDF /* animation_lo1aspnb.json in Resources */,
+				487F55872B00AACF0058124C /* propeller.mp3 in Resources */,
 				48433B912ACFCDB7007F017D /* Katuri.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +362,7 @@
 				48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */,
 				484322072AF4D13A005C064C /* CharacterModel.swift in Sources */,
 				4859E62B2AE5248000871CC1 /* SplashViewController.swift in Sources */,
+				487F55892B00AB550058124C /* AudioPlayModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

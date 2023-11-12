@@ -12,12 +12,16 @@ import UIKit
 import SnapKit
 import SceneKit
 import Lottie
+import AVFoundation
 
 class TopView: UIView {
+
     
     ///MARK: - 3D 이미지 뷰
     private lazy var sceneView: SCNView = {
         let sceneView = SCNView()
+        sceneView.isUserInteractionEnabled = true
+        
         let scene = SCNScene(named: "toy_biplane_idle.usdz")
         
         let cameraNode = SCNNode()
@@ -66,6 +70,9 @@ class TopView: UIView {
         sceneView.clipsToBounds = true
         sceneView.cameraControlConfiguration.allowsTranslation = false
         sceneView.scene = scene
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickedView))
+        sceneView.addGestureRecognizer(tapGesture)
         
         return sceneView
     }()
@@ -155,5 +162,10 @@ class TopView: UIView {
     ///MARK: - 로그아웃 기능 버튼
     @objc func clickedBtn(){
         print("hello") // 로그아웃 기능 구현하기
+    }
+    
+    @objc func clickedView(){
+        playSoundEffect("propeller")
+        
     }
 }
