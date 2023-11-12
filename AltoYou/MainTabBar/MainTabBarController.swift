@@ -9,6 +9,8 @@ import UIKit
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
+    lazy var layer = CAShapeLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -21,8 +23,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     //MARK: - Function
     
     private func setSelf(_ space: CGFloat, _ addHeight: CGFloat){
-        let layer = CAShapeLayer()
-
         let x: CGFloat = space
         let width: CGFloat = tabBar.bounds.width - (x * 2)
         let baseHeight: CGFloat = 49
@@ -31,8 +31,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         let path = UIBezierPath(roundedRect: CGRect(x: x, y: y, width: width, height: currentHeight), cornerRadius: currentHeight / 2).cgPath
         layer.path = path
+        
         layer.fillColor = UIColor(red: 0.50, green: 0.91, blue: 1.00, alpha: 1.00).cgColor
-        //UIColor(red: 0.89, green: 0.91, blue: 0.96, alpha: 1.00).cgColor
         
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -86,13 +86,27 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         }
     }
     
+    
+    private func colorBar(at index: Int){
+        switch index{
+    case 1:
+        layer.fillColor = UIColor(red: 0.50, green: 0.91, blue: 1.00, alpha: 1.00).cgColor
+    case 2:
+        layer.fillColor = UIColor(red: 0.18, green: 0.87, blue: 0.59, alpha: 1.00).cgColor
+        default:
+            layer.fillColor = UIColor.white.cgColor
+        }
+    }
+    
     //MARK: - Tab Function
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         guard let index = viewControllers?.firstIndex(of: viewController) else{
             return true
         }
-        
+        colorBar(at: index)
         animateTabBarItem(at: index)
+        
+        
         return true
     }
 }

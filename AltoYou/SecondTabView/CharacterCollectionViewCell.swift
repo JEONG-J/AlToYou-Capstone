@@ -15,7 +15,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     private lazy var nameText: UILabel = {
         let text = UILabel()
         text.text = "흰둥이"
-        text.font = UIFont(name: "Goryeong-Strawberry", size: 30)
+        text.font = UIFont(name: "Goryeong-Strawberry", size: 35)
         return text
     }()
     
@@ -29,6 +29,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         view.layer.shadowRadius = 4
         view.layer.shadowOffset = CGSize(width: 2, height: 4)
         view.layer.masksToBounds = false
+        
         return view
     }()
     
@@ -71,6 +72,6 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     func configuration(_ model: CharacterModel){
         nameText.text = model.name
         chracterBackgroundView.backgroundColor = model.color
+       
     }
-    
 }
