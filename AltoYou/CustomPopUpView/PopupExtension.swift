@@ -46,7 +46,6 @@ extension UIViewController {
         popUpViewController.addActionBtn(title: leftActionTitle) {
             popUpViewController.dismiss(animated: false, completion: leftActionCompletion)
             selectCharacter("selectCharacter", "wav")
-            startMusic()
         }
         
         popUpViewController.addActionBtn(title: rightActionTitle) {

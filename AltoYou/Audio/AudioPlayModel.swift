@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 private var soundEffectPlayer: AVAudioPlayer?
-private var backgroundMusicPlayer: AVAudioPlayer?
+public var backgroundMusicPlayer: AVAudioPlayer?
 private var originalVolume: Float = 0.5
 
 public func startMusic(_ fileName: String? = nil){
