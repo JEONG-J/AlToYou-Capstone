@@ -165,7 +165,7 @@ class TopView: UIView {
     }
     
     @objc func clickedView(){
-        playSoundEffect("propeller")
+        playSoundEffect("propeller", 0.8)
         
     }
 }

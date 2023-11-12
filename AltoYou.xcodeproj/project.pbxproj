@@ -31,7 +31,11 @@
 		486D459C2ACC71E400D96EB1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D459B2ACC71E400D96EB1 /* Extension.swift */; };
 		487007D22ACF5088009C6EC9 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487007D12ACF5088009C6EC9 /* TopView.swift */; };
 		487007D82ACF59E9009C6EC9 /* goryeong.otf in Resources */ = {isa = PBXBuildFile; fileRef = 487007D72ACF59E9009C6EC9 /* goryeong.otf */; };
-		487F55852B009D710058124C /* BackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487F55842B009D710058124C /* BackgroundMusic.mp3 */; };
+		487CE84F2B00E3D00067C619 /* selectCharacter.wav in Resources */ = {isa = PBXBuildFile; fileRef = 487CE84E2B00E3D00067C619 /* selectCharacter.wav */; };
+		487CE8512B00E8EE0067C619 /* Hindung.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487CE8502B00E8EE0067C619 /* Hindung.mp3 */; };
+		487CE8532B00E8F40067C619 /* Mongmongi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487CE8522B00E8F40067C619 /* Mongmongi.mp3 */; };
+		487CE8552B00E8F90067C619 /* Jjijjigi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487CE8542B00E8F90067C619 /* Jjijjigi.mp3 */; };
+		487F55852B009D710058124C /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487F55842B009D710058124C /* backgroundMusic.mp3 */; };
 		487F55872B00AACF0058124C /* propeller.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487F55862B00AACF0058124C /* propeller.mp3 */; };
 		487F55892B00AB550058124C /* AudioPlayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487F55882B00AB550058124C /* AudioPlayModel.swift */; };
 		487F558B2B00B5B10058124C /* PresentMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487F558A2B00B5B10058124C /* PresentMessage.swift */; };
@@ -82,7 +86,11 @@
 		487007D12ACF5088009C6EC9 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		487007D42ACF5735009C6EC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		487007D72ACF59E9009C6EC9 /* goryeong.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = goryeong.otf; sourceTree = "<group>"; };
-		487F55842B009D710058124C /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusic.mp3; sourceTree = "<group>"; };
+		487CE84E2B00E3D00067C619 /* selectCharacter.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selectCharacter.wav; sourceTree = "<group>"; };
+		487CE8502B00E8EE0067C619 /* Hindung.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hindung.mp3; sourceTree = "<group>"; };
+		487CE8522B00E8F40067C619 /* Mongmongi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mongmongi.mp3; sourceTree = "<group>"; };
+		487CE8542B00E8F90067C619 /* Jjijjigi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Jjijjigi.mp3; sourceTree = "<group>"; };
+		487F55842B009D710058124C /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
 		487F55862B00AACF0058124C /* propeller.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = propeller.mp3; sourceTree = "<group>"; };
 		487F55882B00AB550058124C /* AudioPlayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayModel.swift; sourceTree = "<group>"; };
 		487F558A2B00B5B10058124C /* PresentMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentMessage.swift; sourceTree = "<group>"; };
@@ -202,8 +210,12 @@
 		487F55832B009D470058124C /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				487F55842B009D710058124C /* BackgroundMusic.mp3 */,
+				487F55842B009D710058124C /* backgroundMusic.mp3 */,
+				487CE84E2B00E3D00067C619 /* selectCharacter.wav */,
 				487F55862B00AACF0058124C /* propeller.mp3 */,
+				487CE8522B00E8F40067C619 /* Mongmongi.mp3 */,
+				487CE8542B00E8F90067C619 /* Jjijjigi.mp3 */,
+				487CE8502B00E8EE0067C619 /* Hindung.mp3 */,
 				487F55882B00AB550058124C /* AudioPlayModel.swift */,
 			);
 			path = Audio;
@@ -325,12 +337,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				487F55852B009D710058124C /* BackgroundMusic.mp3 in Resources */,
+				487F55852B009D710058124C /* backgroundMusic.mp3 in Resources */,
 				485A998B2ACBFC0600C94740 /* Preview Assets.xcassets in Resources */,
 				48BF0B3D2ACF5FDF00565FA5 /* toy_drummer_idle.usdz in Resources */,
 				487007D82ACF59E9009C6EC9 /* goryeong.otf in Resources */,
+				487CE8532B00E8F40067C619 /* Mongmongi.mp3 in Resources */,
 				480EDA892AEF55DD0007DDDF /* toy_biplane_idle.usdz in Resources */,
+				487CE8552B00E8F90067C619 /* Jjijjigi.mp3 in Resources */,
 				486AFC042AF3983E005F9803 /* cloudAni.json in Resources */,
+				487CE8512B00E8EE0067C619 /* Hindung.mp3 in Resources */,
+				487CE84F2B00E3D00067C619 /* selectCharacter.wav in Resources */,
 				485A99882ACBFC0600C94740 /* Assets.xcassets in Resources */,
 				480EDA872AEF55D10007DDDF /* animation_lo1aspnb.json in Resources */,
 				487F55872B00AACF0058124C /* propeller.mp3 in Resources */,

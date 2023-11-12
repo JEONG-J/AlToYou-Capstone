@@ -17,6 +17,11 @@ extension SecondMainViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.identifier, for: indexPath) as? CharacterCollectionViewCell else { return UICollectionViewCell() }
+        
+        let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gesture:)))
+        longTapGesture.minimumPressDuration = 1.0
+        cell.addGestureRecognizer(longTapGesture)
+        
         cell.configuration(CharacterInfo.CharacterList[indexPath.row])
         return cell
     }
@@ -41,20 +46,33 @@ extension SecondMainViewController: UICollectionViewDelegate, UICollectionViewDa
             previousCell.chracterBackgroundView.layer.borderWidth = 0
         }
         
+        
         cell.chracterBackgroundView.layer.borderColor = UIColor(red: 0.60, green: 0.97, blue: 0.59, alpha: 1.00).cgColor
-        cell.chracterBackgroundView.layer.borderWidth = 5
+        cell.chracterBackgroundView.layer.borderWidth = 9
+        
+        let selectedCharacter = CharacterInfo.CharacterList[indexPath.row]
+        playSoundEffect(selectedCharacter.voice ?? "", 2.0)
         
         currentIndexPath = indexPath
-        
-        showPopUp(message: "학습을 진행해볼래요?", leftActionTitle: "Yes",rightActionTitle: "No", leftActionCompletion: { [weak self] in
-            guard let strongSelf = self else { return }
-            let contentView = ContentView()
-            let hostingController = UIHostingController(rootView: contentView)
-            
-            hostingController.modalPresentationStyle = .fullScreen
-            DispatchQueue.main.async{
-                strongSelf.present(hostingController, animated: true, completion: nil)
+    }
+    
+    @objc func handleLongPress(gesture: UILongPressGestureRecognizer){
+        if gesture.state == .began{
+            guard let collectionView = gesture.view?.superview as? UICollectionView else { return }
+            let point = gesture.location(in: collectionView)
+            if collectionView.indexPathForItem(at: point) != nil{
+                /* 팝업 뷰 => AR뷰로 전환  */
+                showPopUp(message: "학습을 진행해볼래요?", leftActionTitle: "Yes",rightActionTitle: "No", leftActionCompletion: { [weak self] in
+                    guard let strongSelf = self else { return }
+                    let contentView = ContentView()
+                    let hostingController = UIHostingController(rootView: contentView)
+                    
+                    hostingController.modalPresentationStyle = .fullScreen
+                    DispatchQueue.main.async{
+                        strongSelf.present(hostingController, animated: true, completion: nil)
+                    }
+                })
             }
-        })
+        }
     }
 }

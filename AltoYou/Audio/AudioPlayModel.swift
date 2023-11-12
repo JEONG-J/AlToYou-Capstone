@@ -11,7 +11,7 @@ import AVFoundation
 
 private var soundEffectPlayer: AVAudioPlayer?
 private var backgroundMusicPlayer: AVAudioPlayer?
-private var originalVolume: Float = 0.4
+private var originalVolume: Float = 0.5
 
 public func startMusic(_ fileName: String? = nil){
     if let bundle = Bundle.main.path(forResource: fileName, ofType: "mp3"){
@@ -31,22 +31,39 @@ public func startMusic(_ fileName: String? = nil){
     }
 }
 
-public func playSoundEffect(_ fileName: String) {
+public func playSoundEffect(_ fileName: String, _ volume: Float) {
     if let bundle = Bundle.main.path(forResource: fileName, ofType: "mp3") {
         let soundEffectUrl = URL(fileURLWithPath: bundle)
-
+        
         do {
             soundEffectPlayer = try AVAudioPlayer(contentsOf: soundEffectUrl)
             guard let soundEffectPlayer = soundEffectPlayer else { return }
-
+            
             backgroundMusicPlayer?.volume = 0.1
-            soundEffectPlayer.volume = 0.6
+            soundEffectPlayer.volume = volume
             soundEffectPlayer.prepareToPlay()
             soundEffectPlayer.play()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + soundEffectPlayer.duration){
                 backgroundMusicPlayer?.volume = originalVolume
             }
+        } catch {
+            fatalError("Failed to initialize the sound effect player")
+        }
+    }
+}
+
+public func selectCharacter(_ fileName: String, _ fileType: String) {
+    if let bundle = Bundle.main.path(forResource: fileName, ofType: fileType) {
+        let soundEffectUrl = URL(fileURLWithPath: bundle)
+        
+        do {
+            soundEffectPlayer = try AVAudioPlayer(contentsOf: soundEffectUrl)
+            guard let soundEffectPlayer = soundEffectPlayer else { return }
+            
+            soundEffectPlayer.volume = 0.6
+            soundEffectPlayer.prepareToPlay()
+            soundEffectPlayer.play()
         } catch {
             fatalError("Failed to initialize the sound effect player")
         }

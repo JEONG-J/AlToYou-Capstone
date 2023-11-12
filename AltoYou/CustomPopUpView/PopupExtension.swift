@@ -45,12 +45,12 @@ extension UIViewController {
                            rightActionCompletion: (() -> Void)?) {
         popUpViewController.addActionBtn(title: leftActionTitle) {
             popUpViewController.dismiss(animated: false, completion: leftActionCompletion)
-            print("ok")
+            selectCharacter("selectCharacter", "wav")
         }
         
         popUpViewController.addActionBtn(title: rightActionTitle) {
             popUpViewController.dismiss(animated: false, completion: rightActionCompletion)
-            print("no")
+            selectCharacter("selectCharacter", "wav")
         }
         present(popUpViewController, animated: false, completion: nil)
     }
