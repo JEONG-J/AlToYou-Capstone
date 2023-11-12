@@ -27,7 +27,7 @@ struct ContentView : View {
     struct ARViewContainer: UIViewRepresentable {
         
         func makeUIView(context: Context) -> ARView {
-            
+            AudioManager.shared.stopMusic()
             let arView = ARView(frame: .zero)
             
             // Create a cube model
@@ -48,5 +48,33 @@ struct ContentView : View {
         
         func updateUIView(_ uiView: ARView, context: Context) {}
         
+        static func dismantleUIView(_ uiView: ARView, coordinator: ()) {
+            AudioManager.shared.startMusic()
+        }
+        
     }
 }
+
+class AudioManager{
+    static let shared = AudioManager()
+    private var isPlayMusic = false
+    
+    func startMusic(){
+        AltoYou.startMusic("backgroundMusic")
+        isPlayMusic = true
+    }
+    
+    func stopMusic(){
+        backgroundMusicPlayer?.stop()
+        isPlayMusic = false
+    }
+    
+    func toggleMusic(){
+        if isPlayMusic{
+            stopMusic()
+        } else{
+            startMusic()
+        }
+    }
+}
+
