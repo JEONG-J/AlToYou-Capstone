@@ -11,6 +11,7 @@ import AVFoundation
 
 private var soundEffectPlayer: AVAudioPlayer?
 public var backgroundMusicPlayer: AVAudioPlayer?
+private var characterRequest: AVAudioPlayer?
 private var originalVolume: Float = 0.5
 
 public func startMusic(_ fileName: String? = nil){
@@ -71,15 +72,16 @@ public func selectCharacter(_ fileName: String, _ fileType: String) {
 }
 
 public func playVoice(from url: URL) {
-        do {
-            let audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer.prepareToPlay()
-            audioPlayer.volume = 1.0
-            audioPlayer.play()
-        } catch {
-            print("오디오 파일 재생에 실패했습니다: \(error)")
-        }
+    do {
+        characterRequest = try AVAudioPlayer(contentsOf: url)
+        guard let audioPlayer = characterRequest else { return }
+        audioPlayer.prepareToPlay()
+        audioPlayer.volume = 1.0
+        audioPlayer.play()
+    } catch {
+        print("오디오 파일 재생에 실패했습니다: \(error)")
     }
+}
 
 
 
