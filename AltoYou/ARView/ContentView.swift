@@ -55,6 +55,9 @@ struct ContentView : View {
                             case .success(let responseBeginVoice):
                                 if let url = URL(string: responseBeginVoice.url ?? "") {
                                     playVoice(from: url)
+                                    print("error")
+                                }else{
+                                    print("error")
                                 }
                             case .failure(let error):
                                 // 오류 처리
