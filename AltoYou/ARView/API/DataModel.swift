@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct ResponseBeginVoice: Codable{
-    let status : Bool
-    let message: String
-    let url : String?
+    var status : Bool
+    var message: String
+    var url : URL?
 }

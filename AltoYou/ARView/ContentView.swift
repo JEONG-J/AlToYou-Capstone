@@ -13,8 +13,7 @@ import Combine
 
 struct ContentView : View {
     @State private var showARView = true
-    
-    let voiceAPIHandler = VoiceAPIHandler()
+    @ObservedObject var voiceAPIHandler = VoiceAPIHandler()
     
     var body: some View {
         ZStack{
@@ -41,6 +40,19 @@ struct ContentView : View {
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("CloseARView"))) { _ in
             self.showARView = false
         }
+        .onAppear{
+            voiceAPIHandler.beginVoice{ result in
+                switch result {
+                case .success(let response):
+                    if let url = response.url {
+                        playVoice(from: url)
+                        print("success")
+                    }
+                case.failure(let error):
+                    print("Error : \(error)")
+                }
+            }
+        }
     }
     
     struct ARViewContainer: UIViewRepresentable {
@@ -50,21 +62,6 @@ struct ContentView : View {
         
         func makeUIView(context: Context) -> ARView {
             
-            voiceAPIHandler.beginVoice { result in
-                            switch result {
-                            case .success(let responseBeginVoice):
-                                if let url = URL(string: responseBeginVoice.url ?? "") {
-                                    playVoice(from: url)
-                                    print("error")
-                                }else{
-                                    print("error")
-                                }
-                            case .failure(let error):
-                                // 오류 처리
-                                print("Error fetching voice data: \(error)")
-                            }
-                        }
-
             
             AudioManager.shared.stopMusic()
             let arView = ARView(frame: .zero)
