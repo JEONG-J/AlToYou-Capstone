@@ -9,8 +9,11 @@ import SwiftUI
 import RealityKit
 import AVFoundation
 import Alamofire
+import Combine
 
 struct ContentView : View {
+    
+    let oiceAPIHandler = VoiceAPIHandler()
     
     var body: some View {
         ZStack{
@@ -26,7 +29,24 @@ struct ContentView : View {
     
     struct ARViewContainer: UIViewRepresentable {
         
+        @EnvironmentObject var adudioManager: AudioManager
+        @EnvironmentObject var voiceAPIHandler: VoiceAPIHandler
+        
         func makeUIView(context: Context) -> ARView {
+            
+            voiceAPIHandler.beginVoice { result in
+                            switch result {
+                            case .success(let responseBeginVoice):
+                                if let url = URL(string: responseBeginVoice.url ?? "") {
+                                    playVoice(from: url)
+                                }
+                            case .failure(let error):
+                                // 오류 처리
+                                print("Error fetching voice data: \(error)")
+                            }
+                        }
+
+            
             AudioManager.shared.stopMusic()
             let arView = ARView(frame: .zero)
             
@@ -55,9 +75,9 @@ struct ContentView : View {
     }
 }
 
-class AudioManager{
+class AudioManager: ObservableObject{
     static let shared = AudioManager()
-    private var isPlayMusic = false
+    @Published private var isPlayMusic = false
     
     func startMusic(){
         AltoYou.startMusic("backgroundMusic")

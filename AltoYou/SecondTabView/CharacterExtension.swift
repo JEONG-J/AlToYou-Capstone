@@ -64,7 +64,7 @@ extension SecondMainViewController: UICollectionViewDelegate, UICollectionViewDa
                 /* 팝업 뷰 => AR뷰로 전환  */
                 showPopUp(message: "학습을 진행해볼래요?", leftActionTitle: "Yes",rightActionTitle: "No", leftActionCompletion: { [weak self] in
                     guard let strongSelf = self else { return }
-                    let contentView = ContentView()
+                    let contentView = ContentView().environmentObject(self?.voiceAPIHandler ?? VoiceAPIHandler())
                     let hostingController = UIHostingController(rootView: contentView)
                     
                     hostingController.modalPresentationStyle = .fullScreen

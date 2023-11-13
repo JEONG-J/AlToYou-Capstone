@@ -70,3 +70,15 @@ public func selectCharacter(_ fileName: String, _ fileType: String) {
     }
 }
 
+public func playVoice(from url: URL) {
+        do {
+            let audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        } catch {
+            print("오디오 파일 재생에 실패했습니다: \(error)")
+        }
+    }
+
+
+
