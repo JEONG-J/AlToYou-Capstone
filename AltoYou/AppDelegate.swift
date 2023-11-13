@@ -8,23 +8,37 @@
 import UIKit
 import SwiftUI
 import AVFoundation
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    
+    ///MARK: - 카카오 로그인
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if (AuthApi.isKakaoTalkLoginUrl(url)){
+            return AuthController.handleOpenUrl(url: url)
+        }
+        return false
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
          
+        
+        KakaoSDK.initSDK(appKey: "a25450c80690c073d46d49f06d91b715")
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        
         
         let animationViewController = SplashViewController()
         animationViewController.appDelegate = self
          
-        window.rootViewController = animationViewController
-       startMusic("backgroundMusic")
+      //  startMusic("backgroundMusic")
+        //window.rootViewController = animationViewController
+        window.rootViewController = SocialLoginView()
         window.makeKeyAndVisible()
         
         return true
