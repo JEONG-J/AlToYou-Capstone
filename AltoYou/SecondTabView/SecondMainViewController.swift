@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import SwiftUI
 import SnapKit
 
 class SecondMainViewController: UIViewController {
     
+    var voiceAPIHandler = VoiceAPIHandler()
     var currentIndexPath: IndexPath?
     
     ///MARK: - 배경 이미지 프로퍼티
@@ -48,7 +50,6 @@ class SecondMainViewController: UIViewController {
     }
     
     //MARK: - Function
-    
     private func addView(){
         self.view.addSubview(backgroundView)
         self.view.addSubview(titleText)
