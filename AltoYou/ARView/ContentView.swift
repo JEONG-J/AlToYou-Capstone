@@ -14,7 +14,7 @@ import Combine
 struct ContentView : View {
     @State private var showARView = true
     
-    let oiceAPIHandler = VoiceAPIHandler()
+    let voiceAPIHandler = VoiceAPIHandler()
     
     var body: some View {
         ZStack{
