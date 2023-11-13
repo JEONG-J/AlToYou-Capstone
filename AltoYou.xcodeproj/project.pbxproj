@@ -160,7 +160,6 @@
 		485A99822ACBFC0500C94740 /* AltoYou */ = {
 			isa = PBXGroup;
 			children = (
-				485E54012B01B63B00EC5450 /* API */,
 				487007D42ACF5735009C6EC9 /* Info.plist */,
 				487F55832B009D470058124C /* Audio */,
 				48BF0B3E2ACF5FE800565FA5 /* Font */,
@@ -228,6 +227,7 @@
 		487CE8562B0101D70067C619 /* ARView */ = {
 			isa = PBXGroup;
 			children = (
+				485E54012B01B63B00EC5450 /* API */,
 				485A99852ACBFC0500C94740 /* ContentView.swift */,
 				487CE8572B0101F50067C619 /* MICButton.swift */,
 			);

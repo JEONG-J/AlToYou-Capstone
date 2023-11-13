@@ -13,7 +13,7 @@ import Combine
 
 struct ContentView : View {
     
-    let oiceAPIHandler = VoiceAPIHandler()
+    let voiceAPIHandler = VoiceAPIHandler()
     
     var body: some View {
         ZStack{
