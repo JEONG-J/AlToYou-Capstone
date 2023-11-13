@@ -18,9 +18,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let space = tabBar.bounds.width * 0.30
         setSelf(space, 30)
         addTab()
+        setupNotificationCenterObserver()
     }
     
     //MARK: - Function
+    private func setupNotificationCenterObserver() {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("CloseARView"), object: nil, queue: nil) { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
+        }
+    }
+
     
     private func setSelf(_ space: CGFloat, _ addHeight: CGFloat){
         let x: CGFloat = space
