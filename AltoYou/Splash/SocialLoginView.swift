@@ -85,6 +85,7 @@ class SocialLoginView: UIViewController {
         DispatchQueue.main.async{
             self.appDelegate?.window?.rootViewController = self.nextView
             self.appDelegate?.window?.makeKeyAndVisible()
+            startMusic("backgroundMusic")
         }
         
     }
@@ -126,6 +127,7 @@ class SocialLoginView: UIViewController {
     //MARK: - objc Function
     ///MARK: - 버튼 액션 버튼 추가하기
     @objc func actionAnimation(sender: UIButton){
+        selectMenu("startSound", "wav")
         loginFunction()
         
         UIView.animate(withDuration: 0.35){

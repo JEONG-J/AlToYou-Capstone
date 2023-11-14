@@ -32,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        startMusic("backgroundMusic")
         //window.rootViewController = animationViewController
         window.rootViewController = SocialLoginView()
         window.makeKeyAndVisible()

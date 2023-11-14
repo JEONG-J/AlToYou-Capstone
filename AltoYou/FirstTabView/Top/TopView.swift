@@ -13,8 +13,13 @@ import SnapKit
 import SceneKit
 import Lottie
 import AVFoundation
+import KakaoSDKAuth
+import KakaoSDKUser
+import KakaoSDKCommon
 
 class TopView: UIView {
+    
+    private lazy var appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     
     ///MARK: - 3D 이미지 뷰
     private lazy var sceneView: SCNView = {
@@ -115,6 +120,42 @@ class TopView: UIView {
         }
     }
     
+    
+    private func changeRootView(){
+        
+        DispatchQueue.main.async{
+            self.appDelegate?.window?.rootViewController = SocialLoginView()
+            self.appDelegate?.window?.makeKeyAndVisible()
+        }
+    }
+    
+    private func logoutKakao(){
+        UserApi.shared.unlink{ (error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("success")
+                self.changeRootView()
+            }
+        }
+    }
+    
+    //MARK: - ActionFunc
+    
+    ///MARK: - 로그아웃 기능 버튼
+    @objc func clickedBtn(){
+        selectMenu("outSound", "wav")
+        backgroundMusicPlayer?.stop()
+        logoutKakao()
+    }
+    
+    @objc func clickedView(){
+        playSoundEffect("propeller", 1.0)
+    }
+    
+    //MARK: - 3D Function
+    
     private func configureSceneView(_ sceneView: SCNView){
         sceneView.isUserInteractionEnabled = true
         sceneView.allowsCameraControl = true
@@ -175,15 +216,4 @@ class TopView: UIView {
         scene.rootNode.addChildNode(ambientLightNode)
     }
     
-    
-    //MARK: - ActionFunc
-    
-    ///MARK: - 로그아웃 기능 버튼
-    @objc func clickedBtn(){
-        print("hello") // 로그아웃 기능 구현하기
-    }
-    
-    @objc func clickedView(){
-        playSoundEffect("propeller", 1.0)
-    }
 }

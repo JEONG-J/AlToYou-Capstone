@@ -54,7 +54,7 @@ public func playSoundEffect(_ fileName: String, _ volume: Float) {
     }
 }
 
-public func selectCharacter(_ fileName: String, _ fileType: String) {
+public func selectMenu(_ fileName: String, _ fileType: String) {
     if let bundle = Bundle.main.path(forResource: fileName, ofType: fileType) {
         let soundEffectUrl = URL(fileURLWithPath: bundle)
         
@@ -62,7 +62,7 @@ public func selectCharacter(_ fileName: String, _ fileType: String) {
             soundEffectPlayer = try AVAudioPlayer(contentsOf: soundEffectUrl)
             guard let soundEffectPlayer = soundEffectPlayer else { return }
             
-            soundEffectPlayer.volume = 0.6
+            soundEffectPlayer.volume = 1.0
             soundEffectPlayer.prepareToPlay()
             soundEffectPlayer.play()
         } catch {
