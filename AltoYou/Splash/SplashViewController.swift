@@ -12,7 +12,7 @@ import SnapKit
 class SplashViewController: UIViewController {
     
     ///MARK: - 영상 끝나면 바로 화면 넘기기 위함
-    weak var appDelegate: AppDelegate?
+    private lazy var appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     private let animationView: LottieAnimationView = .init(name: "animation_lo1aspnb")
     var monitor: CADisplayLink?
     

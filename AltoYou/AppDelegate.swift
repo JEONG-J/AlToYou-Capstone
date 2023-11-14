@@ -32,11 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        
-        let animationViewController = SplashViewController()
-        animationViewController.appDelegate = self
-         
-      //  startMusic("backgroundMusic")
+        startMusic("backgroundMusic")
         //window.rootViewController = animationViewController
         window.rootViewController = SocialLoginView()
         window.makeKeyAndVisible()
@@ -64,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.landscapeRight
+        return UIInterfaceOrientationMask.landscape
     }
     
     ///MARK: - 배경화면 음악 재생 함수
