@@ -101,7 +101,7 @@ class AudioManager: ObservableObject{
     }
     
     func stopMusic(){
-        backgroundMusicPlayer?.stop()
+        backgroundMusicPlayer?.pause()
         isPlayMusic = false
     }
     
