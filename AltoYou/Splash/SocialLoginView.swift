@@ -13,11 +13,16 @@ import KakaoSDKUser
 
 class SocialLoginView: UIViewController {
     
-    weak var appDelegate: AppDelegate?
+    private lazy var appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     
     var userId: String?
     
     //MARK: - Propertiees
+    
+    private lazy var nextView: SplashViewController = {
+        let view = SplashViewController()
+        return view
+    }()
     
     ///MARK: - 로그인 프로퍼티
     private lazy var loginView: UIImageView = {
@@ -37,7 +42,7 @@ class SocialLoginView: UIViewController {
         
         btn.addTarget(self, action: #selector(actionAnimation(sender :)), for: .touchUpInside)
         btn.layer.masksToBounds = true
-        btn.layer.cornerRadius = 10
+        btn.layer.cornerRadius = 30
         return btn
     }()
     
@@ -69,12 +74,18 @@ class SocialLoginView: UIViewController {
             make.left.equalToSuperview().offset(420)
             make.right.equalToSuperview().offset(-420)
             make.bottom.equalToSuperview().offset(-90)
-            make.height.lessThanOrEqualTo(200)
+            make.height.lessThanOrEqualTo(130)
         }
     }
     
+    ///MARK : - 루트뷰 변경
     private func changeRootView(){
-        self.appDelegate?.window?.rootViewController = SplashViewController()
+        
+        DispatchQueue.main.async{
+            self.appDelegate?.window?.rootViewController = self.nextView
+            self.appDelegate?.window?.makeKeyAndVisible()
+        }
+        
     }
     
     ///MARK: - 카카오 로그인 처리 액션
@@ -86,40 +97,33 @@ class SocialLoginView: UIViewController {
                     print(error)
                 } else{
                     print("success")
-                    UserApi.shared.me { user, error in
-                        if let error = error {
-                            print(error)
-                        } else {
-                            guard let userId = user?.kakaoAccount?.email else {
-                                print("userId not found")
-                                return
+                    self.changeRootView()
+                    DispatchQueue.global().async {
+                        UserApi.shared.me { [weak self]user, error in
+                            if let error = error {
+                                print(error)
+                            } else {
+                                guard let userId = user?.kakaoAccount?.email else {
+                                    print("userId not found")
+                                    return
+                                }
+                                self?.userId = userId
+                                print(userId)
+                                
+                                //서버에 이메일 보내기
                             }
-                            self.userId = userId
                             
-                            //서버에 이메일 보내기
                         }
                     }
-                    self.changeRootView()
-                }
-            }
-        } else {
-            
-            UserApi.shared.loginWithKakaoAccount{ (ouathToken, error) in
-                if let error = error{
-                    print(error)
-                } else{
-                    print("success")
-                    _ = ouathToken
                 }
             }
         }
     }
-    //MARK: - objc Function
     
+    //MARK: - objc Function
     ///MARK: - 버튼 액션 버튼 추가하기
     @objc func actionAnimation(sender: UIButton){
-        
-        self.loginFunction()
+        loginFunction()
         
         UIView.animate(withDuration: 0.35){
             sender.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
