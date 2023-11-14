@@ -20,21 +20,15 @@ import KakaoSDKCommon
 class TopView: UIView {
     
     private lazy var appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+    private lazy var sceneController: SceneCotroller = SceneCotroller()
     
     ///MARK: - 3D 이미지 뷰
     private lazy var sceneView: SCNView = {
         let sceneView = SCNView()
-        let scene = createScene(fileName: "toy_biplane_idle.usdz")
-        
-        configureSceneView(sceneView)
-        setupCamera(in: scene)
-        setupObject(in: scene)
-        lightScene(in: scene)
-        ambientLightNode(in: scene)
-        
+        let scene = sceneController.set3DCharacter("toy_biplane_idle.usdz")
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickedView))
+        sceneController.configureSceneView(sceneView)
         sceneView.addGestureRecognizer(tapGesture)
-        
         sceneView.scene = scene
         return sceneView
     }()
@@ -153,67 +147,4 @@ class TopView: UIView {
     @objc func clickedView(){
         playSoundEffect("propeller", 1.0)
     }
-    
-    //MARK: - 3D Function
-    
-    private func configureSceneView(_ sceneView: SCNView){
-        sceneView.isUserInteractionEnabled = true
-        sceneView.allowsCameraControl = true
-        sceneView.backgroundColor = UIColor.clear
-        sceneView.cameraControlConfiguration.allowsTranslation = false
-    }
-    
-    private func createScene(fileName: String) -> SCNScene {
-        return SCNScene(named: fileName) ?? SCNScene()
-    }
-    
-    private func setupCamera(in scene: SCNScene){
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
-        cameraNode.position = SCNVector3(x: 0, y: 12, z: 28)
-        scene.rootNode.addChildNode(cameraNode)
-    }
-    
-    private func setupObject(in scene: SCNScene){
-        if let object = scene.rootNode.childNodes.first{
-            object.scale = SCNVector3(x: 1.1, y: 1.1, z: 1.1)
-            
-            let jumpAnimation = CAKeyframeAnimation(keyPath: "position.y")
-            jumpAnimation.values = [object.position.y, object.position.y+2, object.position.y]
-            jumpAnimation.keyTimes = [0, 0.5, 1]
-            jumpAnimation.duration = 2
-            
-            let waitAnimation = CABasicAnimation(keyPath: "position.y")
-            waitAnimation.fromValue = object.position.y
-            waitAnimation.toValue = object.position.y
-            waitAnimation.beginTime = 2
-            waitAnimation.duration = 1
-            
-            let animationGroup = CAAnimationGroup()
-            animationGroup.duration = 3
-            animationGroup.animations = [jumpAnimation, waitAnimation]
-            animationGroup.repeatCount = .infinity
-            object.addAnimation(animationGroup, forKey: "jumpAndWaitAnimation")
-            
-            scene.rootNode.addChildNode(object)
-        }
-    }
-    
-    private func lightScene(in scene: SCNScene){
-        let lightNode = SCNNode()
-        lightNode.light = SCNLight()
-        lightNode.light?.type = .ambient
-        lightNode.light?.intensity = 1500
-        lightNode.position = SCNVector3(x: 0, y: 1, z: 20)
-        scene.rootNode.addChildNode(lightNode)
-    }
-    
-    private func ambientLightNode(in scene: SCNScene){
-        let ambientLightNode = SCNNode()
-        ambientLightNode.light? = SCNLight()
-        ambientLightNode.light?.type = .area
-        ambientLightNode.light?.color = UIColor.white
-        scene.rootNode.addChildNode(ambientLightNode)
-    }
-    
 }

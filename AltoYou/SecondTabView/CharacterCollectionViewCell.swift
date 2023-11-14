@@ -12,6 +12,7 @@ import SceneKit
 class CharacterCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CharacterCollectionViewCell"
+    private lazy var sceneController: SceneCotroller = SceneCotroller()
     
     ///MARK: - 캐릭터 이름 프로퍼티
     private lazy var nameText: UILabel = {
@@ -26,7 +27,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     ///MAAR: - 3D 캐릭터 추가하기
     private lazy var sceneCharacterView: SCNView = {
         let view = SCNView()
-        configureSceneView(view)
+        sceneController.configureSceneView(view)
         return view
     }()
     
@@ -87,75 +88,9 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     }
     
     func configuration(_ model: CharacterModel){
+        let scene = sceneController.set3DCharacter(model.file ?? "")
         nameText.text = model.name
         chracterBackgroundView.backgroundColor = model.color
-        set3DCharacter(model.file ?? "")
-    }
-    
-    //MARK: 3D Function
-    private func set3DCharacter(_ fileName: String){
-        let scene = createScene(fileName: fileName)
-        setupCamera(in: scene)
-        setupObject(in: scene)
-        lightScene(in: scene)
-        ambientLightNode(in: scene)
-        sceneCharacterView.scene = scene
-    }
-    
-    
-    ///MARK: - 3D 캐릭터 초기화
-    private func configureSceneView(_ sceneView: SCNView){
-        sceneView.isUserInteractionEnabled = true
-        sceneView.allowsCameraControl = true
-        sceneView.backgroundColor = UIColor.clear
-        sceneView.cameraControlConfiguration.allowsTranslation = false
-    }
-    
-    private func createScene(fileName: String) -> SCNScene {
-        return SCNScene(named: fileName) ?? SCNScene()
-    }
-    
-    private func setupCamera(in scene: SCNScene){
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
-        cameraNode.position = SCNVector3(x: 0, y: 12, z: 28)
-        scene.rootNode.addChildNode(cameraNode)
-    }
-    
-    private func setupObject(in scene: SCNScene){
-        if let object = scene.rootNode.childNodes.first{
-            object.scale = SCNVector3(x: 1.0, y: 1.0, z: 1.0)
-            
-            let waitAnimation = CABasicAnimation(keyPath: "position.y")
-            waitAnimation.fromValue = object.position.y
-            waitAnimation.toValue = object.position.y
-            waitAnimation.beginTime = 2
-            waitAnimation.duration = 1
-            
-            let animationGroup = CAAnimationGroup()
-            animationGroup.duration = 3
-            animationGroup.animations = [waitAnimation]
-            animationGroup.repeatCount = .infinity
-            object.addAnimation(animationGroup, forKey: "jumpAndWaitAnimation")
-            
-            scene.rootNode.addChildNode(object)
-        }
-    }
-    
-    private func lightScene(in scene: SCNScene){
-        let lightNode = SCNNode()
-        lightNode.light = SCNLight()
-        lightNode.light?.type = .ambient
-        lightNode.light?.intensity = 1500
-        lightNode.position = SCNVector3(x: 1, y: 1, z: 20)
-        scene.rootNode.addChildNode(lightNode)
-    }
-    
-    private func ambientLightNode(in scene: SCNScene){
-        let ambientLightNode = SCNNode()
-        ambientLightNode.light? = SCNLight()
-        ambientLightNode.light?.type = .area
-        ambientLightNode.light?.color = UIColor.white
-        scene.rootNode.addChildNode(ambientLightNode)
+        self.sceneCharacterView.scene = scene
     }
 }

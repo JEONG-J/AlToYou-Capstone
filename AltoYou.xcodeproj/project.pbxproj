@@ -49,6 +49,7 @@
 		488148692B020CEC00B98B8B /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 488148682B020CEC00B98B8B /* KakaoSDKCert */; };
 		4881486B2B020CEC00B98B8B /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4881486A2B020CEC00B98B8B /* KakaoSDKCertCore */; };
 		4881486D2B020CEC00B98B8B /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 4881486C2B020CEC00B98B8B /* KakaoSDKCommon */; };
+		489065F52B042F63008D1ACD /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489065F42B042F63008D1ACD /* SceneController.swift */; };
 		48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF46572AFCC37800C1F98F /* PopupExtension.swift */; };
 		48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */; };
 		48BF0B3D2ACF5FDF00565FA5 /* toy_drummer_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */; };
@@ -113,6 +114,7 @@
 		487F55882B00AB550058124C /* AudioPlayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayModel.swift; sourceTree = "<group>"; };
 		487F558A2B00B5B10058124C /* PresentMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentMessage.swift; sourceTree = "<group>"; };
 		488148612B0209F600B98B8B /* SocialLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginView.swift; sourceTree = "<group>"; };
+		489065F42B042F63008D1ACD /* SceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
 		48AF46572AFCC37800C1F98F /* PopupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupExtension.swift; sourceTree = "<group>"; };
 		48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStackView.swift; sourceTree = "<group>"; };
 		48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer_idle.usdz; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				485A99912ACBFC5700C94740 /* MainViewController.swift */,
+				489065F42B042F63008D1ACD /* SceneController.swift */,
 				48B806C42AEFA461003AA2C0 /* Top */,
 				48B806C52AEFA46B003AA2C0 /* Bottom */,
 			);
@@ -440,6 +443,7 @@
 				485A99922ACBFC5700C94740 /* MainViewController.swift in Sources */,
 				486D45912ACC660300D96EB1 /* SecondMainViewController.swift in Sources */,
 				485E54052B01B70E00EC5450 /* VoiceAPIHandler.swift in Sources */,
+				489065F52B042F63008D1ACD /* SceneController.swift in Sources */,
 				48BF0B442ACF6BD100565FA5 /* DayModel.swift in Sources */,
 				480EDA8B2AEF5A5A0007DDDF /* BottomView.swift in Sources */,
 				48BF0B422ACF684800565FA5 /* DayCollectionViewCell.swift in Sources */,
