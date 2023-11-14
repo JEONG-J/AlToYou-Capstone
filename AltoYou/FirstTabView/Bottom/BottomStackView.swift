@@ -39,6 +39,7 @@ class BottomStackView: UIStackView {
         text.text = Message.texts.randomElement()
         text.lineBreakMode = .byWordWrapping
         text.textAlignment = .center
+        text.textColor = UIColor.black
         return text
     }()
     
@@ -69,7 +70,7 @@ class BottomStackView: UIStackView {
         
         randomText.snp.makeConstraints{ make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(100)
+            make.top.equalToSuperview().offset(140)
             make.width.greaterThanOrEqualTo(500)
             make.height.greaterThanOrEqualTo(50)
         }

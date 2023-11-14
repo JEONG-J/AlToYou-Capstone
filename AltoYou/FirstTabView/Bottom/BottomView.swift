@@ -25,7 +25,8 @@ class BottomView: UIImageView{
     private lazy var userName: UILabel = {
         let name = UILabel()
         name.font = UIFont(name:"Goryeong-Strawberry", size: 50)
-        name.text = "푸앙푸앙"
+        name.textColor = UIColor.black
+        name.text = GlobalData.shared.userNickname
         return name
     }()
     
