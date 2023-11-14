@@ -11,6 +11,7 @@ import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
 
+
 class SocialLoginView: UIViewController {
     
     private lazy var appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
@@ -103,12 +104,14 @@ class SocialLoginView: UIViewController {
                             if let error = error {
                                 print(error)
                             } else {
-                                guard let userId = user?.kakaoAccount?.email else {
+                                guard let userId = user?.kakaoAccount?.email, let username = user?.kakaoAccount?.profile?.nickname else {
                                     print("userId not found")
                                     return
                                 }
                                 self?.userId = userId
+                                GlobalData.shared.userNickname = username
                                 print(userId)
+                                print(username)
                                 
                                 //서버에 이메일 보내기
                             }
