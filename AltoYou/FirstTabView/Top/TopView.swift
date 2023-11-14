@@ -15,65 +15,22 @@ import Lottie
 import AVFoundation
 
 class TopView: UIView {
-
     
     ///MARK: - 3D 이미지 뷰
     private lazy var sceneView: SCNView = {
         let sceneView = SCNView()
-        sceneView.isUserInteractionEnabled = true
+        let scene = createScene(fileName: "toy_biplane_idle.usdz")
         
-        let scene = SCNScene(named: "toy_biplane_idle.usdz")
-        
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
-        cameraNode.position = SCNVector3(x: 0, y: 12, z: 28)
-        scene?.rootNode.addChildNode(cameraNode)
-        
-        if let object = scene?.rootNode.childNodes.first{
-            object.scale = SCNVector3(x: 1.1, y: 1.1, z: 1.1)
-            
-            let jumpAnimation = CAKeyframeAnimation(keyPath: "position.y")
-            jumpAnimation.values = [object.position.y, object.position.y+2, object.position.y]
-            jumpAnimation.keyTimes = [0, 0.5, 1]
-            jumpAnimation.duration = 2
-            
-            let waitAnimation = CABasicAnimation(keyPath: "position.y")
-            waitAnimation.fromValue = object.position.y
-            waitAnimation.toValue = object.position.y
-            waitAnimation.beginTime = 2
-            waitAnimation.duration = 1
-            
-            let animationGroup = CAAnimationGroup()
-            animationGroup.duration = 3
-            animationGroup.animations = [jumpAnimation, waitAnimation]
-            animationGroup.repeatCount = .infinity
-            object.addAnimation(animationGroup, forKey: "jumpAndWaitAnimation")
-        }
-        
-        let lightNode = SCNNode()
-        lightNode.light = SCNLight()
-        lightNode.light?.type = .ambient
-        lightNode.light?.intensity = 1500
-        lightNode.position = SCNVector3(x: 0, y: 1, z: 20)
-        scene?.rootNode.addChildNode(lightNode)
-        
-        let ambientLightNode = SCNNode()
-        ambientLightNode.light = SCNLight()
-        ambientLightNode.light = SCNLight()
-        ambientLightNode.light?.type = .area
-        ambientLightNode.light?.color = UIColor.white
-        scene?.rootNode.addChildNode(ambientLightNode)
-        
-        sceneView.allowsCameraControl = true
-        sceneView.backgroundColor = UIColor.clear
-        sceneView.layer.cornerRadius = 50
-        sceneView.clipsToBounds = true
-        sceneView.cameraControlConfiguration.allowsTranslation = false
-        sceneView.scene = scene
+        configureSceneView(sceneView)
+        setupCamera(in: scene)
+        setupObject(in: scene)
+        lightScene(in: scene)
+        ambientLightNode(in: scene)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickedView))
         sceneView.addGestureRecognizer(tapGesture)
         
+        sceneView.scene = scene
         return sceneView
     }()
     
@@ -146,6 +103,7 @@ class TopView: UIView {
         }
     }
     
+    ///MARK: - 로그아웃 버튼 제약조건
     private func logoutMakeConstraints(){
         logoutView.addSubview(logoutBtn)
         
@@ -157,6 +115,67 @@ class TopView: UIView {
         }
     }
     
+    private func configureSceneView(_ sceneView: SCNView){
+        sceneView.isUserInteractionEnabled = true
+        sceneView.allowsCameraControl = true
+        sceneView.backgroundColor = UIColor.clear
+        sceneView.cameraControlConfiguration.allowsTranslation = false
+    }
+    
+    private func createScene(fileName: String) -> SCNScene {
+        return SCNScene(named: fileName) ?? SCNScene()
+    }
+    
+    private func setupCamera(in scene: SCNScene){
+        let cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        cameraNode.position = SCNVector3(x: 0, y: 12, z: 28)
+        scene.rootNode.addChildNode(cameraNode)
+    }
+    
+    private func setupObject(in scene: SCNScene){
+        if let object = scene.rootNode.childNodes.first{
+            object.scale = SCNVector3(x: 1.1, y: 1.1, z: 1.1)
+            
+            let jumpAnimation = CAKeyframeAnimation(keyPath: "position.y")
+            jumpAnimation.values = [object.position.y, object.position.y+2, object.position.y]
+            jumpAnimation.keyTimes = [0, 0.5, 1]
+            jumpAnimation.duration = 2
+            
+            let waitAnimation = CABasicAnimation(keyPath: "position.y")
+            waitAnimation.fromValue = object.position.y
+            waitAnimation.toValue = object.position.y
+            waitAnimation.beginTime = 2
+            waitAnimation.duration = 1
+            
+            let animationGroup = CAAnimationGroup()
+            animationGroup.duration = 3
+            animationGroup.animations = [jumpAnimation, waitAnimation]
+            animationGroup.repeatCount = .infinity
+            object.addAnimation(animationGroup, forKey: "jumpAndWaitAnimation")
+            
+            scene.rootNode.addChildNode(object)
+        }
+    }
+    
+    private func lightScene(in scene: SCNScene){
+        let lightNode = SCNNode()
+        lightNode.light = SCNLight()
+        lightNode.light?.type = .ambient
+        lightNode.light?.intensity = 1500
+        lightNode.position = SCNVector3(x: 0, y: 1, z: 20)
+        scene.rootNode.addChildNode(lightNode)
+    }
+    
+    private func ambientLightNode(in scene: SCNScene){
+        let ambientLightNode = SCNNode()
+        ambientLightNode.light? = SCNLight()
+        ambientLightNode.light?.type = .area
+        ambientLightNode.light?.color = UIColor.white
+        scene.rootNode.addChildNode(ambientLightNode)
+    }
+    
+    
     //MARK: - ActionFunc
     
     ///MARK: - 로그아웃 기능 버튼
@@ -165,7 +184,6 @@ class TopView: UIView {
     }
     
     @objc func clickedView(){
-        playSoundEffect("propeller", 0.8)
-        
+        playSoundEffect("propeller", 1.0)
     }
 }

@@ -42,6 +42,7 @@ class BottomView: UIImageView{
         view.delegate = self
         view.isPagingEnabled = true
         view.bounces = true
+        view.showsHorizontalScrollIndicator = false
         view.isUserInteractionEnabled = true
         return view
     }()
@@ -53,7 +54,7 @@ class BottomView: UIImageView{
         page.currentPage = 0
         page.numberOfPages = stackView.arrangedSubviews.count
         page.pageIndicatorTintColor = .lightGray
-        page.currentPageIndicatorTintColor = UIColor(red: 0.27, green: 0.60, blue: 0.86, alpha: 1.00)
+        page.currentPageIndicatorTintColor = .white
         return page
     }()
     
