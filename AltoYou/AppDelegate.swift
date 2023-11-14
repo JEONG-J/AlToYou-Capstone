@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         startMusic("backgroundMusic")
         //window.rootViewController = animationViewController
-        window.rootViewController = SplashViewController()
+        window.rootViewController = SocialLoginView()
         window.makeKeyAndVisible()
         
         return true
