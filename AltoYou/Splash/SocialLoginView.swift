@@ -123,7 +123,6 @@ class SocialLoginView: UIViewController {
             }
         }
     }
-    
     //MARK: - objc Function
     ///MARK: - 버튼 액션 버튼 추가하기
     @objc func actionAnimation(sender: UIButton){
