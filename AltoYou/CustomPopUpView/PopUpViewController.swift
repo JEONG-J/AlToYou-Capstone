@@ -181,6 +181,13 @@ extension UIColor {
     }
 }
 
+class StringWrapper {
+    var value: String
+    init(_ value: String) {
+        self.value = value
+    }
+}
+
 
 extension UIControl {
     public typealias UIControlTargetClosure = (UIControl) -> ()
@@ -193,7 +200,7 @@ extension UIControl {
     }
     
     private struct AssociatedKeys {
-        static var targetClosure = "targetClosure"
+        static var targetClosure: UInt8 = 0
     }
     
     private var targetClosure: UIControlTargetClosure? {
