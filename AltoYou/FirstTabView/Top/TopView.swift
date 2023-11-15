@@ -61,6 +61,14 @@ class TopView: UIView {
         return createlogOutView()
     }()
     
+    private lazy var logoutGuideText: UILabel = {
+        return createLabel("로그아웃")
+    }()
+    
+    private lazy var deleteTokeGuideText: UILabel = {
+        return createLabel("정보 삭제")
+    }()
+    
     //MARK: - init
     required init?(coder: NSCoder){
         fatalError("error")
@@ -83,6 +91,7 @@ class TopView: UIView {
         self.isUserInteractionEnabled = true
     }
     
+    ///MARK: -  중복 뷰 생성
     private func createlogOutView() -> UIView {
         let view = UIView()
         view.backgroundColor = UIColor(red: 0.075, green: 0.075, blue: 0.196, alpha: 0.62).withAlphaComponent(0.62)
@@ -90,6 +99,16 @@ class TopView: UIView {
         view.layer.cornerRadius = 20
         view.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
         return view
+    }
+    
+    ///MARK: - 중복 라벨 생성
+    private func createLabel(_ textValue: String) -> UILabel {
+        let text = UILabel()
+        text.font = UIFont(name: "KaturiOTF", size: 20)
+        text.textColor = UIColor.white
+        text.textAlignment = .center
+        text.text = textValue
+        return text
     }
     
     ///MARK: - 뷰 추가
@@ -133,24 +152,40 @@ class TopView: UIView {
     ///MARK: - 로그아웃 버튼 제약조건
     private func logoutMakeConstraints(){
         logoutView.addSubview(logoutBtn)
+        logoutView.addSubview(logoutGuideText)
         deleteTokenView.addSubview(deleteToken)
+        deleteTokenView.addSubview(deleteTokeGuideText)
         
         logoutBtn.snp.makeConstraints{ (make) in
-            make.left.equalTo(logoutView.snp.left).offset(14.68)
-            make.right.equalTo(logoutView.snp.right).offset(-14.68)
-            make.top.equalTo(logoutView.snp.top).offset(15.88)
-            make.bottom.equalTo(logoutView.snp.bottom).offset(-15.88)
+            make.left.equalTo(logoutView.snp.left).offset(19)
+            make.right.equalTo(logoutView.snp.right).offset(-17)
+            make.top.equalTo(logoutView.snp.top).offset(16)
+            make.bottom.equalTo(logoutGuideText.snp.top).offset(-5)
+        }
+        
+        logoutGuideText.snp.makeConstraints{ make in
+            make.left.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-24)
+            make.bottom.equalToSuperview().offset(-8)
+            make.height.equalTo(30)
         }
         
         deleteToken.snp.makeConstraints{ make in
-            make.left.equalTo(deleteTokenView.snp.left).offset(14.68)
-            make.right.equalTo(deleteTokenView.snp.right).offset(-14.68)
-            make.top.equalTo(deleteTokenView.snp.top).offset(15.88)
-            make.bottom.equalTo(deleteTokenView.snp.bottom).offset(-15.88)
+            make.left.equalTo(deleteTokenView.snp.left).offset(21)
+            make.right.equalTo(deleteTokenView.snp.right).offset(-21)
+            make.top.equalTo(deleteTokenView.snp.top).offset(16)
+            make.bottom.equalTo(deleteTokeGuideText.snp.top).offset(-9)
+        }
+        
+        deleteTokeGuideText.snp.makeConstraints{ make in
+            make.left.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-24)
+            make.bottom.equalToSuperview().offset(-8)
+            make.height.equalTo(30)
         }
     }
     
-    
+    ///MARK: - 루트 뷰 변경
     private func changeRootView(){
         DispatchQueue.main.async{
             self.appDelegate?.window?.rootViewController = SocialLoginView()
@@ -158,6 +193,7 @@ class TopView: UIView {
         }
     }
     
+    ///MARK: - 카카오톡 로그아웃(토큰 존재)
     private func logOutKakao(){
         UserApi.shared.logout{ error in
             if let error = error {
@@ -169,6 +205,7 @@ class TopView: UIView {
         }
     }
     
+    ///MARK: - 토큰 삭제
     private func tokenDeleteKakao(){
         UserApi.shared.unlink{ (error) in
             if let error = error {
@@ -186,18 +223,23 @@ class TopView: UIView {
     ///MARK: - 로그아웃 기능 버튼
     @objc func logoutBtnAction(){
         selectMenu("outSound", "wav")
-        backgroundMusicPlayer?.stop()
-        logOutKakao()
+        showPopUp(message: "로그아웃을 진행할까요??", leftActionTitle: "Yes", rightActionTitle: "No", leftActionCompletion: {
+            self.logOutKakao()
+            backgroundMusicPlayer?.stop()
+        }, rightActionCompletion: {
+            backgroundMusicPlayer?.play()
+        })
+        
     }
-    
+    ///MARk: - 비행기 사운드 효과
     @objc func clickedView(){
         playSoundEffect("propeller", 1.0)
     }
     
     //TODO: - 사운드 효과 추가하기
     @objc func deleteTokenAction(){
-        backgroundMusicPlayer?.volume = 0.2
-        showPopUp(message: "회원정보 삭제를 진행할까요?? ", leftActionTitle: "Yes", rightActionTitle: "No", leftActionCompletion: {
+        selectMenu("deleteSound", "wav")
+        showPopUp(message: "회원정보 삭제를 진행할까요??", leftActionTitle: "Yes", rightActionTitle: "No", leftActionCompletion: {
             self.tokenDeleteKakao()
             backgroundMusicPlayer?.stop()
         }, rightActionCompletion: {

@@ -62,7 +62,7 @@ public func selectMenu(_ fileName: String, _ fileType: String) {
             soundEffectPlayer = try AVAudioPlayer(contentsOf: soundEffectUrl)
             guard let soundEffectPlayer = soundEffectPlayer else { return }
             
-            soundEffectPlayer.volume = 1.0
+            soundEffectPlayer.volume = 1.3
             soundEffectPlayer.prepareToPlay()
             soundEffectPlayer.play()
         } catch {
@@ -76,7 +76,7 @@ public func playVoice(from url: URL) {
         characterRequest = try AVAudioPlayer(contentsOf: url)
         guard let audioPlayer = characterRequest else { return }
         audioPlayer.prepareToPlay()
-        audioPlayer.volume = 1.0
+        audioPlayer.volume = 1.3
         audioPlayer.play()
     } catch {
         print("오디오 파일 재생에 실패했습니다: \(error)")

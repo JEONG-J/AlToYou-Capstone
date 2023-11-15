@@ -130,7 +130,6 @@ class SplashViewController: UIViewController {
     ///MARK: - 온보드 끝내고 메인뷰 넘어가는 전환 함수
     private func transitionView(){
         monitor?.invalidate()
-        
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5){
             self.appDelegate?.window?.rootViewController = self.mainTabBarView
             self.appDelegate?.window?.makeKeyAndVisible()
