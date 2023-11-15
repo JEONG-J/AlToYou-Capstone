@@ -50,15 +50,16 @@
 		4881486B2B020CEC00B98B8B /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4881486A2B020CEC00B98B8B /* KakaoSDKCertCore */; };
 		4881486D2B020CEC00B98B8B /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 4881486C2B020CEC00B98B8B /* KakaoSDKCommon */; };
 		48902F622B046AC8006BB141 /* outSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 48902F612B046AC8006BB141 /* outSound.wav */; };
+		48902F672B046FC7006BB141 /* Jjijjigi.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48902F642B046FC7006BB141 /* Jjijjigi.usdz */; };
+		48902F682B046FC7006BB141 /* Mongmong.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48902F652B046FC7006BB141 /* Mongmong.usdz */; };
+		48902F6C2B0472DC006BB141 /* Hindung.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48902F6B2B0472DC006BB141 /* Hindung.usdz */; };
 		489065F52B042F63008D1ACD /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489065F42B042F63008D1ACD /* SceneController.swift */; };
 		48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF46572AFCC37800C1F98F /* PopupExtension.swift */; };
 		48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */; };
-		48BF0B3D2ACF5FDF00565FA5 /* toy_drummer_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */; };
 		48BF0B422ACF684800565FA5 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */; };
 		48BF0B442ACF6BD100565FA5 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B432ACF6BD100565FA5 /* DayModel.swift */; };
 		48C0C25B2B01220900A6BD67 /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C0C25A2B01220900A6BD67 /* ExitButton.swift */; };
 		48D7385F2AFCE4DA003F1EFC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48D7385E2AFCE4DA003F1EFC /* SnapKit */; };
-		48F63D9A2B03D2670095FC8B /* robot_walk_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48F63D982B03D2670095FC8B /* robot_walk_idle.usdz */; };
 		48F63D9E2B03EDB70095FC8B /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F63D9D2B03EDB70095FC8B /* GlobalData.swift */; };
 		48F63DA02B03F91C0095FC8B /* startSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 48F63D9F2B03F91C0095FC8B /* startSound.wav */; };
 		48F63DA22B03F9210095FC8B /* deleteSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 48F63DA12B03F9210095FC8B /* deleteSound.wav */; };
@@ -116,14 +117,15 @@
 		487F558A2B00B5B10058124C /* PresentMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentMessage.swift; sourceTree = "<group>"; };
 		488148612B0209F600B98B8B /* SocialLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginView.swift; sourceTree = "<group>"; };
 		48902F612B046AC8006BB141 /* outSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = outSound.wav; sourceTree = "<group>"; };
+		48902F642B046FC7006BB141 /* Jjijjigi.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Jjijjigi.usdz; sourceTree = "<group>"; };
+		48902F652B046FC7006BB141 /* Mongmong.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Mongmong.usdz; sourceTree = "<group>"; };
+		48902F6B2B0472DC006BB141 /* Hindung.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Hindung.usdz; sourceTree = "<group>"; };
 		489065F42B042F63008D1ACD /* SceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
 		48AF46572AFCC37800C1F98F /* PopupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupExtension.swift; sourceTree = "<group>"; };
 		48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStackView.swift; sourceTree = "<group>"; };
-		48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer_idle.usdz; sourceTree = "<group>"; };
 		48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		48BF0B432ACF6BD100565FA5 /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
 		48C0C25A2B01220900A6BD67 /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
-		48F63D982B03D2670095FC8B /* robot_walk_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot_walk_idle.usdz; sourceTree = "<group>"; };
 		48F63D9D2B03EDB70095FC8B /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		48F63D9F2B03F91C0095FC8B /* startSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = startSound.wav; sourceTree = "<group>"; };
 		48F63DA12B03F9210095FC8B /* deleteSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = deleteSound.wav; sourceTree = "<group>"; };
@@ -317,8 +319,9 @@
 		48BF0B3F2ACF601000565FA5 /* 3D Characters */ = {
 			isa = PBXGroup;
 			children = (
-				48F63D982B03D2670095FC8B /* robot_walk_idle.usdz */,
-				48BF0B3C2ACF5FDF00565FA5 /* toy_drummer_idle.usdz */,
+				48902F6B2B0472DC006BB141 /* Hindung.usdz */,
+				48902F642B046FC7006BB141 /* Jjijjigi.usdz */,
+				48902F652B046FC7006BB141 /* Mongmong.usdz */,
 				480EDA882AEF55DD0007DDDF /* toy_biplane_idle.usdz */,
 			);
 			path = "3D Characters";
@@ -410,14 +413,15 @@
 				48902F622B046AC8006BB141 /* outSound.wav in Resources */,
 				48F63DA02B03F91C0095FC8B /* startSound.wav in Resources */,
 				487F55852B009D710058124C /* backgroundMusic.mp3 in Resources */,
+				48902F6C2B0472DC006BB141 /* Hindung.usdz in Resources */,
+				48902F672B046FC7006BB141 /* Jjijjigi.usdz in Resources */,
+				48902F682B046FC7006BB141 /* Mongmong.usdz in Resources */,
 				485A998B2ACBFC0600C94740 /* Preview Assets.xcassets in Resources */,
-				48BF0B3D2ACF5FDF00565FA5 /* toy_drummer_idle.usdz in Resources */,
 				487007D82ACF59E9009C6EC9 /* goryeong.otf in Resources */,
 				480EDA892AEF55DD0007DDDF /* toy_biplane_idle.usdz in Resources */,
 				487CE8552B00E8F90067C619 /* Jjijjigi.mp3 in Resources */,
 				486AFC042AF3983E005F9803 /* cloudAni.json in Resources */,
 				487CE8512B00E8EE0067C619 /* Hindung.mp3 in Resources */,
-				48F63D9A2B03D2670095FC8B /* robot_walk_idle.usdz in Resources */,
 				48F63DA22B03F9210095FC8B /* deleteSound.wav in Resources */,
 				487CE84F2B00E3D00067C619 /* selectCharacter.wav in Resources */,
 				485A99882ACBFC0600C94740 /* Assets.xcassets in Resources */,

@@ -27,7 +27,7 @@ class TopView: UIView {
         let sceneView = SCNView()
         let scene = sceneController.set3DCharacter("toy_biplane_idle.usdz")
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickedView))
-        sceneController.configureSceneView(sceneView)
+        sceneController.configureSceneView(sceneView,true)
         sceneView.addGestureRecognizer(tapGesture)
         sceneView.scene = scene
         return sceneView
