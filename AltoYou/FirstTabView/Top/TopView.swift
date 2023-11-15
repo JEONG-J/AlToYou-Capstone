@@ -38,18 +38,27 @@ class TopView: UIView {
         let btn = UIButton()
         let img = UIImage(named: "door.png")
         btn.setImage(img, for: .normal)
-        btn.addTarget(self, action: #selector(clickedBtn), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(logoutBtnAction), for: .touchUpInside)
+        return btn
+    }()
+    
+    ///MARK: - 토큰 삭제 버튼
+    private lazy var deleteToken: UIButton = {
+        let btn = UIButton()
+        let img = UIImage(named: "smile.png")
+        btn.setImage(img, for:.normal)
+        btn.addTarget(self, action: #selector(deleteTokenAction), for: .touchUpInside)
         return btn
     }()
     
     ///MARK: - 로그아웃 뷰
     private lazy var logoutView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(red: 0.075, green: 0.075, blue: 0.196, alpha: 0.62).withAlphaComponent(0.62)
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 20
-        view.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
-        return view
+        return  createlogOutView()
+    }()
+    
+    ///MARK: - 토큰 삭제 뷰
+    private lazy var deleteTokenView: UIView = {
+        return createlogOutView()
     }()
     
     //MARK: - init
@@ -74,12 +83,23 @@ class TopView: UIView {
         self.isUserInteractionEnabled = true
     }
     
+    private func createlogOutView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 0.075, green: 0.075, blue: 0.196, alpha: 0.62).withAlphaComponent(0.62)
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 20
+        view.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMaxYCorner, .layerMaxXMaxYCorner)
+        return view
+    }
+    
     ///MARK: - 뷰 추가
     private func addItem(){
         self.addSubview(sceneView)
         self.bringSubviewToFront(sceneView)
         self.addSubview(logoutView)
         self.bringSubviewToFront(logoutView)
+        self.addSubview(deleteTokenView)
+        self.bringSubviewToFront(deleteTokenView)
     }
     
     ///MARK: - 오토레이아웃 함수
@@ -100,11 +120,20 @@ class TopView: UIView {
             make.width.lessThanOrEqualTo(124)
             make.height.lessThanOrEqualTo(135)
         }
+        
+        deleteTokenView.snp.makeConstraints{ make in
+            make.top.equalToSuperview()
+            make.right.equalTo(logoutView.snp.left).offset(-50)
+            make.bottom.equalToSuperview().offset(-264)
+            make.width.lessThanOrEqualTo(124)
+            make.height.lessThanOrEqualTo(135)
+        }
     }
     
     ///MARK: - 로그아웃 버튼 제약조건
     private func logoutMakeConstraints(){
         logoutView.addSubview(logoutBtn)
+        deleteTokenView.addSubview(deleteToken)
         
         logoutBtn.snp.makeConstraints{ (make) in
             make.left.equalTo(logoutView.snp.left).offset(14.68)
@@ -112,18 +141,35 @@ class TopView: UIView {
             make.top.equalTo(logoutView.snp.top).offset(15.88)
             make.bottom.equalTo(logoutView.snp.bottom).offset(-15.88)
         }
+        
+        deleteToken.snp.makeConstraints{ make in
+            make.left.equalTo(deleteTokenView.snp.left).offset(14.68)
+            make.right.equalTo(deleteTokenView.snp.right).offset(-14.68)
+            make.top.equalTo(deleteTokenView.snp.top).offset(15.88)
+            make.bottom.equalTo(deleteTokenView.snp.bottom).offset(-15.88)
+        }
     }
     
     
     private func changeRootView(){
-        
         DispatchQueue.main.async{
             self.appDelegate?.window?.rootViewController = SocialLoginView()
             self.appDelegate?.window?.makeKeyAndVisible()
         }
     }
     
-    private func logoutKakao(){
+    private func logOutKakao(){
+        UserApi.shared.logout{ error in
+            if let error = error {
+                print(error)
+            } else {
+                print("success")
+                self.changeRootView()
+            }
+        }
+    }
+    
+    private func tokenDeleteKakao(){
         UserApi.shared.unlink{ (error) in
             if let error = error {
                 print(error)
@@ -138,13 +184,25 @@ class TopView: UIView {
     //MARK: - ActionFunc
     
     ///MARK: - 로그아웃 기능 버튼
-    @objc func clickedBtn(){
+    @objc func logoutBtnAction(){
         selectMenu("outSound", "wav")
         backgroundMusicPlayer?.stop()
-        logoutKakao()
+        logOutKakao()
     }
     
     @objc func clickedView(){
         playSoundEffect("propeller", 1.0)
+    }
+    
+    //TODO: - 사운드 효과 추가하기
+    @objc func deleteTokenAction(){
+        backgroundMusicPlayer?.volume = 0.2
+        showPopUp(message: "회원정보 삭제를 진행할까요?? ", leftActionTitle: "Yes", rightActionTitle: "No", leftActionCompletion: {
+            self.tokenDeleteKakao()
+            backgroundMusicPlayer?.stop()
+        }, rightActionCompletion: {
+            backgroundMusicPlayer?.play()
+        })
+        
     }
 }

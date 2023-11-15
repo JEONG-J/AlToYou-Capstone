@@ -155,19 +155,19 @@ class PopUpViewController: UIViewController {
         containerView.snp.makeConstraints{ make in
             make.centerX.centerY.equalToSuperview()
             make.height.equalTo(232)
-            make.width.equalTo(763)
+            make.width.greaterThanOrEqualTo(763)
         }
         
         containerStackView.snp.makeConstraints{ make in
             make.top.equalTo(containerView.snp.top).offset(32)
             make.centerX.equalTo(containerView)
-            make.width.equalTo(430)
+            make.width.greaterThanOrEqualTo(430)
             make.height.equalTo(166)
         }
         
         buttonStackView.snp.makeConstraints{ make in
             make.height.equalTo(70)
-            make.width.equalTo(300  )
+            make.width.greaterThanOrEqualTo(300)
         }
     }
 }

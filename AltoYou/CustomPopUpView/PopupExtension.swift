@@ -55,3 +55,46 @@ extension UIViewController {
         present(popUpViewController, animated: false, completion: nil)
     }
 }
+
+extension UIView {
+    
+    func showPopUp(message: String? = nil,
+                   leftActionTitle: String? = nil,
+                   rightActionTitle: String? = nil,
+                   leftActionCompletion: (() -> Void)? = nil,
+                   rightActionCompletion: (() -> Void)? = nil) {
+        guard let viewController = findViewController() else { return }
+        
+        viewController.showPopUp(message: message,
+                                leftActionTitle: leftActionTitle,
+                                rightActionTitle: rightActionTitle,
+                                leftActionCompletion: leftActionCompletion,
+                                rightActionCompletion: rightActionCompletion)
+    }
+    
+    func showPopUp(contentView: UIView,
+                   leftActionTitle: String? = nil,
+                   rightActionTitle: String? = nil,
+                   leftActionCompletion: (() -> Void)? = nil,
+                   rightActionCompletion: (() -> Void)? = nil) {
+        guard let viewController = findViewController() else { return }
+        
+        viewController.showPopUp(contentView: contentView,
+                                leftActionTitle: leftActionTitle,
+                                rightActionTitle: rightActionTitle,
+                                leftActionCompletion: leftActionCompletion,
+                                rightActionCompletion: rightActionCompletion)
+    }
+
+    private func findViewController() -> UIViewController? {
+        var responder: UIResponder? = self
+        while let nextResponder = responder?.next {
+            if let viewController = nextResponder as? UIViewController {
+                return viewController
+            }
+            responder = nextResponder
+        }
+        return nil
+    }
+}
+
