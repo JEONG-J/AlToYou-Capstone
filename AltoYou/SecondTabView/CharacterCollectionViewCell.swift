@@ -12,7 +12,7 @@ import SceneKit
 class CharacterCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CharacterCollectionViewCell"
-    private lazy var sceneController: SceneCotroller = SceneCotroller()
+    private lazy var customScene: CustomSceneController = CustomSceneController()
     
     ///MARK: - 캐릭터 이름 프로퍼티
     private lazy var nameText: UILabel = {
@@ -27,7 +27,9 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     ///MAAR: - 3D 캐릭터 추가하기
     private lazy var sceneCharacterView: SCNView = {
         let view = SCNView()
-        sceneController.configureSceneView(view)
+        view.layer.cornerRadius = 30
+        view.layer.masksToBounds = true
+        customScene.configureSceneView(view, true)
         return view
     }()
     
@@ -83,14 +85,50 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         
         sceneCharacterView.snp.makeConstraints{ make in
             make.centerX.centerY.equalToSuperview()
-            make.top.left.right.bottom.equalToSuperview()
+            make.top.left.right.height.equalToSuperview()
         }
     }
     
     func configuration(_ model: CharacterModel){
-        let scene = sceneController.set3DCharacter(model.file ?? "")
+        let scene = customScene.set3DCharacter(model.file ?? "")
         nameText.text = model.name
         chracterBackgroundView.backgroundColor = model.color
         self.sceneCharacterView.scene = scene
+    }
+}
+
+
+//MARK: - Override Class
+class CustomSceneController: SceneCotroller{
+    override func setupCamera(in scene: SCNScene) {
+        let cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        cameraNode.position = SCNVector3(x: 0, y: 27, z: 60)
+        scene.rootNode.addChildNode(cameraNode)
+    }
+    
+    override func setupObject(in scene: SCNScene){
+        if let object = scene.rootNode.childNodes.first{
+            object.scale = SCNVector3(x: 0.4, y: 0.4, z: 0.4)// 1.1 공통
+            
+            let jumpAnimation = CAKeyframeAnimation(keyPath: "position.y")
+            jumpAnimation.values = [object.position.y, object.position.y+3, object.position.y]
+            jumpAnimation.keyTimes = [0, 0.5, 1]
+            jumpAnimation.duration = 2
+            
+            let waitAnimation = CABasicAnimation(keyPath: "position.y")
+            waitAnimation.fromValue = object.position.y
+            waitAnimation.toValue = object.position.y
+            waitAnimation.beginTime = 2
+            waitAnimation.duration = 1
+            
+            let animationGroup = CAAnimationGroup()
+            animationGroup.duration = 3
+            animationGroup.animations = [jumpAnimation, waitAnimation]
+            animationGroup.repeatCount = .infinity
+            object.addAnimation(animationGroup, forKey: "jumpAndWaitAnimation")
+            
+            scene.rootNode.addChildNode(object)
+        }
     }
 }

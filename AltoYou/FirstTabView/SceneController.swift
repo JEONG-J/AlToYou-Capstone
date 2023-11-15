@@ -21,8 +21,8 @@ class SceneCotroller {
         return scene
     }
     
-    public func configureSceneView(_ sceneView: SCNView){
-        sceneView.isUserInteractionEnabled = true
+    public func configureSceneView(_ sceneView: SCNView, _ interaction: Bool){
+        sceneView.isUserInteractionEnabled = interaction
         sceneView.allowsCameraControl = true
         sceneView.backgroundColor = UIColor.clear
         sceneView.cameraControlConfiguration.allowsTranslation = false
@@ -32,16 +32,16 @@ class SceneCotroller {
         return SCNScene(named: fileName) ?? SCNScene()
     }
     
-    private func setupCamera(in scene: SCNScene){
+    open func setupCamera(in scene: SCNScene){
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
-        cameraNode.position = SCNVector3(x: 0, y: 12, z: 28)
+        cameraNode.position = SCNVector3(x: 0, y: 12, z: 28) // 0 12 28
         scene.rootNode.addChildNode(cameraNode)
     }
     
-    private func setupObject(in scene: SCNScene){
+    open func setupObject(in scene: SCNScene){
         if let object = scene.rootNode.childNodes.first{
-            object.scale = SCNVector3(x: 1.1, y: 1.1, z: 1.1)
+            object.scale = SCNVector3(x: 1.1, y: 1.1, z: 1.1)// 1.1 공통
             
             let jumpAnimation = CAKeyframeAnimation(keyPath: "position.y")
             jumpAnimation.values = [object.position.y, object.position.y+2, object.position.y]
