@@ -24,7 +24,7 @@ class BottomView: UIImageView{
     ///MARK: - 사용자 이름
     private lazy var userName: UILabel = {
         let name = UILabel()
-        name.font = UIFont(name:"Goryeong-Strawberry", size: 50)
+        name.font = UIFont(name:"Goryeong-Strawberry", size: 55)
         name.textColor = UIColor.black
         name.text = GlobalData.shared.userNickname
         return name

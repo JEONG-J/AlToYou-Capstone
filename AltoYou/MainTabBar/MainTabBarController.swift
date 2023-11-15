@@ -22,6 +22,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     //MARK: - Function
+    
     private func setupNotificationCenterObserver() {
         NotificationCenter.default.addObserver(forName: NSNotification.Name("CloseARView"), object: nil, queue: nil) { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
@@ -110,6 +111,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         guard let index = viewControllers?.firstIndex(of: viewController) else{
             return true
         }
+        selectMenu("TapSound", "wav")
         colorBar(at: index)
         animateTabBarItem(at: index)
         

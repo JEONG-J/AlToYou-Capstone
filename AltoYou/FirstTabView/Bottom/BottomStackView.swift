@@ -34,7 +34,7 @@ class BottomStackView: UIStackView {
     ///MARK: - 랜덤 텍스트 생성
     private lazy var randomText: UILabel = {
         let text = UILabel()
-        text.font = UIFont(name: "Goryeong-Strawberry", size: 43)
+        text.font = UIFont(name: "Goryeong-Strawberry", size: 45)
         text.numberOfLines = 0
         text.text = Message.texts.randomElement()
         text.lineBreakMode = .byWordWrapping
@@ -92,6 +92,7 @@ class BottomStackView: UIStackView {
     
     ///MARK: - 랜덤 텍스트 생성 액션 버튼
     @objc func changeText(){
+        selectMenu("randomText", "wav")
         randomText.text = Message.texts.randomElement()
         
         UIView.animate(withDuration: 0.1){
