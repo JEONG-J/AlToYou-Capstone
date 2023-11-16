@@ -49,7 +49,7 @@ struct ContentView : View {
                 switch result {
                 case .success(let response):
                     if response.url != nil {
-                        //playVoice(from: url)
+                        playVoice(from: response.url ?? "")
                         print("success")
                     }
                 case.failure(let error):

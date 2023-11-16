@@ -15,7 +15,7 @@ import KakaoSDKAuth
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+    var permissionManagger = PermissionManager()
     
     ///MARK: - 카카오 로그인
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         window.rootViewController = SocialLoginView()
         window.makeKeyAndVisible()
+        permissionManagger.requestAudioPermission()
         
         return true
         

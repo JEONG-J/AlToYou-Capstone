@@ -14,6 +14,7 @@ import KakaoSDKUser
 
 class SocialLoginView: UIViewController {
     
+
     private lazy var appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     
     var userId: String?

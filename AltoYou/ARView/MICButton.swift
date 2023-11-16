@@ -38,6 +38,7 @@ class AudioRecorderWrapper: ObservableObject {
         
         let documentPath = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask)[0]
         audioFilename = documentPath.appendingPathComponent("recording.m4a")
+        print(documentPath)
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -67,7 +68,7 @@ class AudioRecorderWrapper: ObservableObject {
         let uploadURL = "https://yourserver.com/upload"
         
         AF.upload(multipartFormData: { multipartFormData in
-            multipartFormData.append(fileUrl, withName: "file", fileName: "recording.m4a", mimeType: "audio/m4a")
+            multipartFormData.append(fileUrl, withName: "file", fileName: "recording.wav", mimeType: "audio/wav")
         }, to: uploadURL)
         .response { response in
             switch response.result {
