@@ -2,6 +2,8 @@ import SwiftUI
 import AVFoundation
 import Alamofire
 
+
+
 struct MICButton: View {
     @State private var isRecording = false
     @StateObject private var audioRecorderWrapper = AudioRecorderWrapper()
@@ -29,6 +31,7 @@ struct MICButton: View {
 
 class AudioRecorderWrapper: ObservableObject {
     var audioRecorder: AVAudioRecorder?
+    var audioPlayer: AVAudioPlayer?
     var audioFilename: URL?
     
     func startRecording() {
@@ -39,6 +42,7 @@ class AudioRecorderWrapper: ObservableObject {
         let documentPath = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask)[0]
         audioFilename = documentPath.appendingPathComponent("recording.m4a")
         print(documentPath)
+        print(audioFilename!)
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -58,17 +62,29 @@ class AudioRecorderWrapper: ObservableObject {
     func stopRecording() {
         audioRecorder?.stop()
         audioRecorder = nil
+        playRecordedAudio()
         sendAudioFileToServer(audioFilename)
     }
+    
+    private func playRecordedAudio() {
+            guard let audioFilename = audioFilename else { return }
+
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
+                audioPlayer?.play()
+            } catch {
+                print("재생 중 오류 발생: \(error)")
+            }
+        }
     
     func sendAudioFileToServer(_ fileUrl: URL?) {
         guard let fileUrl = fileUrl else { return }
         
         // 서버의 엔드포인트 URL
-        let uploadURL = "https://yourserver.com/upload"
+        let uploadURL = "http://13.124.7.35:8080/api/conversation/audio/test"
         
         AF.upload(multipartFormData: { multipartFormData in
-            multipartFormData.append(fileUrl, withName: "file", fileName: "recording.wav", mimeType: "audio/wav")
+            multipartFormData.append(fileUrl, withName: "audioFile", fileName: "recording.m4a", mimeType: "audio/MPEG-4")
         }, to: uploadURL)
         .response { response in
             switch response.result {

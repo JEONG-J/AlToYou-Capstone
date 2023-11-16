@@ -10,6 +10,7 @@ import SwiftUI
 struct ExitButton: View {
     var body: some View{
         Button(action: {
+            
             NotificationCenter.default.post(name: NSNotification.Name("CloseARView"), object: nil)
         }){
             Image("close")

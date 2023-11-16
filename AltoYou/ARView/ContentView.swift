@@ -12,8 +12,9 @@ import Alamofire
 import Combine
 
 struct ContentView : View {
+    @ObservedObject var voiceViewModel = VoiceViewModel()
+    @State private var arView: ARView?
     @State private var showARView = true
-    @ObservedObject var voiceAPIHandler = VoiceAPIHandler()
     @EnvironmentObject var selectedCharacterInfo: SelectedCharacterInfo
     
     var selectedCharater: CharacterInfo?
@@ -22,7 +23,9 @@ struct ContentView : View {
         
         ZStack{
             if showARView, let character = selectedCharacterInfo.character {
-                ARViewContainer(modelName: character.file ?? "").edgesIgnoringSafeArea(.all)
+                ARViewContainer(modelName: character.file ?? "", arView: $arView)
+                    .environmentObject(AudioManager.shared) // AudioManager 인스턴스 주입
+                    .edgesIgnoringSafeArea(.all)
             }
             VStack{
                 HStack{
@@ -43,34 +46,31 @@ struct ContentView : View {
         }
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("CloseARView"))) { _ in
             self.showARView = false
+            self.arView?.session.pause()
         }
         .onAppear{
-            voiceAPIHandler.beginVoice{ result in
-                switch result {
-                case .success(let response):
-                    if response.url != nil {
-                        playVoice(from: response.url ?? "")
-                        print("success")
-                    }
-                case.failure(let error):
-                    print("Error : \(error)")
-                }
-            }
+            print("VoiceAPIHandler")
+            voiceViewModel.beginVoice()
         }
     }
     
     struct ARViewContainer: UIViewRepresentable {
         
         var modelName: String
+        @Binding var arView: ARView?
         @EnvironmentObject var adudioManager: AudioManager
-        @EnvironmentObject var voiceAPIHandler: VoiceAPIHandler
         
         func makeUIView(context: Context) -> ARView {
             
             AudioManager.shared.stopMusic()
             let arView = ARView(frame: .zero)
+            arView.isUserInteractionEnabled = true
+
             
             loadModel(modelName: modelName, in: arView)
+            
+            
+            self.arView = arView
             
             return arView
             
@@ -78,24 +78,27 @@ struct ContentView : View {
         
         func updateUIView(_ uiView: ARView, context: Context) {}
         
-        private func loadModel(modelName: String, in arView: ARView){
+        private func loadModel(modelName: String, in arView: ARView) {
             let fileName = modelName
-            if (try? ModelEntity.loadModel(named: fileName)) != nil{
-                if let modelEntity = try? ModelEntity.loadModel(named: fileName) {
-                    
-                    /*
-                     //수평 평면
-                     let anchorEntity = AnchorEntity(.plane(.horizontal, classification: <#T##AnchoringComponent.Target.Classification#>, minimumBounds: T##SIMD2<Float>))
-                     */
-                    let anchorEntity = AnchorEntity(.plane(.horizontal, classification: .any, minimumBounds: SIMD2<Float>(0.6, 0.6)))
-                    anchorEntity.addChild(modelEntity)
-                    arView.scene.addAnchor(anchorEntity)
+            if let modelEntity = try? ModelEntity.loadModel(named: fileName) {
+                modelEntity.scale = SIMD3<Float>(0.1, 0.1, 0.1) // 크기를 더 작게 조정
+                print(modelEntity.scale)
+                
+                let anchorEntity = AnchorEntity(.plane(.horizontal, classification: .floor , minimumBounds: SIMD2(0.1, 0.1)))
+                anchorEntity.addChild(modelEntity)
+                arView.scene.addAnchor(anchorEntity)
+
+                // 모델의 스케일 조정
+                modelEntity.availableAnimations.forEach { animation in
+                    modelEntity.playAnimation(animation.repeat())
                 }
+
             }
-            
         }
         
-        static func dismantleUIView(_ uiView: ARView, coordinator: ()) {
+        
+        
+        static func dismantleUIView(_ uiView: ARView, coordinator: Coordinator) {
             AudioManager.shared.startMusic()
         }
         
@@ -124,4 +127,5 @@ class AudioManager: ObservableObject{
         }
     }
 }
+
 

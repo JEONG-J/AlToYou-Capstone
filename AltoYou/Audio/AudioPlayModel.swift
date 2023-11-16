@@ -77,6 +77,7 @@ public func playVoice(from url: String) {
         return
     }
     do {
+        print("file URL : \(characterUrl)")
         try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
         try AVAudioSession.sharedInstance().setActive(true)
         
