@@ -70,8 +70,8 @@ public func selectMenu(_ fileName: String, _ fileType: String) {
         }
     }
 }
-
-public func playVoice(from url: URL) {
+/*
+public func playVoice(from url: String) {
     do {
         characterRequest = try AVAudioPlayer(contentsOf: url)
         guard let audioPlayer = characterRequest else { return }
@@ -80,8 +80,7 @@ public func playVoice(from url: URL) {
         audioPlayer.play()
     } catch {
         print("오디오 파일 재생에 실패했습니다: \(error)")
-    }
-}
+ }*/
 
 
 

@@ -9,37 +9,29 @@ import Foundation
 import UIKit
 import Alamofire
 
-class VoiceAPIHandler: ObservableObject{
+class VoiceAPIHandler: ObservableObject {
     
     @Published var responseBeginVoice: ResponseBeginVoice?
     @Published var requestSucceeded: Bool = false
     
-    
-    //
-    func beginVoice(completion: @escaping (Result<ResponseBeginVoice, Error>) -> Void){
-        let url = "https://storage.googleapis.com/download/storage/v1/b/rtou/o/userId%2Fmodel%2FModelVoice2qaystHFPo.wav?generation=1699034302637668&alt=media"
+    func beginVoice(completion: @escaping (Result<ResponseBeginVoice, Error>) -> Void) {
+        let url = "http://13.124.7.35:8080/api/conversation/start?userId=test&characterName=Mongmong-e"
         
-        AF.request(url).responseDecodable(of: ResponseBeginVoice.self){ [weak self] response in
-            
-            DispatchQueue.main.async{
-                switch response.result{
-                case.success(let responseBeginVoice):
-                    if responseBeginVoice.status{
-                        self?.responseBeginVoice?.url = responseBeginVoice.url
-                        self?.responseBeginVoice?.status = true
+        AF.request(url).responseDecodable(of: ResponseBeginVoice.self) { [weak self] response in
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let responseBeginVoice):
+                    self?.responseBeginVoice = responseBeginVoice // 업데이트 방식 변경
+                    if responseBeginVoice.status {
                         print("message: \(responseBeginVoice.message)")
+                        print("URL : \(responseBeginVoice.url ?? "")")
                     } else {
-                        self?.responseBeginVoice?.status = false
                         print("실패")
                     }
                 case .failure(let error):
-                    self?.responseBeginVoice?.status = false
                     print("error: \(error)")
                 }
             }
         }
     }
-    
-    
-    
 }

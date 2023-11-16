@@ -48,8 +48,8 @@ struct ContentView : View {
             voiceAPIHandler.beginVoice{ result in
                 switch result {
                 case .success(let response):
-                    if let url = response.url {
-                        playVoice(from: url)
+                    if response.url != nil {
+                        //playVoice(from: url)
                         print("success")
                     }
                 case.failure(let error):
