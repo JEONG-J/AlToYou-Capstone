@@ -105,7 +105,7 @@ struct ContentView1 : View {
     }
 }
 
-class AudioManager: ObservableObject{
+class AudioMana2ger: ObservableObject{
     static let shared = AudioManager()
     @Published private var isPlayMusic = false
     

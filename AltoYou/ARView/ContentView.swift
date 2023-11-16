@@ -12,15 +12,20 @@ import Combine
 struct ContentView : View {
     @ObservedObject var voiceViewModel = VoiceViewModel()
     @EnvironmentObject var selectedCharacterInfo: SelectedCharacterInfo
+    @State private var showARView = true
     var selectedCharater: CharacterInfo?
     
     var body: some View {
         ZStack{
-            if let character = selectedCharacterInfo.character {
+            if  showARView, let character = selectedCharacterInfo.character {
                 ARViewContainer(modelName: character.file ?? "")
                     .edgesIgnoringSafeArea(.all)
                     .onAppear(){
                         voiceViewModel.beginVoice()
+                    }
+                    .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("CloseARView"))) { _ in
+                        self.showARView = false
+                        AudioManager.shared.startMusic()
                     }
             }
             VStack{
@@ -45,6 +50,7 @@ struct ContentView : View {
 
 struct ARViewContainer: UIViewRepresentable {
     
+    @EnvironmentObject var adudioManager: AudioManager
     var modelName: String
     func makeCoordinator() -> Coordinator {
         return Coordinator()
@@ -90,6 +96,29 @@ struct ARViewContainer: UIViewRepresentable {
     
     func updateUIView(_ uiView: ARView, context: Context) {}
     
+}
+
+class AudioManager: ObservableObject{
+    static let shared = AudioManager()
+    @Published private var isPlayMusic = false
+    
+    func startMusic(){
+        AltoYou.startMusic("backgroundMusic")
+        isPlayMusic = true
+    }
+    
+    func stopMusic(){
+        backgroundMusicPlayer?.pause()
+        isPlayMusic = false
+    }
+    
+    func toggleMusic(){
+        if isPlayMusic{
+            stopMusic()
+        } else{
+            startMusic()
+        }
+    }
 }
 
 
