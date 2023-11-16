@@ -57,6 +57,7 @@
 		48902F682B046FC7006BB141 /* Mongmong.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48902F652B046FC7006BB141 /* Mongmong.usdz */; };
 		48902F6C2B0472DC006BB141 /* Hindung.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48902F6B2B0472DC006BB141 /* Hindung.usdz */; };
 		489065F52B042F63008D1ACD /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489065F42B042F63008D1ACD /* SceneController.swift */; };
+		48A499492B06341800029138 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A499482B06341800029138 /* PermissionManager.swift */; };
 		48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF46572AFCC37800C1F98F /* PopupExtension.swift */; };
 		48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */; };
 		48BF0B422ACF684800565FA5 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */; };
@@ -127,6 +128,7 @@
 		48902F652B046FC7006BB141 /* Mongmong.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Mongmong.usdz; sourceTree = "<group>"; };
 		48902F6B2B0472DC006BB141 /* Hindung.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Hindung.usdz; sourceTree = "<group>"; };
 		489065F42B042F63008D1ACD /* SceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
+		48A499482B06341800029138 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 		48AF46572AFCC37800C1F98F /* PopupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupExtension.swift; sourceTree = "<group>"; };
 		48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStackView.swift; sourceTree = "<group>"; };
 		48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				483266CC2B04E5C700B7AA00 /* randomText.wav */,
 				483266CE2B04E6F400B7AA00 /* TapSound.wav */,
 				487F55882B00AB550058124C /* AudioPlayModel.swift */,
+				48A499482B06341800029138 /* PermissionManager.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				48F63D9E2B03EDB70095FC8B /* GlobalData.swift in Sources */,
 				48635E682B060FB300B3D875 /* SelectedCharacterInfo.swift in Sources */,
 				485A99922ACBFC5700C94740 /* MainViewController.swift in Sources */,
+				48A499492B06341800029138 /* PermissionManager.swift in Sources */,
 				486D45912ACC660300D96EB1 /* SecondMainViewController.swift in Sources */,
 				485E54052B01B70E00EC5450 /* VoiceAPIHandler.swift in Sources */,
 				489065F52B042F63008D1ACD /* SceneController.swift in Sources */,

@@ -70,17 +70,24 @@ public func selectMenu(_ fileName: String, _ fileType: String) {
         }
     }
 }
-/*
+
 public func playVoice(from url: String) {
+    guard let characterUrl = URL(string: url) else {
+        print("url error")
+        return
+    }
     do {
-        characterRequest = try AVAudioPlayer(contentsOf: url)
+        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+        try AVAudioSession.sharedInstance().setActive(true)
+        
+        characterRequest = try AVAudioPlayer(contentsOf: characterUrl)
         guard let audioPlayer = characterRequest else { return }
         audioPlayer.prepareToPlay()
         audioPlayer.volume = 1.3
         audioPlayer.play()
     } catch {
         print("오디오 파일 재생에 실패했습니다: \(error)")
- }*/
-
-
+    }
+    
+}
 
