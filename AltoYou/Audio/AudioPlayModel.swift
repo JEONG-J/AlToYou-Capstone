@@ -36,6 +36,7 @@ public func startMusic(_ fileName: String? = nil){
 public func playSoundEffect(_ fileName: String, _ volume: Float) {
     if let bundle = Bundle.main.path(forResource: fileName, ofType: "mp3") {
         let soundEffectUrl = URL(fileURLWithPath: bundle)
+        print(soundEffectUrl)
         
         do {
             soundEffectPlayer = try AVAudioPlayer(contentsOf: soundEffectUrl)
@@ -50,7 +51,7 @@ public func playSoundEffect(_ fileName: String, _ volume: Float) {
                 backgroundMusicPlayer?.volume = originalVolume
             }
         } catch {
-            fatalError("Failed to initialize the sound effect player")
+            print("Failed to initialize the sound effect player")
         }
     }
 }

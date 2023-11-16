@@ -51,7 +51,7 @@ extension SecondMainViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.chracterBackgroundView.layer.borderWidth = 9
         
         let selectedCharacter = CharacterInfo.CharacterList[indexPath.row]
-        playSoundEffect(selectedCharacter.voice ?? "", 2.0)
+        playSoundEffect(selectedCharacter.voice ?? "Mongmong-e", 2.0)
         
         currentIndexPath = indexPath
     }
@@ -65,7 +65,7 @@ extension SecondMainViewController: UICollectionViewDelegate, UICollectionViewDa
                 /* 팝업 뷰 => AR뷰로 전환  */
                 showPopUp(message: "학습을 진행해볼래요?", leftActionTitle: "Yes",rightActionTitle: "No", leftActionCompletion: { [weak self] in
                     guard let strongSelf = self else { return }
-                    
+                    GlobalData.shared.characterName = selectedCharacter.voice ?? ""
                     backgroundMusicPlayer?.pause()
                     let selectedCharaterInfo = SelectedCharacterInfo()
                     selectedCharaterInfo.character = selectedCharacter

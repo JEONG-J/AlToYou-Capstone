@@ -11,5 +11,6 @@ import UIKit
 class GlobalData{
     static let shared = GlobalData()
     var userNickname: String?
+    var characterName: String?
 }
 

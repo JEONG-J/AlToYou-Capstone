@@ -64,19 +64,7 @@ class AudioRecorderWrapper: ObservableObject {
     func stopRecording() {
         audioRecorder?.stop()
         audioRecorder = nil
-        playRecordedAudio()
         sendAudioFileToServer(audioFilename)
-    }
-    
-    private func playRecordedAudio() {
-        guard let audioFilename = audioFilename else { return }
-        
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
-            audioPlayer?.play()
-        } catch {
-            print("재생 중 오류 발생: \(error)")
-        }
     }
     
     func sendAudioFileToServer(_ fileUrl: URL?) {
@@ -88,10 +76,10 @@ class AudioRecorderWrapper: ObservableObject {
             AF.upload(multipartFormData: { multipartFormData in
                 multipartFormData.append(fileUrl, withName: "audioFile", fileName: "recording.wav", mimeType: "audio/wav")
             }, to: uploadURL)
-            .response { response in
+            .responseDecodable(of: GetVoice.self) { response in
                 switch response.result {
-                case .success(let responseData):
-                    print("파일 전송 성공: \(String(describing: responseData))")
+                case .success(let getVoiceResponse):
+                    playVoice(from: getVoiceResponse.url ?? "")
                 case .failure(let error):
                     print("파일 전송 실패: \(error)")
                 }
