@@ -14,6 +14,7 @@ public var backgroundMusicPlayer: AVAudioPlayer?
 private var characterRequest: AVPlayer?
 private var originalVolume: Float = 0.5
 
+
 public func startMusic(_ fileName: String? = nil){
     if let bundle = Bundle.main.path(forResource: fileName, ofType: "mp3"){
         let backgroundMusicUrl = URL(fileURLWithPath: bundle)

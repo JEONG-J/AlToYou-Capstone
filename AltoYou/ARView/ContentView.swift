@@ -10,7 +10,7 @@ import RealityKit
 import Combine
 
 struct ContentView : View {
-    
+    @ObservedObject var voiceViewModel = VoiceViewModel()
     @EnvironmentObject var selectedCharacterInfo: SelectedCharacterInfo
     var selectedCharater: CharacterInfo?
     
@@ -19,9 +19,27 @@ struct ContentView : View {
             if let character = selectedCharacterInfo.character {
                 ARViewContainer(modelName: character.file ?? "")
                     .edgesIgnoringSafeArea(.all)
+                    .onAppear(){
+                        voiceViewModel.beginVoice()
+                    }
+            }
+            VStack{
+                HStack{
+                    ExitButton()
+                        .padding()
+                    Spacer()
+                }
+                Spacer()
+            }
+            VStack{
+                Spacer()
+                HStack{
+                    Spacer()
+                    MICButton()
+                        .padding()
+                }
             }
         }
-        
     }
 }
 
@@ -59,7 +77,7 @@ struct ARViewContainer: UIViewRepresentable {
                 
                 let distance: Float = 2.0  // 2 meters away
                 modelEntity.position = [0, 0, -distance]
-
+                
                 
             })
             .store(in: &context.coordinator.subscriptions) // Assuming you have a way to store subscriptions in your coordinator

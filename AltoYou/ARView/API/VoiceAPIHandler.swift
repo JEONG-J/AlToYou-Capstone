@@ -25,6 +25,9 @@ class VoiceAPIHandler: ObservableObject {
                     if responseBeginVoice.status {
                         print("message: \(responseBeginVoice.message)")
                         print("URL : \(responseBeginVoice.url ?? "")")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                            playVoice(from: responseBeginVoice.url ?? "")
+                        }
                     } else {
                         print("실패")
                     }
@@ -35,3 +38,4 @@ class VoiceAPIHandler: ObservableObject {
         }
     }
 }
+

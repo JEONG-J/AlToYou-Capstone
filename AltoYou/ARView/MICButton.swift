@@ -40,16 +40,18 @@ class AudioRecorderWrapper: ObservableObject {
         try? recordingSession.setActive(true)
         
         let documentPath = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask)[0]
-        audioFilename = documentPath.appendingPathComponent("recording.m4a")
+        audioFilename = documentPath.appendingPathComponent("recording.wav")
         print(documentPath)
         print(audioFilename!)
         
-        let settings = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 12000,
-            AVNumberOfChannelsKey: 1,
-            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-        ]
+        let settings: [String: Any] = [
+               AVFormatIDKey: Int(kAudioFormatLinearPCM), // WAV format
+               AVSampleRateKey: 24000, // Sample rate typical for WAV files
+               AVNumberOfChannelsKey: 1, // Mono audio
+               AVLinearPCMBitDepthKey: 16, // Typical bit depth for WAV
+               AVLinearPCMIsBigEndianKey: false, // Endianness
+               AVLinearPCMIsFloatKey: false // PCM format
+           ]
         
         do{
             audioRecorder = try AVAudioRecorder(url: audioFilename!, settings: settings)
@@ -67,15 +69,15 @@ class AudioRecorderWrapper: ObservableObject {
     }
     
     private func playRecordedAudio() {
-            guard let audioFilename = audioFilename else { return }
-
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
-                audioPlayer?.play()
-            } catch {
-                print("재생 중 오류 발생: \(error)")
-            }
+        guard let audioFilename = audioFilename else { return }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
+            audioPlayer?.play()
+        } catch {
+            print("재생 중 오류 발생: \(error)")
         }
+    }
     
     func sendAudioFileToServer(_ fileUrl: URL?) {
         guard let fileUrl = fileUrl else { return }
@@ -83,24 +85,16 @@ class AudioRecorderWrapper: ObservableObject {
         // 서버의 엔드포인트 URL
         let uploadURL = "http://13.124.7.35:8080/api/conversation/audio/test"
         
-        AF.upload(multipartFormData: { multipartFormData in
-            multipartFormData.append(fileUrl, withName: "audioFile", fileName: "recording.m4a", mimeType: "audio/MPEG-4")
-        }, to: uploadURL)
-        .response { response in
-            switch response.result {
-            case .success(let responseData):
-                print("파일 전송 성공: \(String(describing: responseData))")
-            case .failure(let error):
-                print("파일 전송 실패: \(error)")
+            AF.upload(multipartFormData: { multipartFormData in
+                multipartFormData.append(fileUrl, withName: "audioFile", fileName: "recording.wav", mimeType: "audio/wav")
+            }, to: uploadURL)
+            .response { response in
+                switch response.result {
+                case .success(let responseData):
+                    print("파일 전송 성공: \(String(describing: responseData))")
+                case .failure(let error):
+                    print("파일 전송 실패: \(error)")
+                }
             }
-        }
     }
 }
-/*
- struct MICButton_Previews: PreviewProvider {
- static var previews: some View {
- MICButton()
-    }
- }
- 
-*/
