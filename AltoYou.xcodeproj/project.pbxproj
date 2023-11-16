@@ -30,6 +30,7 @@
 		485E54032B01B65300EC5450 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E54022B01B65300EC5450 /* DataModel.swift */; };
 		485E54052B01B70E00EC5450 /* VoiceAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E54042B01B70E00EC5450 /* VoiceAPIHandler.swift */; };
 		485E54072B01D21D00EC5450 /* Mongmong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 485E54062B01D21D00EC5450 /* Mongmong.mp3 */; };
+		48635E682B060FB300B3D875 /* SelectedCharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48635E672B060FB300B3D875 /* SelectedCharacterInfo.swift */; };
 		486AFC042AF3983E005F9803 /* cloudAni.json in Resources */ = {isa = PBXBuildFile; fileRef = 486AFC032AF3983E005F9803 /* cloudAni.json */; };
 		486D45912ACC660300D96EB1 /* SecondMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D45902ACC660300D96EB1 /* SecondMainViewController.swift */; };
 		486D459A2ACC6CEA00D96EB1 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D45992ACC6CEA00D96EB1 /* MainTabBarController.swift */; };
@@ -104,6 +105,7 @@
 		485E54022B01B65300EC5450 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		485E54042B01B70E00EC5450 /* VoiceAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAPIHandler.swift; sourceTree = "<group>"; };
 		485E54062B01D21D00EC5450 /* Mongmong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mongmong.mp3; sourceTree = "<group>"; };
+		48635E672B060FB300B3D875 /* SelectedCharacterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCharacterInfo.swift; sourceTree = "<group>"; };
 		486AFC032AF3983E005F9803 /* cloudAni.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cloudAni.json; sourceTree = "<group>"; };
 		486D45902ACC660300D96EB1 /* SecondMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondMainViewController.swift; sourceTree = "<group>"; };
 		486D45992ACC6CEA00D96EB1 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				485A99852ACBFC0500C94740 /* ContentView.swift */,
 				487CE8572B0101F50067C619 /* MICButton.swift */,
 				48C0C25A2B01220900A6BD67 /* ExitButton.swift */,
+				48635E672B060FB300B3D875 /* SelectedCharacterInfo.swift */,
 			);
 			path = ARView;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				484F5DE02AF23AC00085CADA /* ScrollExtension.swift in Sources */,
 				487CE8582B0101F50067C619 /* MICButton.swift in Sources */,
 				48F63D9E2B03EDB70095FC8B /* GlobalData.swift in Sources */,
+				48635E682B060FB300B3D875 /* SelectedCharacterInfo.swift in Sources */,
 				485A99922ACBFC5700C94740 /* MainViewController.swift in Sources */,
 				486D45912ACC660300D96EB1 /* SecondMainViewController.swift in Sources */,
 				485E54052B01B70E00EC5450 /* VoiceAPIHandler.swift in Sources */,

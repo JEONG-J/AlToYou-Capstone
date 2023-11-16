@@ -60,11 +60,17 @@ extension SecondMainViewController: UICollectionViewDelegate, UICollectionViewDa
         if gesture.state == .began{
             guard let collectionView = gesture.view?.superview as? UICollectionView else { return }
             let point = gesture.location(in: collectionView)
-            if collectionView.indexPathForItem(at: point) != nil{
+            if let indexPath = collectionView.indexPathForItem(at: point){
+                let selectedCharacter = CharacterInfo.CharacterList[indexPath.row]
                 /* 팝업 뷰 => AR뷰로 전환  */
                 showPopUp(message: "학습을 진행해볼래요?", leftActionTitle: "Yes",rightActionTitle: "No", leftActionCompletion: { [weak self] in
                     guard let strongSelf = self else { return }
-                    let contentView = ContentView().environmentObject(self?.voiceAPIHandler ?? VoiceAPIHandler())
+                    let selectedCharaterInfo = SelectedCharacterInfo()
+                    selectedCharaterInfo.character = selectedCharacter
+                    
+                    let contentView = ContentView()
+                           .environmentObject(self?.voiceAPIHandler ?? VoiceAPIHandler())
+                           .environmentObject(selectedCharaterInfo)
                     let hostingController = UIHostingController(rootView: contentView)
                     
                     hostingController.modalPresentationStyle = .fullScreen
