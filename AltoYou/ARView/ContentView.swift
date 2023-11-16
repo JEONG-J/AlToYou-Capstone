@@ -1,131 +1,79 @@
 //
 //  ContentView.swift
-//  AltoYou
+//  Test3D
 //
-//  Created by 정의찬 on 10/3/23.
+//  Created by 정의찬 on 11/16/23.
 //
 
 import SwiftUI
 import RealityKit
-import AVFoundation
-import Alamofire
 import Combine
 
 struct ContentView : View {
-    @ObservedObject var voiceViewModel = VoiceViewModel()
-    @State private var arView: ARView?
-    @State private var showARView = true
-    @EnvironmentObject var selectedCharacterInfo: SelectedCharacterInfo
     
+    @EnvironmentObject var selectedCharacterInfo: SelectedCharacterInfo
     var selectedCharater: CharacterInfo?
     
     var body: some View {
-        
         ZStack{
-            if showARView, let character = selectedCharacterInfo.character {
-                ARViewContainer(modelName: character.file ?? "", arView: $arView)
-                    .environmentObject(AudioManager.shared) // AudioManager 인스턴스 주입
+            if let character = selectedCharacterInfo.character {
+                ARViewContainer(modelName: character.file ?? "")
                     .edgesIgnoringSafeArea(.all)
             }
-            VStack{
-                HStack{
-                    ExitButton()
-                        .padding()
-                    Spacer()
-                }
-                Spacer()
-            }
-            VStack{
-                Spacer()
-                HStack{
-                    Spacer()
-                    MICButton()
-                        .padding()
-                }
-            }
         }
-        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("CloseARView"))) { _ in
-            self.showARView = false
-            self.arView?.session.pause()
-        }
-        .onAppear{
-            print("VoiceAPIHandler")
-            voiceViewModel.beginVoice()
-        }
+        
+    }
+}
+
+struct ARViewContainer: UIViewRepresentable {
+    
+    var modelName: String
+    func makeCoordinator() -> Coordinator {
+        return Coordinator()
     }
     
-    struct ARViewContainer: UIViewRepresentable {
+    
+    class Coordinator {
+        var subscriptions = Set<AnyCancellable>()
+    }
+    
+    func makeUIView(context: Context) -> ARView {
+        let arView = ARView(frame: .zero)
+        print(modelName)
+        let modelName = modelName
         
-        var modelName: String
-        @Binding var arView: ARView?
-        @EnvironmentObject var adudioManager: AudioManager
+        // Create horizontal plane anchor for the content
+        let anchor = AnchorEntity(.plane(.horizontal, classification: .any, minimumBounds: SIMD2<Float>(0.2, 0.2)))
         
-        func makeUIView(context: Context) -> ARView {
-            
-            AudioManager.shared.stopMusic()
-            let arView = ARView(frame: .zero)
-            arView.isUserInteractionEnabled = true
-
-            
-            loadModel(modelName: modelName, in: arView)
-            
-            
-            self.arView = arView
-            
-            return arView
-            
-        }
-        
-        func updateUIView(_ uiView: ARView, context: Context) {}
-        
-        private func loadModel(modelName: String, in arView: ARView) {
-            let fileName = modelName
-            if let modelEntity = try? ModelEntity.loadModel(named: fileName) {
-                modelEntity.scale = SIMD3<Float>(0.1, 0.1, 0.1) // 크기를 더 작게 조정
-                print(modelEntity.scale)
+        // Load the model asynchronously
+        ModelEntity.loadModelAsync(named: modelName)
+            .sink(receiveCompletion: { loadCompletion in
+                // Handle errors or completion
+            }, receiveValue: { modelEntity in
                 
-                let anchorEntity = AnchorEntity(.plane(.horizontal, classification: .floor , minimumBounds: SIMD2(0.1, 0.1)))
-                anchorEntity.addChild(modelEntity)
-                arView.scene.addAnchor(anchorEntity)
-
-                // 모델의 스케일 조정
-                modelEntity.availableAnimations.forEach { animation in
+                let scaleFactor: Float = 0.2  // Adjust this value as needed
+                modelEntity.scale = SIMD3<Float>(scaleFactor, scaleFactor, scaleFactor)
+                // Add the model to the anchor once it's loaded
+                anchor.addChild(modelEntity)
+                
+                if let animation = modelEntity.availableAnimations.first {
                     modelEntity.playAnimation(animation.repeat())
                 }
-
-            }
-        }
+            })
+            .store(in: &context.coordinator.subscriptions) // Assuming you have a way to store subscriptions in your coordinator
         
+        // Add the horizontal plane anchor to the scene
+        arView.scene.anchors.append(anchor)
         
-        
-        static func dismantleUIView(_ uiView: ARView, coordinator: Coordinator) {
-            AudioManager.shared.startMusic()
-        }
-        
+        return arView
     }
+    
+    
+    func updateUIView(_ uiView: ARView, context: Context) {}
+    
 }
 
-class AudioManager: ObservableObject{
-    static let shared = AudioManager()
-    @Published private var isPlayMusic = false
-    
-    func startMusic(){
-        AltoYou.startMusic("backgroundMusic")
-        isPlayMusic = true
-    }
-    
-    func stopMusic(){
-        backgroundMusicPlayer?.pause()
-        isPlayMusic = false
-    }
-    
-    func toggleMusic(){
-        if isPlayMusic{
-            stopMusic()
-        } else{
-            startMusic()
-        }
-    }
+#Preview {
+    ContentView()
 }
-
 
