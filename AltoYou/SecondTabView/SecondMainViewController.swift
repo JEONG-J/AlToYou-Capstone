@@ -10,7 +10,6 @@ import SwiftUI
 import SnapKit
 
 class SecondMainViewController: UIViewController {
-    
     var voiceAPIHandler = VoiceAPIHandler()
     var currentIndexPath: IndexPath?
     
