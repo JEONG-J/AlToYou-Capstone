@@ -43,22 +43,24 @@ struct ARViewContainer: UIViewRepresentable {
         let modelName = modelName
         
         // Create horizontal plane anchor for the content
-        let anchor = AnchorEntity(.plane(.horizontal, classification: .any, minimumBounds: SIMD2<Float>(0.2, 0.2)))
+        let anchor = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2<Float>(0.2, 0.2)))
         
         // Load the model asynchronously
         ModelEntity.loadModelAsync(named: modelName)
             .sink(receiveCompletion: { loadCompletion in
                 // Handle errors or completion
             }, receiveValue: { modelEntity in
-                
-                let scaleFactor: Float = 0.2  // Adjust this value as needed
-                modelEntity.scale = SIMD3<Float>(scaleFactor, scaleFactor, scaleFactor)
                 // Add the model to the anchor once it's loaded
                 anchor.addChild(modelEntity)
                 
                 if let animation = modelEntity.availableAnimations.first {
                     modelEntity.playAnimation(animation.repeat())
                 }
+                
+                let distance: Float = 2.0  // 2 meters away
+                modelEntity.position = [0, 0, -distance]
+
+                
             })
             .store(in: &context.coordinator.subscriptions) // Assuming you have a way to store subscriptions in your coordinator
         
@@ -68,10 +70,10 @@ struct ARViewContainer: UIViewRepresentable {
         return arView
     }
     
-    
     func updateUIView(_ uiView: ARView, context: Context) {}
     
 }
+
 
 #Preview {
     ContentView()
