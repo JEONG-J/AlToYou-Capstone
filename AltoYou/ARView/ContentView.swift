@@ -81,19 +81,21 @@ struct ARViewContainer: UIViewRepresentable {
                     modelEntity.playAnimation(animation.repeat())
                 }
                 
+                //모델 그림자 생성 막는 경향 있다.
+                /*
                 let distance: Float = 1.2
                 modelEntity.position = [0, -1, -distance]
-                
+                */
                 
             })
             .store(in: &context.coordinator.subscriptions)
         
         let light = DirectionalLight()
-        light.light.intensity = 3000
+        light.light.intensity = 5000
         light.light.color = .white
-        light.shadow = DirectionalLightComponent.Shadow(maximumDistance: 1,depthBias: 100)
+        light.shadow = DirectionalLightComponent.Shadow(maximumDistance: 4,depthBias: 1)
         light.orientation = simd_quatf(angle: .pi / 4, axis: [0, 0, 0])
-        light.position = [0, 1, 3]
+        light.position = [0, 10, 20]
         anchor.addChild(light)
         
         arView.scene.anchors.append(anchor)
