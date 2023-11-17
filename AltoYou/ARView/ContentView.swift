@@ -36,6 +36,7 @@ struct ContentView : View {
                 }
                 Spacer()
             }
+            
             VStack{
                 Spacer()
                 HStack{
@@ -66,30 +67,37 @@ struct ARViewContainer: UIViewRepresentable {
         print(modelName)
         let modelName = modelName
         
-        // Create horizontal plane anchor for the content
-        let anchor = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2<Float>(0.2, 0.2)))
         
-        // Load the model asynchronously
+        let anchor = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2<Float>(0.3, 0.3)))
+        
+        
         ModelEntity.loadModelAsync(named: modelName)
             .sink(receiveCompletion: { loadCompletion in
-                // Handle errors or completion
             }, receiveValue: { modelEntity in
-                // Add the model to the anchor once it's loaded
+                
                 anchor.addChild(modelEntity)
                 
                 if let animation = modelEntity.availableAnimations.first {
                     modelEntity.playAnimation(animation.repeat())
                 }
                 
-                let distance: Float = 2.0  // 2 meters away
-                modelEntity.position = [0, 0, -distance]
+                let distance: Float = 1.2
+                modelEntity.position = [0, -1, -distance]
                 
                 
             })
-            .store(in: &context.coordinator.subscriptions) // Assuming you have a way to store subscriptions in your coordinator
+            .store(in: &context.coordinator.subscriptions)
         
-        // Add the horizontal plane anchor to the scene
+        let light = DirectionalLight()
+        light.light.intensity = 3000
+        light.light.color = .white
+        light.shadow = DirectionalLightComponent.Shadow(maximumDistance: 3,depthBias: 1)
+        light.orientation = simd_quatf(angle: .pi / 4, axis: [1, 2, 2])
+        light.position = [0, 1, 3]
+        anchor.addChild(light)
+        
         arView.scene.anchors.append(anchor)
+        
         
         return arView
     }
@@ -120,9 +128,3 @@ class AudioManager: ObservableObject{
         }
     }
 }
-
-
-#Preview {
-    ContentView()
-}
-

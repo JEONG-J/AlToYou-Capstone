@@ -20,6 +20,7 @@ struct MICButton: View {
     }
     
     private func toggleMicrophone() {
+        selectMenu("micButton", "wav")
         isRecording.toggle()
         if isRecording {
             audioRecorderWrapper.startRecording()
@@ -40,7 +41,8 @@ class AudioRecorderWrapper: ObservableObject {
         try? recordingSession.setActive(true)
         
         let documentPath = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask)[0]
-        audioFilename = documentPath.appendingPathComponent("recording.wav")
+        let randomString = UUID().uuidString
+        audioFilename = documentPath.appendingPathComponent("\(randomString).wav")
         print(documentPath)
         print(audioFilename!)
         
@@ -69,12 +71,13 @@ class AudioRecorderWrapper: ObservableObject {
     
     func sendAudioFileToServer(_ fileUrl: URL?) {
         guard let fileUrl = fileUrl else { return }
+        let randomString = UUID().uuidString
         
         // 서버의 엔드포인트 URL
         let uploadURL = "http://13.124.7.35:8080/api/conversation/audio/test"
         
             AF.upload(multipartFormData: { multipartFormData in
-                multipartFormData.append(fileUrl, withName: "audioFile", fileName: "recording.wav", mimeType: "audio/wav")
+                multipartFormData.append(fileUrl, withName: "audioFile", fileName: "\(randomString).wav", mimeType: "audio/wav")
             }, to: uploadURL)
             .responseDecodable(of: GetVoice.self) { response in
                 switch response.result {

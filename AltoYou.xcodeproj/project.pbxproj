@@ -26,7 +26,6 @@
 		4859E6252AE5242F00871CC1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4859E6242AE5242F00871CC1 /* Lottie */; };
 		4859E62B2AE5248000871CC1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4859E62A2AE5248000871CC1 /* SplashViewController.swift */; };
 		485A99842ACBFC0500C94740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A99832ACBFC0500C94740 /* AppDelegate.swift */; };
-		485A99862ACBFC0500C94740 /* ContentView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A99852ACBFC0500C94740 /* ContentView1.swift */; };
 		485A99882ACBFC0600C94740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 485A99872ACBFC0600C94740 /* Assets.xcassets */; };
 		485A998B2ACBFC0600C94740 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 485A998A2ACBFC0600C94740 /* Preview Assets.xcassets */; };
 		485A99922ACBFC5700C94740 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A99912ACBFC5700C94740 /* MainViewController.swift */; };
@@ -60,7 +59,8 @@
 		489065F52B042F63008D1ACD /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489065F42B042F63008D1ACD /* SceneController.swift */; };
 		48A499492B06341800029138 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A499482B06341800029138 /* PermissionManager.swift */; };
 		48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF46572AFCC37800C1F98F /* PopupExtension.swift */; };
-		48B3F6002B06BFF600AF77E1 /* Mongmongi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48B3F5FF2B06BFF600AF77E1 /* Mongmongi.mp3 */; };
+		48B3F6002B06BFF600AF77E1 /* Mongmong-e.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48B3F5FF2B06BFF600AF77E1 /* Mongmong-e.mp3 */; };
+		48B3F6022B06C94E00AF77E1 /* micButton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 48B3F6012B06C94E00AF77E1 /* micButton.wav */; };
 		48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */; };
 		48BF0B422ACF684800565FA5 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */; };
 		48BF0B442ACF6BD100565FA5 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B432ACF6BD100565FA5 /* DayModel.swift */; };
@@ -104,7 +104,6 @@
 		4859E62A2AE5248000871CC1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		485A99802ACBFC0500C94740 /* AltoYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AltoYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		485A99832ACBFC0500C94740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		485A99852ACBFC0500C94740 /* ContentView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView1.swift; sourceTree = "<group>"; };
 		485A99872ACBFC0600C94740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		485A998A2ACBFC0600C94740 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		485A99912ACBFC5700C94740 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +132,8 @@
 		489065F42B042F63008D1ACD /* SceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
 		48A499482B06341800029138 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 		48AF46572AFCC37800C1F98F /* PopupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupExtension.swift; sourceTree = "<group>"; };
-		48B3F5FF2B06BFF600AF77E1 /* Mongmongi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Mongmongi.mp3; sourceTree = "<group>"; };
+		48B3F5FF2B06BFF600AF77E1 /* Mongmong-e.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mongmong-e.mp3"; sourceTree = "<group>"; };
+		48B3F6012B06C94E00AF77E1 /* micButton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = micButton.wav; sourceTree = "<group>"; };
 		48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStackView.swift; sourceTree = "<group>"; };
 		48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		48BF0B432ACF6BD100565FA5 /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
@@ -271,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				485E54012B01B63B00EC5450 /* API */,
-				485A99852ACBFC0500C94740 /* ContentView1.swift */,
 				487CE8572B0101F50067C619 /* MICButton.swift */,
 				48C0C25A2B01220900A6BD67 /* ExitButton.swift */,
 				48635E672B060FB300B3D875 /* SelectedCharacterInfo.swift */,
@@ -289,12 +288,13 @@
 				48902F612B046AC8006BB141 /* outSound.wav */,
 				487F55842B009D710058124C /* backgroundMusic.mp3 */,
 				487CE84E2B00E3D00067C619 /* selectCharacter.wav */,
-				48B3F5FF2B06BFF600AF77E1 /* Mongmongi.mp3 */,
+				48B3F5FF2B06BFF600AF77E1 /* Mongmong-e.mp3 */,
 				487F55862B00AACF0058124C /* propeller.mp3 */,
 				487CE8502B00E8EE0067C619 /* Hindung-e.mp3 */,
 				480335E22B0692E90042CF95 /* Yangyangi.mp3 */,
 				483266CC2B04E5C700B7AA00 /* randomText.wav */,
 				483266CE2B04E6F400B7AA00 /* TapSound.wav */,
+				48B3F6012B06C94E00AF77E1 /* micButton.wav */,
 				487F55882B00AB550058124C /* AudioPlayModel.swift */,
 				48A499482B06341800029138 /* PermissionManager.swift */,
 			);
@@ -431,7 +431,8 @@
 				48F63DA02B03F91C0095FC8B /* startSound.wav in Resources */,
 				487F55852B009D710058124C /* backgroundMusic.mp3 in Resources */,
 				48902F6C2B0472DC006BB141 /* Hindung-e.usdz in Resources */,
-				48B3F6002B06BFF600AF77E1 /* Mongmongi.mp3 in Resources */,
+				48B3F6022B06C94E00AF77E1 /* micButton.wav in Resources */,
+				48B3F6002B06BFF600AF77E1 /* Mongmong-e.mp3 in Resources */,
 				48902F672B046FC7006BB141 /* Yangyangi.usdz in Resources */,
 				48902F682B046FC7006BB141 /* Mongmong-e.usdz in Resources */,
 				485A998B2ACBFC0600C94740 /* Preview Assets.xcassets in Resources */,
@@ -482,7 +483,6 @@
 				486D459A2ACC6CEA00D96EB1 /* MainTabBarController.swift in Sources */,
 				486D459C2ACC71E400D96EB1 /* Extension.swift in Sources */,
 				480335E52B0693840042CF95 /* ContentView.swift in Sources */,
-				485A99862ACBFC0500C94740 /* ContentView1.swift in Sources */,
 				483A07172AFC7DEF00009C61 /* PopUpViewController.swift in Sources */,
 				485A99842ACBFC0500C94740 /* AppDelegate.swift in Sources */,
 				488148622B0209F600B98B8B /* SocialLoginView.swift in Sources */,
