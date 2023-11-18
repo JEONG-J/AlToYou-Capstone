@@ -68,7 +68,7 @@ struct ARViewContainer: UIViewRepresentable {
         let modelName = modelName
         
         
-        let anchor = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2<Float>(0.3, 0.3)))
+        let anchor = AnchorEntity(.plane(.horizontal, classification: .table, minimumBounds: SIMD2<Float>(0.3, 0.3)))
         
         
         ModelEntity.loadModelAsync(named: modelName)
@@ -82,11 +82,9 @@ struct ARViewContainer: UIViewRepresentable {
                 }
                 
                 //모델 그림자 생성 막는 경향 있다.
-                /*
                 let distance: Float = 1.2
                 modelEntity.position = [0, -1, -distance]
-                */
-                
+                                
             })
             .store(in: &context.coordinator.subscriptions)
         

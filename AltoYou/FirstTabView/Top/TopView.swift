@@ -236,7 +236,7 @@ class TopView: UIView {
         playSoundEffect("propeller", 1.0)
     }
     
-    //TODO: - 사운드 효과 추가하기
+    ///MARK: - 사운드 효과 주기
     @objc func deleteTokenAction(){
         selectMenu("deleteSound", "wav")
         showPopUp(message: "회원정보 삭제를 진행할까요??", leftActionTitle: "Yes", rightActionTitle: "No", leftActionCompletion: {
