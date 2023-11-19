@@ -53,39 +53,69 @@ struct ARViewContainer: UIViewRepresentable {
     
     @EnvironmentObject var adudioManager: AudioManager
     var modelName: String
+    
     func makeCoordinator() -> Coordinator {
         return Coordinator()
     }
     
     
-    class Coordinator {
+    class Coordinator: NSObject {
         var subscriptions = Set<AnyCancellable>()
+        var modelEntity: ModelEntity?
+
+        @objc func handlePinch(_ gesture: UIPinchGestureRecognizer) {
+            guard let modelEntity = modelEntity else { return }
+            
+            
+            let scale = gesture.scale
+            modelEntity.scale *= Float(scale)
+            gesture.scale = 1.0
+        }
+
+        @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
+            guard let modelEntity = modelEntity else { return }
+
+            if gesture.state == .changed {
+                let translation = gesture.translation(in: gesture.view)
+                let translationIn3D = SIMD3<Float>(Float(translation.x) * 0.001, 0.0, Float(translation.y) * 0.001)
+                modelEntity.position += translationIn3D
+                gesture.setTranslation(.zero, in: gesture.view)
+            }
+        }
     }
+
     
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
-        print(modelName)
         let modelName = modelName
         
-        
-        let anchor = AnchorEntity(.plane(.horizontal, classification: .table, minimumBounds: SIMD2<Float>(0.3, 0.3)))
-        
+        let anchor = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2<Float>(0.3, 0.3)))
         
         ModelEntity.loadModelAsync(named: modelName)
             .sink(receiveCompletion: { loadCompletion in
             }, receiveValue: { modelEntity in
-                
+                context.coordinator.modelEntity = modelEntity
                 anchor.addChild(modelEntity)
                 
                 if let animation = modelEntity.availableAnimations.first {
                     modelEntity.playAnimation(animation.repeat())
                 }
                 
+              /*
                 //모델 그림자 생성 막는 경향 있다.
                 let distance: Float = 1.2
                 modelEntity.position = [0, -1, -distance]
-                                
+               */
+                
+                let pinchGesture = UIPinchGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePinch(_:)))
+                  arView.addGestureRecognizer(pinchGesture)
+
+                  // Add Pan Gesture Recognizer for Moving
+                  let panGesture = UIPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePan(_:)))
+                  arView.addGestureRecognizer(panGesture)
+                
             })
+        
             .store(in: &context.coordinator.subscriptions)
         
         let light = DirectionalLight()
