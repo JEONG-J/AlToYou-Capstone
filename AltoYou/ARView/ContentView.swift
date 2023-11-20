@@ -62,7 +62,7 @@ struct ARViewContainer: UIViewRepresentable {
     class Coordinator: NSObject {
         var subscriptions = Set<AnyCancellable>()
         var modelEntity: ModelEntity?
-
+        
         @objc func handlePinch(_ gesture: UIPinchGestureRecognizer) {
             guard let modelEntity = modelEntity else { return }
             
@@ -71,10 +71,10 @@ struct ARViewContainer: UIViewRepresentable {
             modelEntity.scale *= Float(scale)
             gesture.scale = 1.0
         }
-
+        
         @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
             guard let modelEntity = modelEntity else { return }
-
+            
             if gesture.state == .changed {
                 let translation = gesture.translation(in: gesture.view)
                 let translationIn3D = SIMD3<Float>(Float(translation.x) * 0.001, 0.0, Float(translation.y) * 0.001)
@@ -82,8 +82,20 @@ struct ARViewContainer: UIViewRepresentable {
                 gesture.setTranslation(.zero, in: gesture.view)
             }
         }
+        
+        @objc func handleRotation(_ gesture: UIRotationGestureRecognizer) {
+            guard let modelEntity = modelEntity else { return }
+            
+            if gesture.state == .changed {
+                let sensitivity: Float = 2.0
+                let rotation = Float(gesture.rotation) * sensitivity
+                    
+                modelEntity.transform.rotation *= simd_quatf(angle: rotation, axis: [0,-1,0])
+                gesture.rotation = 0
+            }
+        }
     }
-
+    
     
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
@@ -101,18 +113,21 @@ struct ARViewContainer: UIViewRepresentable {
                     modelEntity.playAnimation(animation.repeat())
                 }
                 
-              /*
-                //모델 그림자 생성 막는 경향 있다.
-                let distance: Float = 1.2
-                modelEntity.position = [0, -1, -distance]
-               */
+                /*
+                 //모델 그림자 생성 막는 경향 있다.
+                 let distance: Float = 1.2
+                 modelEntity.position = [0, -1, -distance]
+                 */
                 
                 let pinchGesture = UIPinchGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePinch(_:)))
-                  arView.addGestureRecognizer(pinchGesture)
-
-                  // Add Pan Gesture Recognizer for Moving
-                  let panGesture = UIPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePan(_:)))
-                  arView.addGestureRecognizer(panGesture)
+                arView.addGestureRecognizer(pinchGesture)
+                
+                // Add Pan Gesture Recognizer for Moving
+                let panGesture = UIPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePan(_:)))
+                arView.addGestureRecognizer(panGesture)
+                
+                let rotationGesture = UIRotationGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleRotation(_:)))
+                arView.addGestureRecognizer(rotationGesture)
                 
             })
         
