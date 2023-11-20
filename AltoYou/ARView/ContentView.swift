@@ -76,22 +76,21 @@ struct ARViewContainer: UIViewRepresentable {
             guard let modelEntity = modelEntity else { return }
             
             if gesture.state == .changed {
-                let translation = gesture.translation(in: gesture.view)
-                let translationIn3D = SIMD3<Float>(Float(translation.x) * 0.001, 0.0, Float(translation.y) * 0.001)
-                modelEntity.position += translationIn3D
-                gesture.setTranslation(.zero, in: gesture.view)
-            }
-        }
-        
-        @objc func handleRotation(_ gesture: UIRotationGestureRecognizer) {
-            guard let modelEntity = modelEntity else { return }
-            
-            if gesture.state == .changed {
-                let sensitivity: Float = 2.0
-                let rotation = Float(gesture.rotation) * sensitivity
+                if gesture.numberOfTouches == 1{
+                    let translation = gesture.translation(in: gesture.view)
+                    let translationIn3D = SIMD3<Float>(Float(translation.x) * 0.001, 0.0, Float(translation.y) * 0.001)
+                    modelEntity.position += translationIn3D
+                    gesture.setTranslation(.zero, in: gesture.view)
+                } else if gesture.numberOfTouches == 2{
+                    let translation = gesture.translation(in: gesture.view)
+                    gesture.setTranslation(CGPoint.zero, in: gesture.view)
                     
-                modelEntity.transform.rotation *= simd_quatf(angle: rotation, axis: [0,-1,0])
-                gesture.rotation = 0
+                    let axis : SIMD3<Float> = [0,1,0]
+                    let rotationFactor: Float = 0.01
+                    let rotaionAngle = Float(translation.x) * rotationFactor
+                    
+                    modelEntity.transform.rotation *= simd_quatf(angle: rotaionAngle, axis: axis)
+                }
             }
         }
     }
@@ -125,9 +124,6 @@ struct ARViewContainer: UIViewRepresentable {
                 // Add Pan Gesture Recognizer for Moving
                 let panGesture = UIPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePan(_:)))
                 arView.addGestureRecognizer(panGesture)
-                
-                let rotationGesture = UIRotationGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleRotation(_:)))
-                arView.addGestureRecognizer(rotationGesture)
                 
             })
         
