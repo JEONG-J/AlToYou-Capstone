@@ -23,6 +23,7 @@
 		484322092AF4DC37005C064C /* CharacterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484322082AF4DC37005C064C /* CharacterExtension.swift */; };
 		48433B912ACFCDB7007F017D /* Katuri.otf in Resources */ = {isa = PBXBuildFile; fileRef = 48433B902ACFCDB7007F017D /* Katuri.otf */; };
 		484F5DE02AF23AC00085CADA /* ScrollExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484F5DDF2AF23AC00085CADA /* ScrollExtension.swift */; };
+		485827242B0B2E74008E7483 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485827232B0B2E74008E7483 /* ThirdTabViewController.swift */; };
 		4859E6252AE5242F00871CC1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4859E6242AE5242F00871CC1 /* Lottie */; };
 		4859E62B2AE5248000871CC1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4859E62A2AE5248000871CC1 /* SplashViewController.swift */; };
 		485A99842ACBFC0500C94740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A99832ACBFC0500C94740 /* AppDelegate.swift */; };
@@ -101,6 +102,7 @@
 		484322082AF4DC37005C064C /* CharacterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtension.swift; sourceTree = "<group>"; };
 		48433B902ACFCDB7007F017D /* Katuri.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Katuri.otf; sourceTree = "<group>"; };
 		484F5DDF2AF23AC00085CADA /* ScrollExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollExtension.swift; sourceTree = "<group>"; };
+		485827232B0B2E74008E7483 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
 		4859E62A2AE5248000871CC1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		485A99802ACBFC0500C94740 /* AltoYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AltoYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		485A99832ACBFC0500C94740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,14 @@
 			path = CustomPopUpView;
 			sourceTree = "<group>";
 		};
+		485827212B0B2E46008E7483 /* ThirdTapView */ = {
+			isa = PBXGroup;
+			children = (
+				485827232B0B2E74008E7483 /* ThirdTabViewController.swift */,
+			);
+			path = ThirdTapView;
+			sourceTree = "<group>";
+		};
 		4859E6282AE5245F00871CC1 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +218,7 @@
 				48BF0B3F2ACF601000565FA5 /* 3D Characters */,
 				483A07152AFC7DC400009C61 /* CustomPopUpView */,
 				4865AE6E2ACD74C90085A4C7 /* MainTabBar */,
+				485827212B0B2E46008E7483 /* ThirdTapView */,
 				486D458F2ACC65C800D96EB1 /* SecondTabView */,
 				486D458E2ACC65BA00D96EB1 /* FirstTabView */,
 				4859E6282AE5245F00871CC1 /* Splash */,
@@ -471,6 +482,7 @@
 				480335E72B06A4B90042CF95 /* VoiceViewModel.swift in Sources */,
 				48F63D9E2B03EDB70095FC8B /* GlobalData.swift in Sources */,
 				48635E682B060FB300B3D875 /* SelectedCharacterInfo.swift in Sources */,
+				485827242B0B2E74008E7483 /* ThirdTabViewController.swift in Sources */,
 				485A99922ACBFC5700C94740 /* MainViewController.swift in Sources */,
 				48A499492B06341800029138 /* PermissionManager.swift in Sources */,
 				486D45912ACC660300D96EB1 /* SecondMainViewController.swift in Sources */,

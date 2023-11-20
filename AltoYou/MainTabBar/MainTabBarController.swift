@@ -4,7 +4,7 @@
 //
 //  Created by 정의찬 on 10/4/23.
 //
-
+import SwiftUI
 import UIKit
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
@@ -15,7 +15,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
         
-        let space = tabBar.bounds.width * 0.30
+        let space = tabBar.bounds.width * 0.25
         setSelf(space, 30)
         addTab()
         setupNotificationCenterObserver()
@@ -52,11 +52,13 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     private func addTab(){
-        let targetSize = CGSize(width: 40, height: 40)
+        let targetSize = CGSize(width: 50, height: 50)
         let selectedColor = UIColor(red: 0.53, green: 0.81, blue: 0.92, alpha: 1.00)
         
         let vc1 = MainViewController()
         let vc2 = SecondMainViewController()
+        let hostingController = ThirdTabViewController()
+        let vc3 = UIHostingController(rootView: hostingController)
         
         if let resizedHouseImage = UIImage(named: "house.png")?.resizeImage(targetSize: targetSize) {
             vc1.tabBarItem.image = resizedHouseImage.withRenderingMode(.alwaysOriginal)
@@ -66,6 +68,10 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
             vc2.tabBarItem.image = resizedChatImage.withRenderingMode(.alwaysOriginal)
         }
         
+        if let resizedChartImage = UIImage(named: "chart.png")?.resizeImage(targetSize: targetSize) {
+            vc3.tabBarItem.image = resizedChartImage.withRenderingMode(.alwaysOriginal)
+        }
+        
         let leftEmptyVc = UIViewController()
         let rightEmptyVc = UIViewController()
         [leftEmptyVc, rightEmptyVc].forEach{ $0.tabBarItem.isEnabled = false }
@@ -73,7 +79,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: selectedColor], for: .selected)
         
         
-        viewControllers = [leftEmptyVc, vc1, vc2, rightEmptyVc]
+        viewControllers = [leftEmptyVc, vc1, vc2, vc3,rightEmptyVc]
         self.selectedIndex = 1
     }
     
