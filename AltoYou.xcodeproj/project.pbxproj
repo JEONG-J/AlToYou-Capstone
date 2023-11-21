@@ -23,7 +23,6 @@
 		484322092AF4DC37005C064C /* CharacterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484322082AF4DC37005C064C /* CharacterExtension.swift */; };
 		48433B912ACFCDB7007F017D /* Katuri.otf in Resources */ = {isa = PBXBuildFile; fileRef = 48433B902ACFCDB7007F017D /* Katuri.otf */; };
 		484F5DE02AF23AC00085CADA /* ScrollExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484F5DDF2AF23AC00085CADA /* ScrollExtension.swift */; };
-		485827242B0B2E74008E7483 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485827232B0B2E74008E7483 /* ThirdTabViewController.swift */; };
 		4859E6252AE5242F00871CC1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4859E6242AE5242F00871CC1 /* Lottie */; };
 		4859E62B2AE5248000871CC1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4859E62A2AE5248000871CC1 /* SplashViewController.swift */; };
 		485A99842ACBFC0500C94740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A99832ACBFC0500C94740 /* AppDelegate.swift */; };
@@ -60,6 +59,7 @@
 		489065F52B042F63008D1ACD /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489065F42B042F63008D1ACD /* SceneController.swift */; };
 		48A499492B06341800029138 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A499482B06341800029138 /* PermissionManager.swift */; };
 		48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF46572AFCC37800C1F98F /* PopupExtension.swift */; };
+		48B120AE2B0BDC31001352EC /* ThirdMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B120AD2B0BDC31001352EC /* ThirdMainViewController.swift */; };
 		48B3F6002B06BFF600AF77E1 /* Mongmong-e.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48B3F5FF2B06BFF600AF77E1 /* Mongmong-e.mp3 */; };
 		48B3F6022B06C94E00AF77E1 /* micButton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 48B3F6012B06C94E00AF77E1 /* micButton.wav */; };
 		48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */; };
@@ -102,7 +102,6 @@
 		484322082AF4DC37005C064C /* CharacterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtension.swift; sourceTree = "<group>"; };
 		48433B902ACFCDB7007F017D /* Katuri.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Katuri.otf; sourceTree = "<group>"; };
 		484F5DDF2AF23AC00085CADA /* ScrollExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollExtension.swift; sourceTree = "<group>"; };
-		485827232B0B2E74008E7483 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
 		4859E62A2AE5248000871CC1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		485A99802ACBFC0500C94740 /* AltoYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AltoYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		485A99832ACBFC0500C94740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +133,7 @@
 		489065F42B042F63008D1ACD /* SceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
 		48A499482B06341800029138 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 		48AF46572AFCC37800C1F98F /* PopupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupExtension.swift; sourceTree = "<group>"; };
+		48B120AD2B0BDC31001352EC /* ThirdMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdMainViewController.swift; sourceTree = "<group>"; };
 		48B3F5FF2B06BFF600AF77E1 /* Mongmong-e.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mongmong-e.mp3"; sourceTree = "<group>"; };
 		48B3F6012B06C94E00AF77E1 /* micButton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = micButton.wav; sourceTree = "<group>"; };
 		48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStackView.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		485827212B0B2E46008E7483 /* ThirdTapView */ = {
 			isa = PBXGroup;
 			children = (
-				485827232B0B2E74008E7483 /* ThirdTabViewController.swift */,
+				48B120AD2B0BDC31001352EC /* ThirdMainViewController.swift */,
 			);
 			path = ThirdTapView;
 			sourceTree = "<group>";
@@ -482,7 +482,6 @@
 				480335E72B06A4B90042CF95 /* VoiceViewModel.swift in Sources */,
 				48F63D9E2B03EDB70095FC8B /* GlobalData.swift in Sources */,
 				48635E682B060FB300B3D875 /* SelectedCharacterInfo.swift in Sources */,
-				485827242B0B2E74008E7483 /* ThirdTabViewController.swift in Sources */,
 				485A99922ACBFC5700C94740 /* MainViewController.swift in Sources */,
 				48A499492B06341800029138 /* PermissionManager.swift in Sources */,
 				486D45912ACC660300D96EB1 /* SecondMainViewController.swift in Sources */,
@@ -490,6 +489,7 @@
 				489065F52B042F63008D1ACD /* SceneController.swift in Sources */,
 				48BF0B442ACF6BD100565FA5 /* DayModel.swift in Sources */,
 				480EDA8B2AEF5A5A0007DDDF /* BottomView.swift in Sources */,
+				48B120AE2B0BDC31001352EC /* ThirdMainViewController.swift in Sources */,
 				48BF0B422ACF684800565FA5 /* DayCollectionViewCell.swift in Sources */,
 				4813682C2AF0D22D00B03E97 /* AttendCellExtension.swift in Sources */,
 				486D459A2ACC6CEA00D96EB1 /* MainTabBarController.swift in Sources */,

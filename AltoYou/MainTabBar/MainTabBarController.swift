@@ -57,8 +57,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         let vc1 = MainViewController()
         let vc2 = SecondMainViewController()
-        let hostingController = ThirdTabViewController()
-        let vc3 = UIHostingController(rootView: hostingController)
+        let vc3 = ThirdMainViewController()
         
         if let resizedHouseImage = UIImage(named: "house.png")?.resizeImage(targetSize: targetSize) {
             vc1.tabBarItem.image = resizedHouseImage.withRenderingMode(.alwaysOriginal)
