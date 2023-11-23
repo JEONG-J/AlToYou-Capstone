@@ -118,6 +118,7 @@ class BottomView: UIImageView{
         pageControl.snp.makeConstraints{ make in
             make.top.equalTo(horizonScrollView.snp.bottom).offset(16)
             make.centerX.equalTo(horizonScrollView.snp.centerX)
+            make.height.width.greaterThanOrEqualTo(30)
         }
     }
     
