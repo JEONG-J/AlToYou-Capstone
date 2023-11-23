@@ -65,6 +65,7 @@ class EvaluationHistroyTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setSelf()
+        makeConstraints()
     }
     
     //MARK: - Function
@@ -76,8 +77,53 @@ class EvaluationHistroyTableViewCell: UITableViewCell {
         self.layer.shadowRadius = 4
         self.layer.shadowOpacity = 1
         self.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        self.layer.masksToBounds = false
     }
     
-    ///MARK: - 제약 조건 함수
+    ///MARK: - 프로퍼티 추가 함수
+    private func addProperty(){
+        self.addSubview(talkedCharacterImageView)
+        self.addSubview(evaluationLabel)
+        self.addSubview(timeLabel)
+        self.addSubview(starImageView)
+    }
+    
+    ///MARK: - 제약 조건 설정
+    private func makeConstraints(){
+        addProperty()
+        
+        talkedCharacterImageView.snp.makeConstraints{ make in
+            make.left.equalToSuperview().offset(74)
+            make.top.equalToSuperview().offset(7)
+            make.bottom.equalToSuperview().offset(-7)
+            make.width.equalTo(131)
+        }
+        
+        evaluationLabel.snp.makeConstraints{ make in
+            make.top.equalToSuperview().offset(33)
+            make.left.equalTo(talkedCharacterImageView.snp.right).offset(133)
+            make.width.greaterThanOrEqualTo(320)
+            make.height.equalTo(53)
+        }
+        
+        timeLabel.snp.makeConstraints{ make in
+            make.left.equalTo(talkedCharacterImageView.snp.right).offset(203)
+            make.top.equalTo(evaluationLabel.snp.bottom).offset(2)
+            make.bottom.equalToSuperview().offset(-33)
+            make.width.greaterThanOrEqualTo(190)
+        }
+        
+        starImageView.snp.makeConstraints{ make in
+            make.top.equalToSuperview().offset(37)
+            make.bottom.equalToSuperview().offset(-36)
+            make.right.equalToSuperview().offset(-28)
+            make.left.equalTo(evaluationLabel.snp.right).offset(161)
+        }
+    }
+    
+    //TODO: 작성할 부분
+    func configuration(){
+        
+    }
 
 }
