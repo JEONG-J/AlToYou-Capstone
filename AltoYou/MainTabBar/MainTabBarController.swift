@@ -28,7 +28,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
             self?.dismiss(animated: true, completion: nil)
         }
     }
-
+    
     
     private func setSelf(_ space: CGFloat, _ addHeight: CGFloat){
         let x: CGFloat = space
@@ -102,10 +102,12 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     private func colorBar(at index: Int){
         switch index{
-    case 1:
-        layer.fillColor = UIColor(red: 0.50, green: 0.91, blue: 1.00, alpha: 1.00).cgColor
-    case 2:
-        layer.fillColor = UIColor(red: 0.18, green: 0.87, blue: 0.59, alpha: 1.00).cgColor
+        case 1:
+            layer.fillColor = UIColor(red: 0.50, green: 0.91, blue: 1.00, alpha: 1.00).cgColor
+        case 2:
+            layer.fillColor = UIColor(red: 0.18, green: 0.87, blue: 0.59, alpha: 1.00).cgColor
+        case 3:
+            layer.fillColor =  UIColor(red: 1.00, green: 0.93, blue: 0.89, alpha: 1.00).cgColor
         default:
             layer.fillColor = UIColor.white.cgColor
         }
