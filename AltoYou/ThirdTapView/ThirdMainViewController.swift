@@ -29,14 +29,18 @@ class ThirdMainViewController: UIViewController {
     }()
     
     ///MARK: - 회화 항목 히스토리
-    private lazy var historyTable: UITableView = {
-        let table = UITableView()
-        table.layer.borderWidth = 1
-        table.layer.borderColor = UIColor.black.cgColor
-        return table
+    private lazy var historyTable: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 32
+        
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.register(EvaluationHistroyCollectionViewCell.self, forCellWithReuseIdentifier: EvaluationHistroyCollectionViewCell.identifier)
+        cv.delegate = self
+        cv.dataSource = self
+        cv.backgroundColor = .clear
+        return cv
     }()
-    
-    
     
     //MARK: - Init
     override func viewDidLoad() {
