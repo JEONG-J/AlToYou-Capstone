@@ -19,10 +19,10 @@ struct EvaluationView: View {
                     .ignoresSafeArea()
                 ScrollView{
                     VStack{
-                        Spacer(minLength: 100)
+                        Spacer(minLength: 50)
                         ZStack(alignment: .center){
                             Rectangle()
-                                .frame(width: 910, height: 700)
+                                .frame(width: 910, height: 750)
                                 .foregroundStyle(.white.opacity(0.8))
                                 .clipShape(.rect(cornerRadius: 25))
                                 .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 10)
@@ -43,7 +43,7 @@ struct EvaluationView: View {
                                     MakeChartView(data: evaluationPieChartData[4], colors: self.colorForLabel(evaluationPieChartData[4].label))
                                 }
                             }
-                            .frame(width: 700, height: 500)
+                            .frame(width: 650, height: 500)
                             
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -12,13 +12,17 @@ struct MakeChartView: View {
     var colors: Color
     
     var body: some View {
-        ZStack{
-            Circle()
-                .trim(from: 0, to: CGFloat(data.value) / 100)
-                .stroke(colors, lineWidth: 30)
-                .frame(width: 150, height: 150)
-            Text("\(Int(data.value))%")
+        VStack{
+            Text("\(data.label)")
                 .font(.custom("Goryeong-Strawberry", fixedSize: 30))
+            ZStack{
+                Circle()
+                    .trim(from: 0, to: CGFloat(data.value) / 100)
+                    .stroke(colors, lineWidth: 25)
+                    .frame(width: 140, height: 145)
+                Text("\(Int(data.value))%")
+                    .font(.custom("Goryeong-Strawberry", fixedSize: 30))
+            }
         }
     }
 }
