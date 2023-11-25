@@ -67,7 +67,7 @@
 		48BF0B422ACF684800565FA5 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */; };
 		48BF0B442ACF6BD100565FA5 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B432ACF6BD100565FA5 /* DayModel.swift */; };
 		48C0C25B2B01220900A6BD67 /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C0C25A2B01220900A6BD67 /* ExitButton.swift */; };
-		48C8AA662B0F82AF00027BF6 /* EavaluationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8AA652B0F82AF00027BF6 /* EavaluationModel.swift */; };
+		48C8AA662B0F82AF00027BF6 /* EavaluationHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8AA652B0F82AF00027BF6 /* EavaluationHistoryModel.swift */; };
 		48C8AA6A2B0F931100027BF6 /* EvaluationExtesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8AA692B0F931100027BF6 /* EvaluationExtesion.swift */; };
 		48D7385F2AFCE4DA003F1EFC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48D7385E2AFCE4DA003F1EFC /* SnapKit */; };
 		48F63D9E2B03EDB70095FC8B /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F63D9D2B03EDB70095FC8B /* GlobalData.swift */; };
@@ -144,7 +144,7 @@
 		48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		48BF0B432ACF6BD100565FA5 /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
 		48C0C25A2B01220900A6BD67 /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
-		48C8AA652B0F82AF00027BF6 /* EavaluationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EavaluationModel.swift; sourceTree = "<group>"; };
+		48C8AA652B0F82AF00027BF6 /* EavaluationHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EavaluationHistoryModel.swift; sourceTree = "<group>"; };
 		48C8AA692B0F931100027BF6 /* EvaluationExtesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationExtesion.swift; sourceTree = "<group>"; };
 		48F63D9D2B03EDB70095FC8B /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		48F63D9F2B03F91C0095FC8B /* startSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = startSound.wav; sourceTree = "<group>"; };
@@ -170,6 +170,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48097AF12B11E38200819714 /* EvaluationView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EvaluationView;
+			sourceTree = "<group>";
+		};
+		48097AF22B11E3EB00819714 /* EvaluationHistroy */ = {
+			isa = PBXGroup;
+			children = (
+				486040062B0D90C8003019F5 /* EvaluationHistroyCollectionViewCell.swift */,
+				48C8AA652B0F82AF00027BF6 /* EavaluationHistoryModel.swift */,
+				48C8AA692B0F931100027BF6 /* EvaluationExtesion.swift */,
+			);
+			path = EvaluationHistroy;
+			sourceTree = "<group>";
+		};
 		483A07152AFC7DC400009C61 /* CustomPopUpView */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,9 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				48B120AD2B0BDC31001352EC /* ThirdMainViewController.swift */,
-				486040062B0D90C8003019F5 /* EvaluationHistroyCollectionViewCell.swift */,
-				48C8AA652B0F82AF00027BF6 /* EavaluationModel.swift */,
-				48C8AA692B0F931100027BF6 /* EvaluationExtesion.swift */,
+				48097AF22B11E3EB00819714 /* EvaluationHistroy */,
+				48097AF12B11E38200819714 /* EvaluationView */,
 			);
 			path = ThirdTapView;
 			sourceTree = "<group>";
@@ -499,7 +515,7 @@
 				485E54052B01B70E00EC5450 /* VoiceAPIHandler.swift in Sources */,
 				489065F52B042F63008D1ACD /* SceneController.swift in Sources */,
 				48BF0B442ACF6BD100565FA5 /* DayModel.swift in Sources */,
-				48C8AA662B0F82AF00027BF6 /* EavaluationModel.swift in Sources */,
+				48C8AA662B0F82AF00027BF6 /* EavaluationHistoryModel.swift in Sources */,
 				480EDA8B2AEF5A5A0007DDDF /* BottomView.swift in Sources */,
 				48B120AE2B0BDC31001352EC /* ThirdMainViewController.swift in Sources */,
 				48BF0B422ACF684800565FA5 /* DayCollectionViewCell.swift in Sources */,

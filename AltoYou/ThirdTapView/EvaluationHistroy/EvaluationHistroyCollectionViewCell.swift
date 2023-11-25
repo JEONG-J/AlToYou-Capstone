@@ -123,7 +123,7 @@ class EvaluationHistroyCollectionViewCell: UICollectionViewCell {
     }
     
     //TODO: 작성할 부분
-    public func configuration(model: EavaluationModel){
+    public func configuration(model: EavaluationHistoryModel){
         let img = UIImage(named: model.evaluationCharacter)?.resizeImage(targetSize: CGSize(width: 131, height: 167))
         talkedCharacterImageView.image = img
         evaluationDateLabel.text = parsingDate(date: model.evaluationDate)

@@ -10,13 +10,13 @@ import UIKit
 
 extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        EvaluationInfo.evaluationList.count
+        EvaluationHistroyInfo.evaluationHistoryList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EvaluationHistroyCollectionViewCell.identifier, for: indexPath) as? EvaluationHistroyCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.configuration(model: EvaluationInfo.evaluationList[indexPath.row])
+        cell.configuration(model: EvaluationHistroyInfo.evaluationHistoryList[indexPath.row])
         
         return cell
     }
