@@ -10,6 +10,9 @@
 		480335E32B0692E90042CF95 /* Yangyangi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 480335E22B0692E90042CF95 /* Yangyangi.mp3 */; };
 		480335E52B0693840042CF95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480335E42B0693840042CF95 /* ContentView.swift */; };
 		480335E72B06A4B90042CF95 /* VoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480335E62B06A4B90042CF95 /* VoiceViewModel.swift */; };
+		48097AF52B11E57700819714 /* EvaluationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48097AF42B11E57700819714 /* EvaluationView.swift */; };
+		48097AF72B11E8D300819714 /* ChartDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48097AF62B11E8D300819714 /* ChartDataModel.swift */; };
+		48097AF92B11E93500819714 /* MakeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48097AF82B11E93500819714 /* MakeChartView.swift */; };
 		480EDA872AEF55D10007DDDF /* animation_lo1aspnb.json in Resources */ = {isa = PBXBuildFile; fileRef = 480EDA862AEF55D10007DDDF /* animation_lo1aspnb.json */; };
 		480EDA892AEF55DD0007DDDF /* toy_biplane_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 480EDA882AEF55DD0007DDDF /* toy_biplane_idle.usdz */; };
 		480EDA8B2AEF5A5A0007DDDF /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480EDA8A2AEF5A590007DDDF /* BottomView.swift */; };
@@ -92,6 +95,9 @@
 		480335E22B0692E90042CF95 /* Yangyangi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Yangyangi.mp3; sourceTree = "<group>"; };
 		480335E42B0693840042CF95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		480335E62B06A4B90042CF95 /* VoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceViewModel.swift; sourceTree = "<group>"; };
+		48097AF42B11E57700819714 /* EvaluationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationView.swift; sourceTree = "<group>"; };
+		48097AF62B11E8D300819714 /* ChartDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataModel.swift; sourceTree = "<group>"; };
+		48097AF82B11E93500819714 /* MakeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeChartView.swift; sourceTree = "<group>"; };
 		480EDA862AEF55D10007DDDF /* animation_lo1aspnb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_lo1aspnb.json; sourceTree = "<group>"; };
 		480EDA882AEF55DD0007DDDF /* toy_biplane_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane_idle.usdz; sourceTree = "<group>"; };
 		480EDA8A2AEF5A590007DDDF /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
@@ -173,6 +179,9 @@
 		48097AF12B11E38200819714 /* EvaluationView */ = {
 			isa = PBXGroup;
 			children = (
+				48097AF42B11E57700819714 /* EvaluationView.swift */,
+				48097AF62B11E8D300819714 /* ChartDataModel.swift */,
+				48097AF82B11E93500819714 /* MakeChartView.swift */,
 			);
 			path = EvaluationView;
 			sourceTree = "<group>";
@@ -500,6 +509,7 @@
 				48C0C25B2B01220900A6BD67 /* ExitButton.swift in Sources */,
 				486040072B0D90C8003019F5 /* EvaluationHistroyCollectionViewCell.swift in Sources */,
 				4813682A2AF0CBCF00B03E97 /* AttendanceView.swift in Sources */,
+				48097AF92B11E93500819714 /* MakeChartView.swift in Sources */,
 				487007D22ACF5088009C6EC9 /* TopView.swift in Sources */,
 				484322092AF4DC37005C064C /* CharacterExtension.swift in Sources */,
 				48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */,
@@ -527,9 +537,11 @@
 				485A99842ACBFC0500C94740 /* AppDelegate.swift in Sources */,
 				488148622B0209F600B98B8B /* SocialLoginView.swift in Sources */,
 				487F558B2B00B5B10058124C /* PresentMessage.swift in Sources */,
+				48097AF52B11E57700819714 /* EvaluationView.swift in Sources */,
 				48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */,
 				484322072AF4D13A005C064C /* CharacterModel.swift in Sources */,
 				4859E62B2AE5248000871CC1 /* SplashViewController.swift in Sources */,
+				48097AF72B11E8D300819714 /* ChartDataModel.swift in Sources */,
 				487F55892B00AB550058124C /* AudioPlayModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
