@@ -31,7 +31,6 @@ class EvaluationHistroyCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    //TODO: - 이미지 넣기
     ///MARK: - 대화 했던 캐릭터 이미지 뷰
     private lazy var talkedCharacterImageView: UIImageView = {
         let view = UIImageView()
@@ -40,7 +39,6 @@ class EvaluationHistroyCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    //TODO: - 이미지 넣기
     ///MARK: - 셀 선택 버튼 이미지
     private lazy var starImageView: UIImageView = {
         let view = UIImageView()
@@ -122,6 +120,7 @@ class EvaluationHistroyCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    ///MARK: - 셀 초기화
     public func configuration(model: EavaluationHistoryModel){
         let img = UIImage(named: model.evaluationCharacter)?.resizeImage(targetSize: CGSize(width: 131, height: 167))
         talkedCharacterImageView.image = img
@@ -130,6 +129,7 @@ class EvaluationHistroyCollectionViewCell: UICollectionViewCell {
         
     }
     
+    ///MARK: - 날짜 파싱
     private func parsingDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
@@ -137,6 +137,7 @@ class EvaluationHistroyCollectionViewCell: UICollectionViewCell {
         return dateFormatter.string(from: date)
     }
     
+    ///MARK: - 시간 파싱
     private func parsingTime(date: Date) -> String {
         let timeFormatter = DateFormatter()
         timeFormatter.locale = Locale(identifier: "ko_KR")
