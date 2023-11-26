@@ -19,8 +19,13 @@ struct SentenceGridView: View {
         .padding()
     }
     
+    /// 문장속에 해당 단어만 커스텀 진행
+    /// - Parameter sentenceData: 회화 진행하면서 응답한 회화
+    /// - Returns: 에러 타입에 대한 문자 리턴
     private func makeAttributedString(from sentenceData: SentenceData) -> AttributedString {
         var attributedString = AttributedString(sentenceData.sentence)
+        attributedString.font = .custom("Goryeong-Strawberry", size: 40)
+        attributedString.foregroundColor = .black
         
         for error in sentenceData.errors {
             if let range = attributedString.range(of: error.errorWord) {
@@ -36,7 +41,7 @@ struct SentenceGridView: View {
 }
 
 
-/*
+
 #Preview {
-    SentencGridView()
-}*/
+    SentenceGridView()
+}
