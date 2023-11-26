@@ -61,6 +61,8 @@
 		48902F682B046FC7006BB141 /* Mongmong-e.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48902F652B046FC7006BB141 /* Mongmong-e.usdz */; };
 		48902F6C2B0472DC006BB141 /* Hindung-e.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48902F6B2B0472DC006BB141 /* Hindung-e.usdz */; };
 		489065F52B042F63008D1ACD /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489065F42B042F63008D1ACD /* SceneController.swift */; };
+		4891B2DD2B1379990013F778 /* SentenceDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4891B2DC2B1379990013F778 /* SentenceDataModel.swift */; };
+		4891B2DF2B137F370013F778 /* SentenceGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4891B2DE2B137F370013F778 /* SentenceGridView.swift */; };
 		48A499492B06341800029138 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A499482B06341800029138 /* PermissionManager.swift */; };
 		48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF46572AFCC37800C1F98F /* PopupExtension.swift */; };
 		48B120AE2B0BDC31001352EC /* ThirdMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B120AD2B0BDC31001352EC /* ThirdMainViewController.swift */; };
@@ -141,6 +143,8 @@
 		48902F652B046FC7006BB141 /* Mongmong-e.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Mongmong-e.usdz"; sourceTree = "<group>"; };
 		48902F6B2B0472DC006BB141 /* Hindung-e.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = "Hindung-e.usdz"; sourceTree = "<group>"; };
 		489065F42B042F63008D1ACD /* SceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
+		4891B2DC2B1379990013F778 /* SentenceDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceDataModel.swift; sourceTree = "<group>"; };
+		4891B2DE2B137F370013F778 /* SentenceGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceGridView.swift; sourceTree = "<group>"; };
 		48A499482B06341800029138 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 		48AF46572AFCC37800C1F98F /* PopupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupExtension.swift; sourceTree = "<group>"; };
 		48B120AD2B0BDC31001352EC /* ThirdMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdMainViewController.swift; sourceTree = "<group>"; };
@@ -181,7 +185,9 @@
 			children = (
 				48097AF42B11E57700819714 /* EvaluationView.swift */,
 				48097AF62B11E8D300819714 /* ChartDataModel.swift */,
+				4891B2DC2B1379990013F778 /* SentenceDataModel.swift */,
 				48097AF82B11E93500819714 /* MakeChartView.swift */,
+				4891B2DE2B137F370013F778 /* SentenceGridView.swift */,
 			);
 			path = EvaluationView;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				48C0C25B2B01220900A6BD67 /* ExitButton.swift in Sources */,
 				486040072B0D90C8003019F5 /* EvaluationHistroyCollectionViewCell.swift in Sources */,
 				4813682A2AF0CBCF00B03E97 /* AttendanceView.swift in Sources */,
+				4891B2DF2B137F370013F778 /* SentenceGridView.swift in Sources */,
 				48097AF92B11E93500819714 /* MakeChartView.swift in Sources */,
 				487007D22ACF5088009C6EC9 /* TopView.swift in Sources */,
 				484322092AF4DC37005C064C /* CharacterExtension.swift in Sources */,
@@ -540,6 +547,7 @@
 				48097AF52B11E57700819714 /* EvaluationView.swift in Sources */,
 				48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */,
 				484322072AF4D13A005C064C /* CharacterModel.swift in Sources */,
+				4891B2DD2B1379990013F778 /* SentenceDataModel.swift in Sources */,
 				4859E62B2AE5248000871CC1 /* SplashViewController.swift in Sources */,
 				48097AF72B11E8D300819714 /* ChartDataModel.swift in Sources */,
 				487F55892B00AB550058124C /* AudioPlayModel.swift in Sources */,
