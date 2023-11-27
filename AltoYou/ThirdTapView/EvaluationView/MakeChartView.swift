@@ -19,11 +19,11 @@ struct MakeChartView: View {
                 Circle()
                     .trim(from: 0, to: 100)
                     .stroke(Color(red: 0.81, green: 0.83, blue: 0.85), lineWidth: 25)
-                    .frame(width: 140, height: 145)
+                    .frame(width: 150, height: 150)
                 Circle()
                     .trim(from: 0, to: CGFloat(data.value) / 100)
                     .stroke(colors, lineWidth: 25)
-                    .frame(width: 140, height: 145)
+                    .frame(width: 150, height: 150)
                 Text("\(Int(data.value))%")
                     .font(.custom("Goryeong-Strawberry", fixedSize: 30))
             }

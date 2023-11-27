@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -34,6 +35,12 @@ extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDat
         
         let originalColor = cell.backgroundColor
         let blinkColor = UIColor.gray
+        
+        let UIHostringController = UIHostingController(rootView: EvaluationView())
+        UIHostringController.modalPresentationStyle = .currentContext
+        UIHostringController.modalTransitionStyle = .coverVertical
+        
+        present(UIHostringController, animated: true, completion: nil)
         
         UIView.animate(withDuration: 0.1, animations: {
             cell.backgroundColor = blinkColor
