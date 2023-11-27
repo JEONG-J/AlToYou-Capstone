@@ -23,10 +23,10 @@ struct SentenceGridView: View {
                 }
             }
             .padding(.vertical, 20)
-            .frame(width: 1000)
-            .background(Color.white)
+            .frame(width: 1200)
+            .background(Color.white.opacity(0.8))
             .clipShape(.rect(cornerRadius: 25))
-            .shadow(radius: 30)
+            .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 10)
             .padding()
         }
     }
@@ -48,9 +48,10 @@ struct SentenceGridView: View {
     
     ///MARK: - 유저 대화목록 폰트 처리
     private func makeUserAttributedString(from sentenceUserData: SentenceUserData) -> AttributedString {
-        var attributedString = AttributedString(sentenceUserData.sentence)
+        var attributedString = AttributedString("Me : \(sentenceUserData.sentence)")
         attributedString.font = .custom("Goryeong-Strawberry", size: 40)
         attributedString.foregroundColor = .black
+        
         
         for error in sentenceUserData.errors {
             if let range = attributedString.range(of: error.errorWord) {
@@ -62,7 +63,7 @@ struct SentenceGridView: View {
     
     ///MARK: - 모델 대화목록 폰트 처리
     private func makeModelAttributedString(from sentenceModelData: SentenceModelData) -> AttributedString {
-        var attributedString = AttributedString(sentenceModelData.sentence)
+        var attributedString = AttributedString("\(sentenceModelData.sentence) : You")
         attributedString.font = .custom("Goryeong-Strawberry", size: 40)
         attributedString.foregroundColor = .blue
         
@@ -71,12 +72,16 @@ struct SentenceGridView: View {
     
     private func sentenceUserView(for sentenceUserData: SentenceUserData) -> some View {
         Text(makeUserAttributedString(from: sentenceUserData))
-            .padding(1.5)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 25)
+            .padding(.bottom, 5)
     }
-    
+
     private func sentenceModelView(for sentenceModelData: SentenceModelData) -> some View {
         Text(makeModelAttributedString(from: sentenceModelData))
-            .padding(1.5)
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.trailing, 25)
+            .padding(.bottom, 5)
     }
 }
 

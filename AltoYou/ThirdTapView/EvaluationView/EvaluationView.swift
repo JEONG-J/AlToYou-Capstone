@@ -22,7 +22,7 @@ struct EvaluationView: View {
                         Spacer(minLength: 50)
                         ZStack(alignment: .center){
                             Rectangle()
-                                .frame(width: 910, height: 750)
+                                .frame(width: 1200, height: 750)
                                 .foregroundStyle(.white.opacity(0.8))
                                 .clipShape(.rect(cornerRadius: 25))
                                 .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 10)
@@ -46,7 +46,7 @@ struct EvaluationView: View {
                             .frame(width: 650, height: 500)
                             
                         }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height)
                         
                         SentenceGridView()
                     }
@@ -54,7 +54,7 @@ struct EvaluationView: View {
                 .ignoresSafeArea()
             }
         }
-    }
+   }
     
     private func colorForLabel(_ label: String) -> Color {
         switch label {
