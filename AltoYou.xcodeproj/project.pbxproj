@@ -185,8 +185,8 @@
 			children = (
 				48097AF42B11E57700819714 /* EvaluationView.swift */,
 				48097AF62B11E8D300819714 /* ChartDataModel.swift */,
-				4891B2DC2B1379990013F778 /* SentenceDataModel.swift */,
 				48097AF82B11E93500819714 /* MakeChartView.swift */,
+				4891B2DC2B1379990013F778 /* SentenceDataModel.swift */,
 				4891B2DE2B137F370013F778 /* SentenceGridView.swift */,
 			);
 			path = EvaluationView;
