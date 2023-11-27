@@ -47,6 +47,8 @@ struct EvaluationView: View {
                             
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        
+                        SentenceGridView()
                     }
                 }
                 .ignoresSafeArea()

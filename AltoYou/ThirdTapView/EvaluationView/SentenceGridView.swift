@@ -8,26 +8,51 @@
 import SwiftUI
 
 struct SentenceGridView: View {
-    let SentenceDataModel = SentenceHistory()
+    let sentenceDataModel = SentenceHistory()
     
     var body: some View {
-        LazyVGrid(columns: [GridItem(.flexible())], spacing: 20) {
-            ForEach(SentenceDataModel.conversationSentence, id: \.sentence) { data in
-            sentenceView(for: data)
+        
+            LazyVGrid(columns: [GridItem(.flexible())], spacing: 0) {
+                ScrollView{
+                ForEach(interleavedSentece, id: \.sentence) { sentence in
+                    if sentence.isUserSentence {
+                        sentenceUserView(for: sentence.userSentenceData!)
+                    } else {
+                        sentenceModelView(for: sentence.modelSentenceData!)
+                    }
+                }
             }
+            .padding(.vertical, 20)
+            .frame(width: 1000)
+            .background(Color.white)
+            .clipShape(.rect(cornerRadius: 25))
+            .shadow(radius: 30)
+            .padding()
         }
-        .padding()
     }
     
-    /// 문장속에 해당 단어만 커스텀 진행
-    /// - Parameter sentenceData: 회화 진행하면서 응답한 회화
-    /// - Returns: 에러 타입에 대한 문자 리턴
-    private func makeAttributedString(from sentenceData: SentenceData) -> AttributedString {
-        var attributedString = AttributedString(sentenceData.sentence)
+    var interleavedSentece: [InterleavedSetenceData] {
+        var combineSentence = [InterleavedSetenceData]()
+        let maxLength = max(sentenceDataModel.conversationUserSentence.count, sentenceDataModel.conversationModelSentence.count)
+        
+        for index in 0..<maxLength {
+            if index < sentenceDataModel.conversationUserSentence.count {
+                combineSentence.append(InterleavedSetenceData(userSentenceData: sentenceDataModel.conversationUserSentence[index]))
+            }
+            if index < sentenceDataModel.conversationModelSentence.count {
+                combineSentence.append(InterleavedSetenceData(modelSentenceData: sentenceDataModel.conversationModelSentence[index]))
+            }
+        }
+        return combineSentence
+    }
+    
+    ///MARK: - 유저 대화목록 폰트 처리
+    private func makeUserAttributedString(from sentenceUserData: SentenceUserData) -> AttributedString {
+        var attributedString = AttributedString(sentenceUserData.sentence)
         attributedString.font = .custom("Goryeong-Strawberry", size: 40)
         attributedString.foregroundColor = .black
         
-        for error in sentenceData.errors {
+        for error in sentenceUserData.errors {
             if let range = attributedString.range(of: error.errorWord) {
                 attributedString[range].foregroundColor = .red
             }
@@ -35,8 +60,23 @@ struct SentenceGridView: View {
         return attributedString
     }
     
-    private func sentenceView(for sentenceData: SentenceData) -> some View {
-        Text(makeAttributedString(from: sentenceData))
+    ///MARK: - 모델 대화목록 폰트 처리
+    private func makeModelAttributedString(from sentenceModelData: SentenceModelData) -> AttributedString {
+        var attributedString = AttributedString(sentenceModelData.sentence)
+        attributedString.font = .custom("Goryeong-Strawberry", size: 40)
+        attributedString.foregroundColor = .blue
+        
+        return attributedString
+    }
+    
+    private func sentenceUserView(for sentenceUserData: SentenceUserData) -> some View {
+        Text(makeUserAttributedString(from: sentenceUserData))
+            .padding(1.5)
+    }
+    
+    private func sentenceModelView(for sentenceModelData: SentenceModelData) -> some View {
+        Text(makeModelAttributedString(from: sentenceModelData))
+            .padding(1.5)
     }
 }
 
