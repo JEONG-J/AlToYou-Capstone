@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import FloatingPanel
 
 extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -36,17 +37,13 @@ extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDat
         let originalColor = cell.backgroundColor
         let blinkColor = UIColor.gray
         
-        let UIHostringController = UIHostingController(rootView: EvaluationView())
-        UIHostringController.modalPresentationStyle = .currentContext
-        UIHostringController.modalTransitionStyle = .coverVertical
-        
-        present(UIHostringController, animated: true, completion: nil)
-        
         UIView.animate(withDuration: 0.1, animations: {
             cell.backgroundColor = blinkColor
         }) {(finished) in
-            UIView.animate(withDuration: 0.1) {
+            UIView.animate(withDuration: 0.1, animations: {
                 cell.backgroundColor = originalColor
+            }) { [weak self] (finished) in
+                self?.checkSheet()
             }
         }
     }

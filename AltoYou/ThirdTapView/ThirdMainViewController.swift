@@ -7,8 +7,12 @@
 
 import UIKit
 import SnapKit
+import FloatingPanel
+import SwiftUI
 
-class ThirdMainViewController: UIViewController {
+class ThirdMainViewController: UIViewController, FloatingPanelControllerDelegate {
+    
+    private var activeFloatingPanel: FloatingPanelController?
 
     ///MARk: - 배경이미지 프로퍼티
     private lazy var backgroundImageView: UIImageView = {
@@ -82,4 +86,42 @@ class ThirdMainViewController: UIViewController {
             make.bottom.equalToSuperview().offset(-140)
         }
     }
+    
+    final func checkSheet(){
+        if let existingPanel = activeFloatingPanel {
+            existingPanel.dismiss(animated: true) {
+                self.makeSheet()
+            }
+        } else {
+            makeSheet()
+        }
+    }
+    
+    final func makeSheet(){
+        let apper = SurfaceAppearance()
+        apper.cornerRadius = 16.0
+        
+        let fpc = FloatingPanelController()
+        let UIHostingController = UIHostingController(rootView: EvaluationView())
+        fpc.delegate = self
+        fpc.layout = SetFloatingPanelLayout()
+        let contentVC = UIHostingController
+        fpc.set(contentViewController: contentVC)
+        fpc.isRemovalInteractionEnabled = true
+        fpc.surfaceView.appearance = apper
+        
+        activeFloatingPanel = fpc
+        
+        fpc.addPanel(toParent: self, animated: true, completion: nil)
+    }
+}
+
+class SetFloatingPanelLayout: FloatingPanelLayout{
+    let position: FloatingPanelPosition = .top
+    let initialState: FloatingPanelState = .full
+    let anchors: [FloatingPanelState : FloatingPanelLayoutAnchoring] = [
+        .full: FloatingPanelLayoutAnchor(absoluteInset: 30.0, edge: .bottom, referenceGuide: .safeArea),
+        .half: FloatingPanelLayoutAnchor(fractionalInset: 0.43, edge: .bottom, referenceGuide: .safeArea),
+        .tip: FloatingPanelLayoutAnchor(absoluteInset: 10, edge: .bottom, referenceGuide: .safeArea)
+    ]
 }

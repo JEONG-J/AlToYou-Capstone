@@ -56,6 +56,8 @@
 		488148692B020CEC00B98B8B /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 488148682B020CEC00B98B8B /* KakaoSDKCert */; };
 		4881486B2B020CEC00B98B8B /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4881486A2B020CEC00B98B8B /* KakaoSDKCertCore */; };
 		4881486D2B020CEC00B98B8B /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 4881486C2B020CEC00B98B8B /* KakaoSDKCommon */; };
+		488BD1FB2B15B5570059BB46 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 488BD1FA2B15B5570059BB46 /* PopupView */; };
+		488BD1FE2B15B7810059BB46 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 488BD1FD2B15B7810059BB46 /* FloatingPanel */; };
 		48902F622B046AC8006BB141 /* outSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 48902F612B046AC8006BB141 /* outSound.wav */; };
 		48902F672B046FC7006BB141 /* Yangyangi.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48902F642B046FC7006BB141 /* Yangyangi.usdz */; };
 		48902F682B046FC7006BB141 /* Mongmong-e.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 48902F652B046FC7006BB141 /* Mongmong-e.usdz */; };
@@ -167,8 +169,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4881486D2B020CEC00B98B8B /* KakaoSDKCommon in Frameworks */,
+				488BD1FE2B15B7810059BB46 /* FloatingPanel in Frameworks */,
 				487CE85B2B01084D0067C619 /* Alamofire in Frameworks */,
 				488148652B020CEC00B98B8B /* KakaoSDK in Frameworks */,
+				488BD1FB2B15B5570059BB46 /* PopupView in Frameworks */,
 				4859E6252AE5242F00871CC1 /* Lottie in Frameworks */,
 				488148692B020CEC00B98B8B /* KakaoSDKCert in Frameworks */,
 				48D7385F2AFCE4DA003F1EFC /* SnapKit in Frameworks */,
@@ -429,6 +433,8 @@
 				488148682B020CEC00B98B8B /* KakaoSDKCert */,
 				4881486A2B020CEC00B98B8B /* KakaoSDKCertCore */,
 				4881486C2B020CEC00B98B8B /* KakaoSDKCommon */,
+				488BD1FA2B15B5570059BB46 /* PopupView */,
+				488BD1FD2B15B7810059BB46 /* FloatingPanel */,
 			);
 			productName = AltoYou;
 			productReference = 485A99802ACBFC0500C94740 /* AltoYou.app */;
@@ -463,6 +469,8 @@
 				48D7385D2AFCE4DA003F1EFC /* XCRemoteSwiftPackageReference "SnapKit" */,
 				487CE8592B01084D0067C619 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				488148632B020CEC00B98B8B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				488BD1F92B15B5570059BB46 /* XCRemoteSwiftPackageReference "PopupView" */,
+				488BD1FC2B15B7810059BB46 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 			);
 			productRefGroup = 485A99812ACBFC0500C94740 /* Products */;
 			projectDirPath = "";
@@ -792,6 +800,22 @@
 				minimumVersion = 2.18.2;
 			};
 		};
+		488BD1F92B15B5570059BB46 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.3;
+			};
+		};
+		488BD1FC2B15B7810059BB46 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SCENEE/FloatingPanel";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.1;
+			};
+		};
 		48D7385D2AFCE4DA003F1EFC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -837,6 +861,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 488148632B020CEC00B98B8B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKCommon;
+		};
+		488BD1FA2B15B5570059BB46 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 488BD1F92B15B5570059BB46 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
+		};
+		488BD1FD2B15B7810059BB46 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 488BD1FC2B15B7810059BB46 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
 		};
 		48D7385E2AFCE4DA003F1EFC /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

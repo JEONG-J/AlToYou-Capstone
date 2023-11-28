@@ -15,15 +15,16 @@ struct MakeChartView: View {
         VStack{
             Text("\(data.label)")
                 .font(.custom("Goryeong-Strawberry", fixedSize: 30))
+                .frame(width: 300)
             ZStack{
                 Circle()
                     .trim(from: 0, to: 100)
-                    .stroke(Color(red: 0.81, green: 0.83, blue: 0.85), lineWidth: 25)
-                    .frame(width: 150, height: 150)
+                    .stroke(Color(red: 0.81, green: 0.83, blue: 0.85), lineWidth: 30)
+                    .frame(width: 200, height: 200)
                 Circle()
                     .trim(from: 0, to: CGFloat(data.value) / 100)
-                    .stroke(colors, lineWidth: 25)
-                    .frame(width: 150, height: 150)
+                    .stroke(colors, style: StrokeStyle(lineWidth: 30, lineCap: .round))
+                    .frame(width: 200, height: 200)
                 Text("\(Int(data.value))%")
                     .font(.custom("Goryeong-Strawberry", fixedSize: 30))
             }
