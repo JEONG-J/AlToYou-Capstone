@@ -22,8 +22,8 @@ struct SentenceGridView: View {
                     }
                 }
             }
-            .padding(.vertical, 20)
-            .frame(width: 1200)
+            .padding(.vertical, 15)
+            .frame(width: 1100)
             .background(Color.white.opacity(0.8))
             .clipShape(.rect(cornerRadius: 25))
             .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 10)

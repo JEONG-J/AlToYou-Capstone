@@ -52,7 +52,6 @@ class SocialLoginView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeConstraints()
-        // Do any additional setup after loading the view.
     }
     
     //MARK: - Function
