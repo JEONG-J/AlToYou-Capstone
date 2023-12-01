@@ -38,15 +38,21 @@ extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDat
         let blinkColor = UIColor.gray
         
         
-        UIView.animate(withDuration: 0.1, animations: {
-            cell.backgroundColor = blinkColor
-        }) {(finished) in
+        
+        DispatchQueue.main.async {
             UIView.animate(withDuration: 0.1, animations: {
-                cell.backgroundColor = originalColor
-            }) { [weak self] (finished) in
-                self?.popupSheetView()
+                DispatchQueue.global(qos: .userInteractive).async {
+                    selectMenu("cellButton", "wav")
+                }
+                cell.backgroundColor = blinkColor
+            }) {(finished) in
+                UIView.animate(withDuration: 0.1, animations: {
+                    cell.backgroundColor = originalColor
+                }) { [weak self] (finished) in
+                    
+                    self?.popupSheetView()
+                }
             }
         }
     }
-    
 }

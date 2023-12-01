@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 import AVFoundation
 
+
+private var soundEffectPlayers: [String: AVAudioPlayer] = [:]
 private var soundEffectPlayer: AVAudioPlayer?
 public var backgroundMusicPlayer: AVAudioPlayer?
 private var characterRequest: AVPlayer?
@@ -57,21 +59,29 @@ public func playSoundEffect(_ fileName: String, _ volume: Float) {
 }
 
 public func selectMenu(_ fileName: String, _ fileType: String) {
-    if let bundle = Bundle.main.path(forResource: fileName, ofType: fileType) {
+    let soundKey = "\(fileName).\(fileType)"
+    
+    if let soundEffectPlayer = soundEffectPlayers[soundKey] {
+        playSoundEffect(soundEffectPlayer)
+    } else if let bundle = Bundle.main.path(forResource: fileName, ofType: fileType) {
         let soundEffectUrl = URL(fileURLWithPath: bundle)
-        
+
         do {
-            soundEffectPlayer = try AVAudioPlayer(contentsOf: soundEffectUrl)
-            guard let soundEffectPlayer = soundEffectPlayer else { return }
-            
-            soundEffectPlayer.volume = 1.3
-            soundEffectPlayer.prepareToPlay()
-            soundEffectPlayer.play()
+            let newSoundEffectPlayer = try AVAudioPlayer(contentsOf: soundEffectUrl)
+            soundEffectPlayers[soundKey] = newSoundEffectPlayer
+            playSoundEffect(newSoundEffectPlayer)
         } catch {
-            fatalError("Failed to initialize the sound effect player")
+            print("error")
         }
     }
 }
+
+private func playSoundEffect(_ player: AVAudioPlayer) {
+    player.volume = 0.9
+    player.prepareToPlay()
+    player.play()
+}
+
 
 public func playVoice(from url: String) {
     guard let characterUrl = URL(string: url) else {
