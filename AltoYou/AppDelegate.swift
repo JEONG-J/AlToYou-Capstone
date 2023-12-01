@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        window.rootViewController = ThirdMainViewController()
+        window.rootViewController = MainTabBarController()
         window.makeKeyAndVisible()
         permissionManagger.requestAudioPermission()
         

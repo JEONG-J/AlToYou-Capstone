@@ -36,6 +36,8 @@ extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDat
         
         let originalColor = cell.backgroundColor
         let blinkColor = UIColor.gray
+        let UIHostingController = UIHostingController(rootView: EvaluationView())
+        present(UIHostingController, animated: true, completion: nil)
         
         UIView.animate(withDuration: 0.1, animations: {
             cell.backgroundColor = blinkColor
@@ -43,7 +45,7 @@ extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDat
             UIView.animate(withDuration: 0.1, animations: {
                 cell.backgroundColor = originalColor
             }) { [weak self] (finished) in
-                self?.checkSheet()
+               // self?.checkSheet()
             }
         }
     }

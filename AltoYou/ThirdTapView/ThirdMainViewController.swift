@@ -96,10 +96,11 @@ class ThirdMainViewController: UIViewController, FloatingPanelControllerDelegate
             makeSheet()
         }
     }
-    
+     
     final func makeSheet(){
         let apper = SurfaceAppearance()
-        apper.cornerRadius = 16.0
+        apper.cornerRadius = 16
+        
         
         let fpc = FloatingPanelController()
         let UIHostingController = UIHostingController(rootView: EvaluationView())
@@ -107,7 +108,7 @@ class ThirdMainViewController: UIViewController, FloatingPanelControllerDelegate
         fpc.layout = SetFloatingPanelLayout()
         let contentVC = UIHostingController
         fpc.set(contentViewController: contentVC)
-        fpc.isRemovalInteractionEnabled = true
+     //   fpc.isRemovalInteractionEnabled = true
         fpc.surfaceView.appearance = apper
         
         activeFloatingPanel = fpc
@@ -117,11 +118,11 @@ class ThirdMainViewController: UIViewController, FloatingPanelControllerDelegate
 }
 
 class SetFloatingPanelLayout: FloatingPanelLayout{
-    let position: FloatingPanelPosition = .top
+    let position: FloatingPanelPosition = .bottom
     let initialState: FloatingPanelState = .full
     let anchors: [FloatingPanelState : FloatingPanelLayoutAnchoring] = [
-        .full: FloatingPanelLayoutAnchor(absoluteInset: 30.0, edge: .bottom, referenceGuide: .safeArea),
-        .half: FloatingPanelLayoutAnchor(fractionalInset: 0.43, edge: .bottom, referenceGuide: .safeArea),
-        .tip: FloatingPanelLayoutAnchor(absoluteInset: 10, edge: .bottom, referenceGuide: .safeArea)
+        .full: FloatingPanelLayoutAnchor(absoluteInset: 30.0, edge: .top, referenceGuide: .safeArea),
+        .half: FloatingPanelLayoutAnchor(fractionalInset: 0.43, edge: .bottom, referenceGuide: .superview),
+        .tip: FloatingPanelLayoutAnchor(absoluteInset: 10, edge: .bottom, referenceGuide: .superview)
     ]
 }
