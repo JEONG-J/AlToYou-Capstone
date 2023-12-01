@@ -50,6 +50,7 @@ struct EvaluationView: View {
                 }
                 .ignoresSafeArea()
             }
+            .frame(width: geometry.size.width, height: geometry.size.height)
         }
    }
 }

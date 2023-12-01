@@ -7,13 +7,10 @@
 
 import UIKit
 import SnapKit
-import FloatingPanel
 import SwiftUI
 
-class ThirdMainViewController: UIViewController, FloatingPanelControllerDelegate {
+class ThirdMainViewController: UIViewController{
     
-    private var activeFloatingPanel: FloatingPanelController?
-
     ///MARk: - 배경이미지 프로퍼티
     private lazy var backgroundImageView: UIImageView = {
         let view = UIImageView()
@@ -52,9 +49,9 @@ class ThirdMainViewController: UIViewController, FloatingPanelControllerDelegate
         makeConstraints()
     }
     
-
+    
     //MARK: - Function
-
+    
     ///MAKR: - 프로퍼티 추가
     private func addProperty(){
         self.view.addSubview(backgroundImageView)
@@ -87,42 +84,23 @@ class ThirdMainViewController: UIViewController, FloatingPanelControllerDelegate
         }
     }
     
-    final func checkSheet(){
-        if let existingPanel = activeFloatingPanel {
-            existingPanel.dismiss(animated: true) {
-                self.makeSheet()
-            }
-        } else {
-            makeSheet()
-        }
-    }
-     
-    final func makeSheet(){
-        let apper = SurfaceAppearance()
-        apper.cornerRadius = 16
-        
-        
-        let fpc = FloatingPanelController()
+    final func popupSheetView(){
         let UIHostingController = UIHostingController(rootView: EvaluationView())
-        fpc.delegate = self
-        fpc.layout = SetFloatingPanelLayout()
-        let contentVC = UIHostingController
-        fpc.set(contentViewController: contentVC)
-     //   fpc.isRemovalInteractionEnabled = true
-        fpc.surfaceView.appearance = apper
         
-        activeFloatingPanel = fpc
         
-        fpc.addPanel(toParent: self, animated: true, completion: nil)
+        if let windowScene = UIApplication.shared.connectedScenes.first(where: {$0.activationState == .foregroundActive}) as? UIWindowScene, let keyWindow = windowScene.windows.first(where: { $0.isKeyWindow }) {
+            
+            let screenSize = keyWindow.bounds.size
+            let safeAreaInsets = keyWindow.safeAreaInsets
+            let safeAreaHeight = screenSize.height - safeAreaInsets.top - safeAreaInsets.bottom
+            
+            UIHostingController.preferredContentSize = CGSize(
+                width: screenSize.width - 100,
+                height: safeAreaHeight
+            )
+            UIHostingController.modalPresentationStyle = .formSheet
+        }
+        
+        present(UIHostingController, animated: true, completion: nil)
     }
-}
-
-class SetFloatingPanelLayout: FloatingPanelLayout{
-    let position: FloatingPanelPosition = .bottom
-    let initialState: FloatingPanelState = .full
-    let anchors: [FloatingPanelState : FloatingPanelLayoutAnchoring] = [
-        .full: FloatingPanelLayoutAnchor(absoluteInset: 30.0, edge: .top, referenceGuide: .safeArea),
-        .half: FloatingPanelLayoutAnchor(fractionalInset: 0.43, edge: .bottom, referenceGuide: .superview),
-        .tip: FloatingPanelLayoutAnchor(absoluteInset: 10, edge: .bottom, referenceGuide: .superview)
-    ]
 }
