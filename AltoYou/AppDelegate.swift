@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          
         
         KakaoSDK.initSDK(appKey: "a25450c80690c073d46d49f06d91b715")
+        prepareAudioPlayer()
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window

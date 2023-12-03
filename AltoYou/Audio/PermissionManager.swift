@@ -14,7 +14,7 @@ class PermissionManager: ObservableObject {
     func requestAudioPermission(){
         AVCaptureDevice.requestAccess(for: .audio, completionHandler: { (granted: Bool) in
             if granted {
-                print("Audo 권한 허용")
+                print("Audio 권한 허용")
             } else {
                 print("Audio 권한 거부")
             }

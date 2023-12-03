@@ -234,7 +234,6 @@
 				480EDA862AEF55D10007DDDF /* animation_lo1aspnb.json */,
 				4859E62A2AE5248000871CC1 /* SplashViewController.swift */,
 				488148612B0209F600B98B8B /* SocialLoginView.swift */,
-				48F63D9D2B03EDB70095FC8B /* GlobalData.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -260,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				487007D42ACF5735009C6EC9 /* Info.plist */,
+				48F63D9D2B03EDB70095FC8B /* GlobalData.swift */,
 				487F55832B009D470058124C /* Audio */,
 				48BF0B3E2ACF5FE800565FA5 /* Font */,
 				48BF0B3F2ACF601000565FA5 /* 3D Characters */,

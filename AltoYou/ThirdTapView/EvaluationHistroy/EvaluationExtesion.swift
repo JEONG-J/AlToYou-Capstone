@@ -42,7 +42,7 @@ extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDat
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.1, animations: {
                 DispatchQueue.global(qos: .userInteractive).async {
-                    selectMenu("cellButton", "wav")
+                    selectHistory("cellButton", "wav")
                 }
                 cell.backgroundColor = blinkColor
             }) {(finished) in

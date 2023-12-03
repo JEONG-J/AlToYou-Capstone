@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class VoiceAPIHandler: ObservableObject {
-    
+
     @Published var responseBeginVoice: ResponseBeginVoice?
     @Published var requestSucceeded: Bool = false
     @Published var responseQnAVoice: GetVoice?
@@ -24,10 +24,12 @@ class VoiceAPIHandler: ObservableObject {
                 case .success(let responseBeginVoice):
                     self?.responseBeginVoice = responseBeginVoice // 업데이트 방식 변경
                     if responseBeginVoice.status {
+                        GlobalData.shared.conversationId = responseBeginVoice.conversationId
                         print("message: \(responseBeginVoice.message)")
                         print("URL : \(responseBeginVoice.url ?? "")")
+                        print("conversatoinID: \(responseBeginVoice.conversationId)")
                         DispatchQueue.main.asyncAfter(deadline: .now() + 4.5){
-                            playVoice(from: responseBeginVoice.url ?? "")
+                           playVoice(from: responseBeginVoice.url ?? "")
                         }
                     } else {
                         print("실패")

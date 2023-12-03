@@ -10,20 +10,26 @@ import UIKit
 
 struct ResponseBeginVoice: Codable {
     var status: Bool
-    var url: String?
     var message: String
+    var conversationId: String
+    var url: String?
+    
 
     enum CodingKeys: String, CodingKey {
-        case status, url, message
+        case status, url, message, conversationId
     }
 }
 
 struct GetVoice: Codable {
-    var status: Bool
+    var status: Int
     var url: String?
-    var message: String
+    var message: String?
 
     enum CodingKeys: String, CodingKey {
         case status, url, message
     }
+    
+    var isStatusTrue: Bool {
+            return status != 0
+        }
 }

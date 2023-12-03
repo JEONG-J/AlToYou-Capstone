@@ -13,13 +13,12 @@ class VoiceViewModel: ObservableObject {
     
     func beginVoice() {
         voiceAPIHandler.beginVoice { result in
-            print("heloooo---")
             DispatchQueue.main.async {
-                print("heloooo---")
                 switch result {
                 case .success(let response):
                     self.voiceResponse = response.url
-                    playVoice(from: self.voiceResponse ?? "")
+                    print("conversationID: \(response.conversationId)")
+             //       playVoice(from: self.voiceResponse ?? "")
                 case .failure(let error):
                     print("Error: \(error)")
                 }

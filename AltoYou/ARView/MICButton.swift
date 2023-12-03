@@ -48,7 +48,7 @@ class AudioRecorderWrapper: ObservableObject {
         
         let settings: [String: Any] = [
                AVFormatIDKey: Int(kAudioFormatLinearPCM), // WAV format
-               AVSampleRateKey: 24000, // Sample rate typical for WAV files
+               AVSampleRateKey: 16000, // Sample rate typical for WAV files
                AVNumberOfChannelsKey: 1, // Mono audio
                AVLinearPCMBitDepthKey: 16, // Typical bit depth for WAV
                AVLinearPCMIsBigEndianKey: false, // Endianness
@@ -74,7 +74,7 @@ class AudioRecorderWrapper: ObservableObject {
         let randomString = UUID().uuidString
         
         // 서버의 엔드포인트 URL
-        let uploadURL = "http://13.124.7.35:8080/api/conversation/audio/test"
+        let uploadURL = "http://13.124.7.35:8080/api/conversation/audio/test/\(GlobalData.shared.conversationId ?? "")"
         
             AF.upload(multipartFormData: { multipartFormData in
                 multipartFormData.append(fileUrl, withName: "audioFile", fileName: "\(randomString).wav", mimeType: "audio/wav")
@@ -82,8 +82,10 @@ class AudioRecorderWrapper: ObservableObject {
             .responseDecodable(of: GetVoice.self) { response in
                 switch response.result {
                 case .success(let getVoiceResponse):
+                    print(uploadURL)
                     playVoice(from: getVoiceResponse.url ?? "")
                 case .failure(let error):
+                    print(uploadURL)
                     print("파일 전송 실패: \(error)")
                 }
             }

@@ -59,6 +59,30 @@ public func playSoundEffect(_ fileName: String, _ volume: Float) {
 }
 
 public func selectMenu(_ fileName: String, _ fileType: String) {
+    
+    if let bundle = Bundle.main.path(forResource: fileName, ofType: fileType) {
+        let soundEffectUrl = URL(fileURLWithPath: bundle)
+        print(soundEffectUrl)
+        
+        do {
+            soundEffectPlayer = try AVAudioPlayer(contentsOf: soundEffectUrl)
+            guard let soundEffectPlayer = soundEffectPlayer else { return }
+            
+            backgroundMusicPlayer?.volume = 0.1
+            soundEffectPlayer.volume = 0.8
+            soundEffectPlayer.prepareToPlay()
+            soundEffectPlayer.play()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + soundEffectPlayer.duration){
+                backgroundMusicPlayer?.volume = originalVolume
+            }
+        } catch {
+            print("Failed to initialize the sound effect player")
+        }
+    }
+}
+
+public func selectHistory(_ fileName: String, _ fileType: String) {
     let soundKey = "\(fileName).\(fileType)"
     
     if let soundEffectPlayer = soundEffectPlayers[soundKey] {
@@ -82,23 +106,30 @@ private func playSoundEffect(_ player: AVAudioPlayer) {
     player.play()
 }
 
+func prepareAudioPlayer() {
+    characterRequest = AVPlayer()
+    characterRequest?.volume = 1.0
+    
+    DispatchQueue.global(qos: .background).async {
+        do{
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Audio error")
+        }
+    }
+}
 
-public func playVoice(from url: String) {
+
+func playVoice(from url: String) {
     guard let characterUrl = URL(string: url) else {
         print("url error")
         return
     }
 
-    do {
-        print("file URL : \(characterUrl)")
-        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-        try AVAudioSession.sharedInstance().setActive(true)
-        
+    DispatchQueue.main.async {
         let playerItem = AVPlayerItem(url: characterUrl)
-        characterRequest = AVPlayer(playerItem: playerItem)
-        characterRequest?.volume = 1.0  // AVPlayer의 볼륨 범위는 0.0에서 1.0입니다.
+        characterRequest?.replaceCurrentItem(with: playerItem)
         characterRequest?.play()
-    } catch {
-        print("오디오 파일 재생에 실패했습니다: \(error)")
     }
 }
