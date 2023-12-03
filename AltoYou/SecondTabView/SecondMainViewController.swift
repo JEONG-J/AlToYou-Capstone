@@ -46,6 +46,7 @@ class SecondMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeConstraints()
+        soundInit()
     }
     
     //MARK: - Function
@@ -74,6 +75,14 @@ class SecondMainViewController: UIViewController {
             make.width.greaterThanOrEqualTo(1073)
             make.height.greaterThanOrEqualTo(360)
             
+        }
+    }
+    
+    private func soundInit(){
+        let initArr = ["Mongmong-e", "Yangyangi", "Hindung-e"]
+        
+        for name in initArr {
+            selectHistoryInit(name, "mp3")
         }
     }
 }

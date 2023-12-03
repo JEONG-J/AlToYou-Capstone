@@ -14,8 +14,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
-        
         let space = tabBar.bounds.width * 0.25
+        selectHistoryInit("TapSound", "wav")
         setSelf(space, 30)
         addTab()
         setupNotificationCenterObserver()
@@ -99,7 +99,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         }
     }
     
-    
+    ///MARK: - 인덱스별 탭바 색상
     private func colorBar(at index: Int){
         switch index{
         case 1:
@@ -113,15 +113,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         }
     }
     
+    
+    
     //MARK: - Tab Function
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         guard let index = viewControllers?.firstIndex(of: viewController) else{
             return true
         }
-        selectMenu("TapSound", "wav")
+        selectHistory("TapSound", "wav")
         colorBar(at: index)
         animateTabBarItem(at: index)
-        
         
         return true
     }

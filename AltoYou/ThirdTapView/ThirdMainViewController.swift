@@ -47,6 +47,7 @@ class ThirdMainViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         makeConstraints()
+        selectHistoryInit("cellButton", "wav")
     }
     
     
@@ -100,7 +101,6 @@ class ThirdMainViewController: UIViewController{
             )
             UIHostingController.modalPresentationStyle = .formSheet
         }
-        
         present(UIHostingController, animated: true, completion: nil)
     }
 }

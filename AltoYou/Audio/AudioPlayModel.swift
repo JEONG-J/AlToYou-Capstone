@@ -12,9 +12,10 @@ import AVFoundation
 
 private var soundEffectPlayers: [String: AVAudioPlayer] = [:]
 private var soundEffectPlayer: AVAudioPlayer?
-public var backgroundMusicPlayer: AVAudioPlayer?
 private var characterRequest: AVPlayer?
 private var originalVolume: Float = 0.2
+
+public var backgroundMusicPlayer: AVAudioPlayer?
 
 
 public func startMusic(_ fileName: String? = nil){
@@ -82,28 +83,32 @@ public func selectMenu(_ fileName: String, _ fileType: String) {
     }
 }
 
-public func selectHistory(_ fileName: String, _ fileType: String) {
+public func selectHistoryInit(_ fileName: String, _ fileType: String) {
     let soundKey = "\(fileName).\(fileType)"
     
     if let soundEffectPlayer = soundEffectPlayers[soundKey] {
-        playSoundEffect(soundEffectPlayer)
+        print(soundEffectPlayer)
     } else if let bundle = Bundle.main.path(forResource: fileName, ofType: fileType) {
         let soundEffectUrl = URL(fileURLWithPath: bundle)
 
         do {
             let newSoundEffectPlayer = try AVAudioPlayer(contentsOf: soundEffectUrl)
             soundEffectPlayers[soundKey] = newSoundEffectPlayer
-            playSoundEffect(newSoundEffectPlayer)
         } catch {
             print("error")
         }
     }
 }
 
-private func playSoundEffect(_ player: AVAudioPlayer) {
-    player.volume = 0.9
-    player.prepareToPlay()
-    player.play()
+public func selectHistory(_ fileName: String, _ fileType: String) {
+    let soundKey = "\(fileName).\(fileType)"
+    backgroundMusicPlayer?.volume = 0.1
+    soundEffectPlayers[soundKey]?.volume = 0.9
+    soundEffectPlayers[soundKey]?.prepareToPlay()
+    soundEffectPlayers[soundKey]?.play()
+    DispatchQueue.main.asyncAfter(deadline: .now() + (soundEffectPlayers[soundKey]?.duration ?? 0)){
+        backgroundMusicPlayer?.volume = originalVolume
+    }
 }
 
 func prepareAudioPlayer() {

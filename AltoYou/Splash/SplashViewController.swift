@@ -67,7 +67,7 @@ class SplashViewController: UIViewController {
         animationView.frame = self.view.bounds
         animationView.loopMode = .playOnce
         animationView.contentMode = .scaleAspectFill
-        animationView.animationSpeed = 1.3
+        animationView.animationSpeed = 1.5
         self.view.addSubview(animationView)
         
         splashPlay()

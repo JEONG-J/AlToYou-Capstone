@@ -19,7 +19,7 @@ extension SecondMainViewController: UICollectionViewDelegate, UICollectionViewDa
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.identifier, for: indexPath) as? CharacterCollectionViewCell else { return UICollectionViewCell() }
         
         let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gesture:)))
-        longTapGesture.minimumPressDuration = 1.0
+        longTapGesture.minimumPressDuration = 0.5
         cell.addGestureRecognizer(longTapGesture)
         
         cell.configuration(CharacterInfo.CharacterList[indexPath.row])
@@ -51,7 +51,7 @@ extension SecondMainViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.chracterBackgroundView.layer.borderWidth = 9
         
         let selectedCharacter = CharacterInfo.CharacterList[indexPath.row]
-        playSoundEffect(selectedCharacter.voice ?? "Mongmong-e", 2.0)
+        selectHistory(selectedCharacter.voice ?? "Mongmong-e", "mp3")
         
         currentIndexPath = indexPath
     }
