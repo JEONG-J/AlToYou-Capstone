@@ -81,8 +81,10 @@ class SecondMainViewController: UIViewController {
     private func soundInit(){
         let initArr = ["Mongmong-e", "Yangyangi", "Hindung-e"]
         
-        for name in initArr {
-            selectHistoryInit(name, "mp3")
+        DispatchQueue.global().async {
+            for name in initArr {
+                selectHistoryInit(name, "mp3")
+            }
         }
     }
 }
