@@ -99,9 +99,35 @@ struct ARViewContainer: UIViewRepresentable {
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
         let modelName = modelName
+        let treemodel = "Tree.usd"
+        let bushmodel = "BushTwo.usdz"
+        let stonemodel = "stone.usd"
+        
+        let treePosition = [
+            SIMD3<Float>(-2.6,-4,-10),
+            SIMD3<Float>(2.6,-4,-10),
+            SIMD3<Float>(0,-4,-13),
+            SIMD3<Float>(-1.6,-4,-13),
+            SIMD3<Float>(1.6,-4,-13)
+        ]
+        
+        let bushPositions = [
+            SIMD3<Float>(2.6,-4,-10),
+            SIMD3<Float>(1.6,-4,-8),
+            SIMD3<Float>(0.6,-4,-7),
+            SIMD3<Float>(-1.6,-4,-8),
+            SIMD3<Float>(-2.6,-4,-10)
+            ]
+        
+        let stonePosition = [
+            SIMD3<Float>(-1.8,-4,-6),
+            SIMD3<Float>(-1,-4,-6),
+            SIMD3<Float>(-1.5,-4,-5)
+        ]
         
         let anchor = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2<Float>(0.3, 0.3)))
         
+        // 동물 소환
         ModelEntity.loadModelAsync(named: modelName)
             .sink(receiveCompletion: { loadCompletion in
             }, receiveValue: { modelEntity in
@@ -112,16 +138,10 @@ struct ARViewContainer: UIViewRepresentable {
                     modelEntity.playAnimation(animation.repeat())
                 }
                 
-                /*
-                 //모델 그림자 생성 막는 경향 있다.
-                 let distance: Float = 1.2
-                 modelEntity.position = [0, -1, -distance]
-                 */
-                
                 let pinchGesture = UIPinchGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePinch(_:)))
                 arView.addGestureRecognizer(pinchGesture)
                 
-                // Add Pan Gesture Recognizer for Moving
+                
                 let panGesture = UIPanGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePan(_:)))
                 arView.addGestureRecognizer(panGesture)
                 
@@ -129,8 +149,45 @@ struct ARViewContainer: UIViewRepresentable {
         
             .store(in: &context.coordinator.subscriptions)
         
+        for position in treePosition {
+            let treeAnchor = AnchorEntity(world: position)
+            ModelEntity.loadModelAsync(named: treemodel)
+                .sink(receiveCompletion: {loadCompletion in
+                }, receiveValue: { treemodel in
+                    treemodel.position = SIMD3<Float>(0,0,0)
+                    treemodel.scale = SIMD3<Float>(0.06,0.06,0.06)
+                    treeAnchor.addChild(treemodel)
+                })
+                .store(in: &context.coordinator.subscriptions)
+            arView.scene.addAnchor(treeAnchor)
+        }
+        
+        for position in bushPositions {
+            let bushAnchor = AnchorEntity(world: position)
+            ModelEntity.loadModelAsync(named: bushmodel)
+                .sink(receiveCompletion: {loadCompletion in
+                }, receiveValue: { bushmodel in
+                    bushmodel.position = SIMD3<Float>(0,0,0)
+                    bushAnchor.addChild(bushmodel)
+                })
+                .store(in: &context.coordinator.subscriptions)
+            arView.scene.addAnchor(bushAnchor)
+        }
+        
+        for position in stonePosition {
+            let stoneAnchor = AnchorEntity(world: position)
+            ModelEntity.loadModelAsync(named: stonemodel)
+                .sink(receiveCompletion: {loadCompletion in
+                }, receiveValue: { stonemodel in
+                    stonemodel.position = SIMD3<Float>(0,0,0)
+                    stoneAnchor.addChild(stonemodel)
+                })
+                .store(in: &context.coordinator.subscriptions)
+            arView.scene.addAnchor(stoneAnchor)
+        }
+        
         let light = DirectionalLight()
-        light.light.intensity = 5000
+        light.light.intensity = 3000
         light.light.color = .white
         light.shadow = DirectionalLightComponent.Shadow(maximumDistance: 4,depthBias: 1)
         light.orientation = simd_quatf(angle: .pi / 4, axis: [0, 0, 0])

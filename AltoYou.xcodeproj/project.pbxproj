@@ -37,6 +37,9 @@
 		485E54032B01B65300EC5450 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E54022B01B65300EC5450 /* DataModel.swift */; };
 		485E54052B01B70E00EC5450 /* VoiceAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E54042B01B70E00EC5450 /* VoiceAPIHandler.swift */; };
 		486030BB2B1EBD8200921620 /* SocialLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486030BA2B1EBD8200921620 /* SocialLoginModel.swift */; };
+		486030C12B1ED9E700921620 /* Tree.usd in Resources */ = {isa = PBXBuildFile; fileRef = 486030C02B1ED9E700921620 /* Tree.usd */; };
+		486030C32B1EE75600921620 /* BushTwo.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 486030C22B1EE75600921620 /* BushTwo.usdz */; };
+		486030C92B1EF37100921620 /* stone.usd in Resources */ = {isa = PBXBuildFile; fileRef = 486030C82B1EF37100921620 /* stone.usd */; };
 		486040072B0D90C8003019F5 /* EvaluationHistroyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486040062B0D90C8003019F5 /* EvaluationHistroyCollectionViewCell.swift */; };
 		48635E682B060FB300B3D875 /* SelectedCharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48635E672B060FB300B3D875 /* SelectedCharacterInfo.swift */; };
 		486AFC042AF3983E005F9803 /* cloudAni.json in Resources */ = {isa = PBXBuildFile; fileRef = 486AFC032AF3983E005F9803 /* cloudAni.json */; };
@@ -128,6 +131,9 @@
 		485E54022B01B65300EC5450 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		485E54042B01B70E00EC5450 /* VoiceAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAPIHandler.swift; sourceTree = "<group>"; };
 		486030BA2B1EBD8200921620 /* SocialLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SocialLoginModel.swift; path = ../../../../../Documents/SocialLoginModel.swift; sourceTree = "<group>"; };
+		486030C02B1ED9E700921620 /* Tree.usd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tree.usd; sourceTree = "<group>"; };
+		486030C22B1EE75600921620 /* BushTwo.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = BushTwo.usdz; sourceTree = "<group>"; };
+		486030C82B1EF37100921620 /* stone.usd */ = {isa = PBXFileReference; lastKnownFileType = file; path = stone.usd; sourceTree = "<group>"; };
 		486040062B0D90C8003019F5 /* EvaluationHistroyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationHistroyCollectionViewCell.swift; sourceTree = "<group>"; };
 		48635E672B060FB300B3D875 /* SelectedCharacterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCharacterInfo.swift; sourceTree = "<group>"; };
 		486AFC032AF3983E005F9803 /* cloudAni.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cloudAni.json; sourceTree = "<group>"; };
@@ -407,6 +413,9 @@
 		48BF0B3F2ACF601000565FA5 /* 3D Characters */ = {
 			isa = PBXGroup;
 			children = (
+				486030C22B1EE75600921620 /* BushTwo.usdz */,
+				486030C82B1EF37100921620 /* stone.usd */,
+				486030C02B1ED9E700921620 /* Tree.usd */,
 				48902F6B2B0472DC006BB141 /* Hindung-e.usdz */,
 				48902F642B046FC7006BB141 /* Yangyangi.usdz */,
 				48902F652B046FC7006BB141 /* Mongmong-e.usdz */,
@@ -500,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48902F622B046AC8006BB141 /* outSound.wav in Resources */,
+				486030C32B1EE75600921620 /* BushTwo.usdz in Resources */,
 				48F63DA02B03F91C0095FC8B /* startSound.wav in Resources */,
 				487F55852B009D710058124C /* backgroundMusic.mp3 in Resources */,
 				48902F6C2B0472DC006BB141 /* Hindung-e.usdz in Resources */,
@@ -508,6 +518,7 @@
 				48902F672B046FC7006BB141 /* Yangyangi.usdz in Resources */,
 				48902F682B046FC7006BB141 /* Mongmong-e.usdz in Resources */,
 				485A998B2ACBFC0600C94740 /* Preview Assets.xcassets in Resources */,
+				486030C92B1EF37100921620 /* stone.usd in Resources */,
 				483266CD2B04E5C700B7AA00 /* randomText.wav in Resources */,
 				487007D82ACF59E9009C6EC9 /* goryeong.otf in Resources */,
 				480EDA892AEF55DD0007DDDF /* toy_biplane_idle.usdz in Resources */,
@@ -517,6 +528,7 @@
 				48F63DA22B03F9210095FC8B /* deleteSound.wav in Resources */,
 				483266CF2B04E6F400B7AA00 /* TapSound.wav in Resources */,
 				487CE84F2B00E3D00067C619 /* selectCharacter.wav in Resources */,
+				486030C12B1ED9E700921620 /* Tree.usd in Resources */,
 				485A99882ACBFC0600C94740 /* Assets.xcassets in Resources */,
 				480EDA872AEF55D10007DDDF /* animation_lo1aspnb.json in Resources */,
 				487F55872B00AACF0058124C /* propeller.mp3 in Resources */,

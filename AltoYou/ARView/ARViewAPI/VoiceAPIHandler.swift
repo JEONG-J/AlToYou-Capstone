@@ -28,7 +28,7 @@ class VoiceAPIHandler: ObservableObject {
                         print("message: \(responseBeginVoice.message)")
                         print("URL : \(responseBeginVoice.url ?? "")")
                         print("conversatoinID: \(responseBeginVoice.conversationId)")
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5){
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5){
                            playVoice(from: responseBeginVoice.url ?? "")
                         }
                     } else {

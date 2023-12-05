@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        window.rootViewController = SocialLoginView()
+        window.rootViewController = MainTabBarController()
         window.makeKeyAndVisible()
         permissionManagger.requestAudioPermission()
         
