@@ -36,6 +36,7 @@
 		485A99922ACBFC5700C94740 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A99912ACBFC5700C94740 /* MainViewController.swift */; };
 		485E54032B01B65300EC5450 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E54022B01B65300EC5450 /* DataModel.swift */; };
 		485E54052B01B70E00EC5450 /* VoiceAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E54042B01B70E00EC5450 /* VoiceAPIHandler.swift */; };
+		486030BB2B1EBD8200921620 /* SocialLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486030BA2B1EBD8200921620 /* SocialLoginModel.swift */; };
 		486040072B0D90C8003019F5 /* EvaluationHistroyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486040062B0D90C8003019F5 /* EvaluationHistroyCollectionViewCell.swift */; };
 		48635E682B060FB300B3D875 /* SelectedCharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48635E672B060FB300B3D875 /* SelectedCharacterInfo.swift */; };
 		486AFC042AF3983E005F9803 /* cloudAni.json in Resources */ = {isa = PBXBuildFile; fileRef = 486AFC032AF3983E005F9803 /* cloudAni.json */; };
@@ -126,6 +127,7 @@
 		485A99912ACBFC5700C94740 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		485E54022B01B65300EC5450 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		485E54042B01B70E00EC5450 /* VoiceAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAPIHandler.swift; sourceTree = "<group>"; };
+		486030BA2B1EBD8200921620 /* SocialLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SocialLoginModel.swift; path = ../../../../../Documents/SocialLoginModel.swift; sourceTree = "<group>"; };
 		486040062B0D90C8003019F5 /* EvaluationHistroyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationHistroyCollectionViewCell.swift; sourceTree = "<group>"; };
 		48635E672B060FB300B3D875 /* SelectedCharacterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCharacterInfo.swift; sourceTree = "<group>"; };
 		486AFC032AF3983E005F9803 /* cloudAni.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cloudAni.json; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		4859E6282AE5245F00871CC1 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				486030B92B1EBD4900921620 /* SocialAPI */,
 				480EDA862AEF55D10007DDDF /* animation_lo1aspnb.json */,
 				4859E62A2AE5248000871CC1 /* SplashViewController.swift */,
 				488148612B0209F600B98B8B /* SocialLoginView.swift */,
@@ -285,13 +288,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		485E54012B01B63B00EC5450 /* API */ = {
+		485E54012B01B63B00EC5450 /* ARViewAPI */ = {
 			isa = PBXGroup;
 			children = (
 				485E54022B01B65300EC5450 /* DataModel.swift */,
 				485E54042B01B70E00EC5450 /* VoiceAPIHandler.swift */,
 			);
-			path = API;
+			path = ARViewAPI;
+			sourceTree = "<group>";
+		};
+		486030B92B1EBD4900921620 /* SocialAPI */ = {
+			isa = PBXGroup;
+			children = (
+				486030BA2B1EBD8200921620 /* SocialLoginModel.swift */,
+			);
+			path = SocialAPI;
 			sourceTree = "<group>";
 		};
 		4865AE6E2ACD74C90085A4C7 /* MainTabBar */ = {
@@ -328,7 +339,7 @@
 		487CE8562B0101D70067C619 /* ARView */ = {
 			isa = PBXGroup;
 			children = (
-				485E54012B01B63B00EC5450 /* API */,
+				485E54012B01B63B00EC5450 /* ARViewAPI */,
 				487CE8572B0101F50067C619 /* MICButton.swift */,
 				48C0C25A2B01220900A6BD67 /* ExitButton.swift */,
 				48635E672B060FB300B3D875 /* SelectedCharacterInfo.swift */,
@@ -531,6 +542,7 @@
 				487007D22ACF5088009C6EC9 /* TopView.swift in Sources */,
 				484322092AF4DC37005C064C /* CharacterExtension.swift in Sources */,
 				48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */,
+				486030BB2B1EBD8200921620 /* SocialLoginModel.swift in Sources */,
 				485E54032B01B65300EC5450 /* DataModel.swift in Sources */,
 				484F5DE02AF23AC00085CADA /* ScrollExtension.swift in Sources */,
 				487CE8582B0101F50067C619 /* MICButton.swift in Sources */,

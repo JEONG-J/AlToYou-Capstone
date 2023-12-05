@@ -13,5 +13,6 @@ class GlobalData{
     var userNickname: String?
     var characterName: String?
     var conversationId: String?
+    var userId: String?
 }
 

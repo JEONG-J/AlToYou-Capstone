@@ -16,8 +16,7 @@ class SocialLoginView: UIViewController {
     
 
     private lazy var appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-    
-    var userId: String?
+    private let sendUserApi = sendUserAPI()
     
     //MARK: - Propertiees
     
@@ -81,6 +80,7 @@ class SocialLoginView: UIViewController {
     
     ///MARK : - 루트뷰 변경
     private func changeRootView(){
+        selectMenu("startSound", "wav")
         
         DispatchQueue.main.async{
             self.appDelegate?.window?.rootViewController = self.nextView
@@ -92,16 +92,15 @@ class SocialLoginView: UIViewController {
     
     ///MARK: - 카카오 로그인 처리 액션
     private func loginFunction(){
-        if (UserApi.isKakaoTalkLoginAvailable()) {
             
-            UserApi.shared.loginWithKakaoTalk{ (ouathToken, error) in
+            UserApi.shared.loginWithKakaoAccount{ (ouathToken, error) in
                 if let error = error{
                     print(error)
                 } else{
                     print("success")
                     self.changeRootView()
                     DispatchQueue.global().async {
-                        UserApi.shared.me { [weak self]user, error in
+                        UserApi.shared.me { user, error in
                             if let error = error {
                                 print(error)
                             } else {
@@ -109,12 +108,11 @@ class SocialLoginView: UIViewController {
                                     print("userId not found")
                                     return
                                 }
-                                self?.userId = userId
+                                self.sendUserApi.sendUserInfo(userId: userId)
+                                GlobalData.shared.userId = userId
                                 GlobalData.shared.userNickname = username
-                                print(userId)
+                                print("카카카로 로그인 정보:\(userId)")
                                 print(username)
-                                
-                                //서버에 이메일 보내기
                             }
                             
                         }
@@ -122,11 +120,9 @@ class SocialLoginView: UIViewController {
                 }
             }
         }
-    }
     //MARK: - objc Function
     ///MARK: - 버튼 액션 버튼 추가하기
     @objc func actionAnimation(sender: UIButton){
-        selectMenu("startSound", "wav")
         loginFunction()
         
         UIView.animate(withDuration: 0.35){
