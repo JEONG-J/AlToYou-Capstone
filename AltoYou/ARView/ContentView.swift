@@ -187,7 +187,7 @@ struct ARViewContainer: UIViewRepresentable {
         }
         
         let light = DirectionalLight()
-        light.light.intensity = 3000
+        light.light.intensity = 3500
         light.light.color = .white
         light.shadow = DirectionalLightComponent.Shadow(maximumDistance: 4,depthBias: 1)
         light.orientation = simd_quatf(angle: .pi / 4, axis: [0, 0, 0])

@@ -19,7 +19,6 @@ class SocialLoginView: UIViewController {
     private let sendUserApi = sendUserAPI()
     
     //MARK: - Propertiees
-    
     private lazy var nextView: SplashViewController = {
         let view = SplashViewController()
         return view
