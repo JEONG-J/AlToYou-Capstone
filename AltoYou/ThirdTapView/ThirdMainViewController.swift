@@ -47,9 +47,6 @@ class ThirdMainViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         makeConstraints()
-        DispatchQueue.global().async {
-            selectHistoryInit("cellButton", "wav")
-        }
     }
     
     

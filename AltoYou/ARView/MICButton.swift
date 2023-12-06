@@ -20,7 +20,7 @@ struct MICButton: View {
     }
     
     private func toggleMicrophone() {
-        selectMenu("micButton", "wav")
+        selectEffectMusic("micButton", "wav")
         isRecording.toggle()
         if isRecording {
             audioRecorderWrapper.startRecording()

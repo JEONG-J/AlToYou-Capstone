@@ -24,19 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
-    
+    ///MARK: - 앱 런칭
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
          
-        
         KakaoSDK.initSDK(appKey: "a25450c80690c073d46d49f06d91b715")
-        prepareAudioPlayer()
+        
+        DispatchQueue.global(qos: .background).async {
+            prepareEffectMusic()
+            prepareAudioPlayer()
+        }
+        
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         window.rootViewController = SocialLoginView()
         window.makeKeyAndVisible()
         permissionManagger.requestAudioPermission()
-        
+
         return true
         
     }
@@ -52,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        return
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -63,5 +67,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIInterfaceOrientationMask.landscape
     }
     
-    ///MARK: - 배경화면 음악 재생 함수
+
     }

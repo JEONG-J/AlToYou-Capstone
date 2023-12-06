@@ -59,48 +59,26 @@ public func playSoundEffect(_ fileName: String, _ volume: Float) {
     }
 }
 
-public func selectMenu(_ fileName: String, _ fileType: String) {
-    
-    if let bundle = Bundle.main.path(forResource: fileName, ofType: fileType) {
-        let soundEffectUrl = URL(fileURLWithPath: bundle)
-        print(soundEffectUrl)
-        
-        do {
-            soundEffectPlayer = try AVAudioPlayer(contentsOf: soundEffectUrl)
-            guard let soundEffectPlayer = soundEffectPlayer else { return }
-            
-            backgroundMusicPlayer?.volume = 0.1
-            soundEffectPlayer.volume = 0.8
-            soundEffectPlayer.prepareToPlay()
-            soundEffectPlayer.play()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + soundEffectPlayer.duration){
-                backgroundMusicPlayer?.volume = originalVolume
-            }
-        } catch {
-            print("Failed to initialize the sound effect player")
-        }
-    }
-}
 
-public func selectHistoryInit(_ fileName: String, _ fileType: String) {
+private func selectHistoryInit(_ fileName: String, _ fileType: String) {
     let soundKey = "\(fileName).\(fileType)"
     
-    if let soundEffectPlayer = soundEffectPlayers[soundKey] {
-        print(soundEffectPlayer)
+    if soundEffectPlayers[soundKey] != nil {
+        print("이미 준비 됨 : \(fileName)")
     } else if let bundle = Bundle.main.path(forResource: fileName, ofType: fileType) {
         let soundEffectUrl = URL(fileURLWithPath: bundle)
-
+        
         do {
             let newSoundEffectPlayer = try AVAudioPlayer(contentsOf: soundEffectUrl)
             soundEffectPlayers[soundKey] = newSoundEffectPlayer
+            print("준비완료 : \(fileName)")
         } catch {
             print("error")
         }
     }
 }
 
-public func selectHistory(_ fileName: String, _ fileType: String) {
+public func selectEffectMusic(_ fileName: String, _ fileType: String) {
     let soundKey = "\(fileName).\(fileType)"
     backgroundMusicPlayer?.volume = 0.1
     soundEffectPlayers[soundKey]?.volume = 0.9
@@ -131,10 +109,25 @@ func playVoice(from url: String) {
         print("url error")
         return
     }
-
+    
     DispatchQueue.main.async {
         let playerItem = AVPlayerItem(url: characterUrl)
         characterRequest?.replaceCurrentItem(with: playerItem)
         characterRequest?.play()
+    }
+}
+
+public func prepareEffectMusic(){
+    selectHistoryInit("startSound", "wav")
+    
+    let dispatchQueue = DispatchQueue.global(qos: .userInitiated)
+    
+    let soundNames = ["randomText", "selectCharacter", "TapSound", "cellButton", "Mongmong-e", "Yangyangi", "Hindung-e", "outSound", "deleteSound", "propeller", "micButton"]
+    let soundFormats = ["wav", "wav", "wav", "wav", "mp3", "mp3", "mp3", "wav", "wav", "mp3", "wav"]
+    
+    for (idx, sounName) in soundNames.enumerated() {
+        dispatchQueue.async {
+            selectHistoryInit(sounName, soundFormats[idx])
+        }
     }
 }

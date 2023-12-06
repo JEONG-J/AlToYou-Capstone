@@ -51,7 +51,7 @@ extension SecondMainViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.chracterBackgroundView.layer.borderWidth = 9
         
         let selectedCharacter = CharacterInfo.CharacterList[indexPath.row]
-        selectHistory(selectedCharacter.voice ?? "Mongmong-e", "mp3")
+        selectEffectMusic(selectedCharacter.voice ?? "Mongmong-e", "mp3")
         
         currentIndexPath = indexPath
     }

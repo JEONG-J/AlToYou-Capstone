@@ -222,7 +222,7 @@ class TopView: UIView {
     
     ///MARK: - 로그아웃 기능 버튼
     @objc func logoutBtnAction(){
-        selectMenu("outSound", "wav")
+        selectEffectMusic("outSound", "wav")
         showPopUp(message: "로그아웃을 진행할까요??", leftActionTitle: "Yes", rightActionTitle: "No", leftActionCompletion: {
             self.logOutKakao()
             backgroundMusicPlayer?.stop()
@@ -233,12 +233,12 @@ class TopView: UIView {
     }
     ///MARk: - 비행기 사운드 효과
     @objc func clickedView(){
-        playSoundEffect("propeller", 1.0)
+        selectEffectMusic("propeller", "mp3")
     }
     
     ///MARK: - 사운드 효과 주기
     @objc func deleteTokenAction(){
-        selectMenu("deleteSound", "wav")
+        selectEffectMusic("deleteSound", "wav")
         showPopUp(message: "회원정보 삭제를 진행할까요??", leftActionTitle: "Yes", rightActionTitle: "No", leftActionCompletion: {
             self.tokenDeleteKakao()
             backgroundMusicPlayer?.stop()

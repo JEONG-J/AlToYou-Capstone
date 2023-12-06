@@ -15,7 +15,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
         let space = tabBar.bounds.width * 0.25
-        selectHistoryInit("TapSound", "wav")
         setSelf(space, 30)
         addTab()
         setupNotificationCenterObserver()
@@ -120,7 +119,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         guard let index = viewControllers?.firstIndex(of: viewController) else{
             return true
         }
-        selectHistory("TapSound", "wav")
+        selectEffectMusic("TapSound", "wav")
         colorBar(at: index)
         animateTabBarItem(at: index)
         

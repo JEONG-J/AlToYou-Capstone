@@ -92,7 +92,7 @@ class BottomStackView: UIStackView {
     
     ///MARK: - 랜덤 텍스트 생성 액션 버튼
     @objc func changeText(){
-        selectMenu("randomText", "wav")
+        selectEffectMusic("randomText", "wav")
         randomText.text = Message.texts.randomElement()
         
         UIView.animate(withDuration: 0.1){

@@ -79,7 +79,7 @@ class SocialLoginView: UIViewController {
     
     ///MARK : - 루트뷰 변경
     private func changeRootView(){
-        selectMenu("startSound", "wav")
+        selectEffectMusic("startSound", "wav")
         
         DispatchQueue.main.async{
             self.appDelegate?.window?.rootViewController = self.nextView
