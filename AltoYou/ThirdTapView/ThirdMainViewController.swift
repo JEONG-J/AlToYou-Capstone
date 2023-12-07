@@ -8,8 +8,11 @@
 import UIKit
 import SnapKit
 import SwiftUI
+import Alamofire
 
 class ThirdMainViewController: UIViewController{
+    
+    var evaluationHistory: EvaluationHistory?
     
     ///MARk: - 배경이미지 프로퍼티
     private lazy var backgroundImageView: UIImageView = {
@@ -81,6 +84,20 @@ class ThirdMainViewController: UIViewController{
             make.left.equalToSuperview().offset(144)
             make.right.equalToSuperview().offset(-145)
             make.bottom.equalToSuperview().offset(-140)
+        }
+    }
+    
+    private func fetchDataHistory(){
+        let url = "http://13.124.7:8080/api/estimation/\(GlobalData.shared.userId ?? "")/estimations"
+        
+        AF.request(url).responseDecodable(of: EvaluationHistory.self) { [weak self] response in
+            switch response.result {
+            case .success(let data):
+                self?.evaluationHistory = data
+                self?.historyTable.reloadData()
+            case.failure(let error):
+                print("error : \(error)")
+            }
         }
     }
     

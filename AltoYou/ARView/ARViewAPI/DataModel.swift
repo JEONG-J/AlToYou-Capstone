@@ -33,3 +33,18 @@ struct GetVoice: Codable {
             return status != 0
         }
 }
+
+struct RequestEndVoice: Encodable {
+    var userId: String
+    var conversation: String
+}
+
+
+struct ResponseEndVoice: Codable {
+    var status: Bool
+    var message: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case status, message
+    }
+}

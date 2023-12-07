@@ -8,20 +8,14 @@
 import Foundation
 
 //TODO: - 나중에 String값을 처리할 예정
-struct EavaluationHistoryModel {
-    var evaluationCharacter: String
-    var evaluationDate: Date
+struct EvaluationHistoryInfo: Codable {
+    var estimationId: String
+    var characterName: String
+    var data: String
 }
 
-final class EvaluationHistroyInfo {
-    static let evaluationHistoryList: [EavaluationHistoryModel] = [
-    EavaluationHistoryModel(evaluationCharacter: "Mongmong-e.png", evaluationDate: Date()),
-    EavaluationHistoryModel(evaluationCharacter: "Hindung-e.png", evaluationDate: Date()),
-    EavaluationHistoryModel(evaluationCharacter: "Mongmong-e.png", evaluationDate: Date()),
-    EavaluationHistoryModel(evaluationCharacter: "Yangyangi.png", evaluationDate: Date()),
-    EavaluationHistoryModel(evaluationCharacter: "Yangyangi.png", evaluationDate: Date()),
-    EavaluationHistoryModel(evaluationCharacter: "Mongmong-e.png", evaluationDate: Date()),
-    EavaluationHistoryModel(evaluationCharacter: "Hindung-e.png", evaluationDate: Date()),
-    EavaluationHistoryModel(evaluationCharacter: "Hindung-e.png", evaluationDate: Date())
-    ]
+struct EvaluationHistory: Codable {
+    var status: String
+    var message: String
+    var estimationList: [EvaluationHistoryInfo]
 }
