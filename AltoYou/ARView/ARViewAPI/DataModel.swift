@@ -21,17 +21,13 @@ struct ResponseBeginVoice: Codable {
 }
 
 struct GetVoice: Codable {
-    var status: Int
+    var status: Bool
     var url: String?
     var message: String?
 
     enum CodingKeys: String, CodingKey {
         case status, url, message
     }
-    
-    var isStatusTrue: Bool {
-            return status != 0
-        }
 }
 
 struct RequestEndVoice: Encodable {
@@ -41,7 +37,7 @@ struct RequestEndVoice: Encodable {
 
 
 struct ResponseEndVoice: Codable {
-    var status: Bool
+    var status: Int
     var message: String?
     
     enum CodingKeys: String, CodingKey {

@@ -7,15 +7,27 @@
 
 import Foundation
 
-struct ChartData {
+struct ChartData: Codable {
+    var status: Bool
+    var message: String
+    var result: [Results]
+    var avgAccuracy: Double?
+    var avgFluency: Double?
+    var avgCompleteness: Double?
+    var avgPron: Double?
+    var avgProsody: Double?
+    
     var value: Double
     var label: String
 }
 
-let evaluationPieChartData = [
-    ChartData(value: 25, label: "평균 정확도"),
-    ChartData(value: 80, label: "평균 유창성"),
-    ChartData(value: 100, label: "평균 발음 완전성"),
-    ChartData(value: 92, label: "평균 운율"),
-    ChartData(value: 60, label: "평균 발음 품질")
-]
+struct Results: Codable {
+    var modelSentence: String
+    var userSentence: String
+    var errors: [Errors]
+}
+
+struct Errors: Codable {
+    var errorWord: String
+    var errorType: String
+}

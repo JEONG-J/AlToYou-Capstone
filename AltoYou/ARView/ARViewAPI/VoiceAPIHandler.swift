@@ -42,7 +42,7 @@ class VoiceAPIHandler: ObservableObject {
     }
     
     func endVoice(){
-        let url = "http://13.124.7:8080/api/conversation/end"
+        let url = "http://13.124.7.35:8080/api/conversation/end"
         let parameter = RequestEndVoice(userId: GlobalData.shared.userId ?? "", conversation: GlobalData.shared.conversationId ?? "")
         
         AF.request(url, method: .post, parameters: parameter, encoder: JSONParameterEncoder.default).responseDecodable(of: ResponseEndVoice.self) {

@@ -9,11 +9,14 @@ import SwiftUI
 import PopupView
 struct SendButton: View {
     @ObservedObject var buttonViewModel: ButtonViewModel
-    
+    var voiceAPIHandler: VoiceAPIHandler?
+    var chartAPI: ChartAPI?
     
     var body: some View {
         ZStack{
             Button(action: {
+                chartAPI?.getChartInfo()
+                voiceAPIHandler?.endVoice()
                 buttonViewModel.showExitButton = true
                 buttonViewModel.showingPopup = true
             }) {

@@ -14,5 +14,6 @@ class GlobalData{
     var characterName: String?
     var conversationId: String?
     var userId: String?
+    var chartData: ChartData?
 }
 

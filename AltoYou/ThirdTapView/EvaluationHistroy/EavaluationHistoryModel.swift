@@ -11,7 +11,7 @@ import Foundation
 struct EvaluationHistoryInfo: Codable {
     var estimationId: String
     var characterName: String
-    var data: String
+    var date: String
 }
 
 struct EvaluationHistory: Codable {

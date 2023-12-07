@@ -34,6 +34,7 @@
 		485A99882ACBFC0600C94740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 485A99872ACBFC0600C94740 /* Assets.xcassets */; };
 		485A998B2ACBFC0600C94740 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 485A998A2ACBFC0600C94740 /* Preview Assets.xcassets */; };
 		485A99922ACBFC5700C94740 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A99912ACBFC5700C94740 /* MainViewController.swift */; };
+		485CD3142B21B2FD00C712D2 /* ChartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485CD3132B21B2FD00C712D2 /* ChartAPI.swift */; };
 		485E54032B01B65300EC5450 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E54022B01B65300EC5450 /* DataModel.swift */; };
 		485E54052B01B70E00EC5450 /* VoiceAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E54042B01B70E00EC5450 /* VoiceAPIHandler.swift */; };
 		486030BB2B1EBD8200921620 /* SocialLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486030BA2B1EBD8200921620 /* SocialLoginModel.swift */; };
@@ -130,6 +131,7 @@
 		485A99872ACBFC0600C94740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		485A998A2ACBFC0600C94740 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		485A99912ACBFC5700C94740 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		485CD3132B21B2FD00C712D2 /* ChartAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartAPI.swift; sourceTree = "<group>"; };
 		485E54022B01B65300EC5450 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		485E54042B01B70E00EC5450 /* VoiceAPIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAPIHandler.swift; sourceTree = "<group>"; };
 		486030BA2B1EBD8200921620 /* SocialLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SocialLoginModel.swift; path = ../../../../../Documents/SocialLoginModel.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				48097AF42B11E57700819714 /* EvaluationView.swift */,
 				4814F0B52B16BBF500D061F3 /* ChartView.swift */,
 				48097AF62B11E8D300819714 /* ChartDataModel.swift */,
+				485CD3132B21B2FD00C712D2 /* ChartAPI.swift */,
 				48097AF82B11E93500819714 /* MakeChartView.swift */,
 				4891B2DC2B1379990013F778 /* SentenceDataModel.swift */,
 				4891B2DE2B137F370013F778 /* SentenceGridView.swift */,
@@ -573,6 +576,7 @@
 				48A499492B06341800029138 /* PermissionManager.swift in Sources */,
 				486D45912ACC660300D96EB1 /* SecondMainViewController.swift in Sources */,
 				485E54052B01B70E00EC5450 /* VoiceAPIHandler.swift in Sources */,
+				485CD3142B21B2FD00C712D2 /* ChartAPI.swift in Sources */,
 				489065F52B042F63008D1ACD /* SceneController.swift in Sources */,
 				48BF0B442ACF6BD100565FA5 /* DayModel.swift in Sources */,
 				48C8AA662B0F82AF00027BF6 /* EavaluationHistoryModel.swift in Sources */,

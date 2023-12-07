@@ -35,7 +35,7 @@ struct ContentView : View {
                 HStack{
                     Spacer()
                     if buttonViewModel.showExitButton == false {
-                            SendButton(buttonViewModel: buttonViewModel)
+                            SendButton(buttonViewModel: buttonViewModel, voiceAPIHandler: VoiceAPIHandler())
                         .padding()
                     } else {
                         ExitButton(buttonViewModel: buttonViewModel)

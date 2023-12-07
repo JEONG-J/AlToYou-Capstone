@@ -18,8 +18,10 @@ extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EvaluationHistroyCollectionViewCell.identifier, for: indexPath) as? EvaluationHistroyCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.configuration(model: EvaluationHistroyInfo.evaluationHistoryList[indexPath.row])
-        
+        if let esimation = evaluationHistory?.estimationList[indexPath.row] {
+            cell.configuration(model: esimation)
+        }
+    
         return cell
     }
     
@@ -36,7 +38,7 @@ extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDat
         
         let originalColor = cell.backgroundColor
         let blinkColor = UIColor.gray
-        
+        let selectEstimationId = self.evaluationHistory?.estimationList[indexPath.row].estimationId
         
         
         DispatchQueue.main.async {
