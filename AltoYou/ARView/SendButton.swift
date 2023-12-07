@@ -6,18 +6,22 @@
 //
 
 import SwiftUI
-
+import PopupView
 struct SendButton: View {
     @ObservedObject var buttonViewModel: ButtonViewModel
     
+    
     var body: some View {
-        Button(action: {
-            buttonViewModel.showExitButton = true
-        }) {
-            Image("send")
-                .resizable()
-                .frame(width: 150, height: 150)
-                .padding()
+        ZStack{
+            Button(action: {
+                buttonViewModel.showExitButton = true
+                buttonViewModel.showingPopup = true
+            }) {
+                Image("send")
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                    .padding()
+            }
         }
     }
 }

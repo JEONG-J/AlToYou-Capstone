@@ -16,7 +16,7 @@ class VoiceAPIHandler: ObservableObject {
     @Published var responseQnAVoice: GetVoice?
     
     func beginVoice(completion: @escaping (Result<ResponseBeginVoice, Error>) -> Void) {
-        let url = "http://13.124.7.35:8080/api/conversation/start?userId=test&characterName=\(GlobalData.shared.characterName ?? "")"
+        let url = "http://13.124.7.35:8080/api/conversation/start?userId=\(GlobalData.shared.userId ?? "")&characterName=\(GlobalData.shared.characterName ?? "")"
         
         AF.request(url).responseDecodable(of: ResponseBeginVoice.self) { [weak self] response in
             DispatchQueue.main.async {

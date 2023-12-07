@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealityKit
+import PopupView
 import Combine
 
 struct ContentView : View {
@@ -34,8 +35,8 @@ struct ContentView : View {
                 HStack{
                     Spacer()
                     if buttonViewModel.showExitButton == false {
-                        SendButton(buttonViewModel: buttonViewModel)
-                            .padding()
+                            SendButton(buttonViewModel: buttonViewModel)
+                        .padding()
                     } else {
                         ExitButton(buttonViewModel: buttonViewModel)
                             .padding()
@@ -48,8 +49,23 @@ struct ContentView : View {
                 }
             }
         }
+        .popup(isPresented: $buttonViewModel.showingPopup){
+            ZStack{
+                EvaluationView()
+                    .frame(width: 1100, height: 800)
+                    .clipShape(.rect(cornerRadius: 20))
+            }
+        } customize: {
+            $0
+                .type(.floater())
+                .position(.bottomLeading)
+                .appearFrom(.bottom)
+                .dragToDismiss(true)
+                .backgroundColor(.black.opacity(0.4))
+        }
     }
 }
+
 
 struct ARViewContainer: UIViewRepresentable {
     
@@ -119,7 +135,7 @@ struct ARViewContainer: UIViewRepresentable {
             SIMD3<Float>(0.6,-4,-7),
             SIMD3<Float>(-1.6,-4,-8),
             SIMD3<Float>(-2.6,-4,-10)
-            ]
+        ]
         
         let stonePosition = [
             SIMD3<Float>(-1.8,-4,-6),
