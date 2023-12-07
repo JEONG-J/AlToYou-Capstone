@@ -11,23 +11,25 @@ struct SentenceGridView: View {
     let sentenceDataModel = SentenceHistory()
     
     var body: some View {
-        
-            LazyVGrid(columns: [GridItem(.flexible())], spacing: 0) {
-                ScrollView{
-                ForEach(interleavedSentece, id: \.sentence) { sentence in
-                    if sentence.isUserSentence {
-                        sentenceUserView(for: sentence.userSentenceData!)
-                    } else {
-                        sentenceModelView(for: sentence.modelSentenceData!)
+        ZStack{
+            ScrollView{
+                LazyVGrid(columns: [GridItem(.flexible())], spacing: 10) {
+                    ForEach(interleavedSentece, id: \.sentence) { sentence in
+                        if sentence.isUserSentence {
+                            sentenceUserView(for: sentence.userSentenceData!)
+                                .padding()
+                        }else {
+                            sentenceModelView(for: sentence.modelSentenceData!)
+                                .padding()
+                        }
                     }
                 }
+                .padding(.vertical, 15)
+                .background(Color.white.opacity(0.8))
+                .clipShape(.rect(cornerRadius: 25))
+                .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 10)
+                .padding()
             }
-            .padding(.vertical, 15)
-            .frame(width: 1100)
-            .background(Color.white.opacity(0.8))
-            .clipShape(.rect(cornerRadius: 25))
-            .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 10)
-            .padding()
         }
     }
     
@@ -76,7 +78,7 @@ struct SentenceGridView: View {
             .padding(.leading, 25)
             .padding(.bottom, 5)
     }
-
+    
     private func sentenceModelView(for sentenceModelData: SentenceModelData) -> some View {
         Text(makeModelAttributedString(from: sentenceModelData))
             .frame(maxWidth: .infinity, alignment: .trailing)

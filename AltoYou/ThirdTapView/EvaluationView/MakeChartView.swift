@@ -17,6 +17,7 @@ struct MakeChartView: View {
         VStack{
             Text("\(data.label)")
                 .font(.custom("Goryeong-Strawberry", fixedSize: 30))
+                .foregroundStyle(.black)
                 .frame(width: 300)
             ZStack{
                 Circle()
@@ -29,6 +30,7 @@ struct MakeChartView: View {
                     .frame(width: self.widthFrame, height: self.heightFrame)
                 Text("\(Int(data.value))%")
                     .font(.custom("Goryeong-Strawberry", fixedSize: 30))
+                    .foregroundStyle(.black)
             }
         }
     }

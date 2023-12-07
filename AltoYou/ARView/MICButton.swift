@@ -74,7 +74,7 @@ class AudioRecorderWrapper: ObservableObject {
         let randomString = UUID().uuidString
         
         // 서버의 엔드포인트 URL
-        let uploadURL = "http://13.124.7.35:8080/api/conversation/audio/test/\(GlobalData.shared.conversationId ?? "")"
+        let uploadURL = "http://13.124.7.35:8080/api/conversation/audio/\(GlobalData.shared.userId ?? "")/\(GlobalData.shared.conversationId ?? "")"
         
             AF.upload(multipartFormData: { multipartFormData in
                 multipartFormData.append(fileUrl, withName: "audioFile", fileName: "\(randomString).wav", mimeType: "audio/wav")

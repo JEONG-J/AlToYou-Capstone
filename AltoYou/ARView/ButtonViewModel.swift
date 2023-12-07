@@ -10,4 +10,5 @@ import SwiftUI
 
 class ButtonViewModel: ObservableObject {
     @Published var showExitButton: Bool = false
+    @Published var showingPopup: Bool = false
 }
