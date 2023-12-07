@@ -8,26 +8,33 @@
 import SwiftUI
 
 struct ChartView: View {
-    let chartLabels = ["평균 정확도", "평균 유창성", "평균 발음 완전성", "평균 운율", "평균 발음 품질"]
+    
     var body: some View {
         ZStack(alignment: .center) {
             Rectangle()
-                .frame(width: 1100, height: 720)
+                .frame(width: 1050, height: 800)
                 .foregroundStyle(Color(red: 0.98, green: 0.97, blue: 0.95).opacity(0.8))
                 .clipShape(.rect(cornerRadius: 25))
                 .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 10)
-            
             VStack {
-                ForEach(chartLabels, id: \.self) { label in
-                    HStack {
-                        MakeChartView(labelData: label, data: chartDataForLabel(label), colors: colorForLabel(label))
-                        Spacer(minLength: label == "평균 발음 완전성" ? 0 : 400) // 조건부 Spacer 추가
-                    }
+                HStack{
+                    MakeChartView(labelData: "평균 정확도", data: chartDataForLabel("평균 정확도"), colors: colorForLabel("평균 정확도"))
+                    Spacer(minLength: 200)
+                    MakeChartView(labelData: "평균 유창성", data: chartDataForLabel("평균 유창성"), colors: colorForLabel("평균 유창성"))
                 }
+                HStack{
+                    MakeChartView(labelData: "평균 발음 완전성", data: chartDataForLabel("평균 발음 완전성"), colors: colorForLabel("평균 발음 완전성"))
+                }
+                HStack{
+                    MakeChartView(labelData: "평균 운율", data: chartDataForLabel("평균 운율"), colors: colorForLabel("평균 운율"))
+                    Spacer(minLength: 200)
+                    MakeChartView(labelData: "평균 발음 품질", data: chartDataForLabel("평균 발음 품질"), colors: colorForLabel("평균 발음 품질"))
+                }
+                            
+                }
+                .frame(width: 650, height: 500)
+                .padding(.bottom, 30)
             }
-            .frame(width: 650, height: 500)
-            .padding(.bottom, 30)
-        }
     }
 
     private func chartDataForLabel(_ label: String) -> Double? {

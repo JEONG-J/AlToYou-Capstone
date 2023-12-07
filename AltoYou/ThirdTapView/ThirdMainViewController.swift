@@ -12,6 +12,7 @@ import Alamofire
 
 class ThirdMainViewController: UIViewController{
     
+    var chartAPI: ChartAPI?
     var evaluationHistory: EvaluationHistory?
     
     ///MARk: - 배경이미지 프로퍼티

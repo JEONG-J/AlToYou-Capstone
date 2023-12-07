@@ -43,13 +43,18 @@ class VoiceAPIHandler: ObservableObject {
     
     func endVoice(){
         let url = "http://13.124.7.35:8080/api/conversation/end"
-        let parameter = RequestEndVoice(userId: GlobalData.shared.userId ?? "", conversation: GlobalData.shared.conversationId ?? "")
         
-        AF.request(url, method: .post, parameters: parameter, encoder: JSONParameterEncoder.default).responseDecodable(of: ResponseEndVoice.self) {
+        let parameter = RequestEndVoice(userId: GlobalData.shared.userId ?? "", conversationId: GlobalData.shared.conversationId ?? "abc")
+        let headers: HTTPHeaders = [
+               "Content-Type": "application/json"
+           ]
+        
+        AF.request(url, method: .post, parameters: parameter, encoder: JSONParameterEncoder.default, headers: headers).responseDecodable(of: ResponseEndVoice.self) {
             response in
             switch response.result {
             case.success(let data):
                 print("전송 메시지 : \(data.message ?? "메시지 비워있음")")
+                print(parameter)
             case.failure(let error):
                 print("전송 실패 : \(error)")
             }

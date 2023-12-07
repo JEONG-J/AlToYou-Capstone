@@ -21,4 +21,18 @@ class ChartAPI {
             }
         }
     }
+    
+    func cellGetChartInfo(_ estimationId: String){
+        let url = "http://13.124.7.35:8080/api//estimation/\(GlobalData.shared.userId ?? "")/\(estimationId)"
+        
+        AF.request(url).responseDecodable(of: ChartData.self) {response in
+            switch response.result {
+            case.success(let data):
+                print("셀 클릭 차트 성공 : \(url)")
+                GlobalData.shared.chartData = data
+            case.failure(let error):
+                print("error: \(error)")
+            }
+        }
+    }
 }

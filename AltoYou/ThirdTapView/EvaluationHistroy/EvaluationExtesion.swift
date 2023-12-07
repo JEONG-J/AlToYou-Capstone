@@ -38,7 +38,10 @@ extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDat
         
         let originalColor = cell.backgroundColor
         let blinkColor = UIColor.gray
+        
+        
         let selectEstimationId = self.evaluationHistory?.estimationList[indexPath.row].estimationId
+        chartAPI?.cellGetChartInfo(selectEstimationId ?? "")
         
         
         DispatchQueue.main.async {

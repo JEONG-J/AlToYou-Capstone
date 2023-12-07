@@ -29,7 +29,7 @@ struct MakeChartView: View {
                     .trim(from: 0, to: CGFloat(data ?? 0) / 100)
                     .stroke(colors, style: StrokeStyle(lineWidth: 30, lineCap: .round))
                     .frame(width: self.widthFrame, height: self.heightFrame)
-                Text("\(data ?? 0)")
+                Text(data == 0 ? "0" : String(format: "%.1f", data ?? 0))
                     .font(.custom("Goryeong-Strawberry", fixedSize: 30))
                     .foregroundStyle(.black)
             }

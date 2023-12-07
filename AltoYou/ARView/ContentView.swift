@@ -122,28 +122,28 @@ struct ARViewContainer: UIViewRepresentable {
         let stonemodel = "stone.usd"
         
         let treePosition = [
-            SIMD3<Float>(-2.6,-4,-10),
-            SIMD3<Float>(2.6,-4,-10),
-            SIMD3<Float>(0,-4,-13),
-            SIMD3<Float>(-1.6,-4,-13),
-            SIMD3<Float>(1.6,-4,-13)
+            SIMD3<Float>(-2.6,-4,-12),
+            SIMD3<Float>(2.6,-4,-12),
+            SIMD3<Float>(0,-4,-15),
+            SIMD3<Float>(-1.6,-4,-15),
+            SIMD3<Float>(1.6,-4,-15)
         ]
         
         let bushPositions = [
-            SIMD3<Float>(2.6,-4,-10),
-            SIMD3<Float>(1.6,-4,-8),
-            SIMD3<Float>(0.6,-4,-7),
-            SIMD3<Float>(-1.6,-4,-8),
-            SIMD3<Float>(-2.6,-4,-10)
+            SIMD3<Float>(2.6,-4,-12),
+            SIMD3<Float>(1.6,-4,-10),
+            SIMD3<Float>(0.6,-4,-9),
+            SIMD3<Float>(-1.6,-4,-9),
+            SIMD3<Float>(-2.6,-4,-12)
         ]
         
         let stonePosition = [
-            SIMD3<Float>(-1.8,-4,-6),
-            SIMD3<Float>(-1,-4,-6),
-            SIMD3<Float>(-1.5,-4,-5)
+            SIMD3<Float>(-1.8,-4,-8),
+            SIMD3<Float>(-1,-4,-8),
+            SIMD3<Float>(-1.5,-4,-7)
         ]
         
-        let anchor = AnchorEntity(.plane(.horizontal, classification: .floor, minimumBounds: SIMD2<Float>(0.3, 0.3)))
+        let anchor = AnchorEntity(.plane(.horizontal, classification: .any, minimumBounds: SIMD2<Float>(0.3, 0.3)))
         
         // 동물 소환
         ModelEntity.loadModelAsync(named: modelName)
@@ -165,7 +165,7 @@ struct ARViewContainer: UIViewRepresentable {
                 
             })
         
-            .store(in: &context.coordinator.subscriptions)
+          .store(in: &context.coordinator.subscriptions)
         
         for position in treePosition {
             let treeAnchor = AnchorEntity(world: position)
@@ -173,7 +173,7 @@ struct ARViewContainer: UIViewRepresentable {
                 .sink(receiveCompletion: {loadCompletion in
                 }, receiveValue: { treemodel in
                     treemodel.position = SIMD3<Float>(0,0,0)
-                    treemodel.scale = SIMD3<Float>(0.06,0.06,0.06)
+                    treemodel.scale = SIMD3<Float>(0.05,0.05,0.05)
                     treeAnchor.addChild(treemodel)
                 })
                 .store(in: &context.coordinator.subscriptions)
