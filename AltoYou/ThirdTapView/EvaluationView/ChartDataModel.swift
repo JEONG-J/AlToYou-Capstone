@@ -21,13 +21,13 @@ struct ChartData: Codable {
     var label: String
 }
 
-struct Results: Codable {
+struct Results: Codable, Hashable {
     var modelSentence: String
     var userSentence: String
     var errors: [Errors]
 }
 
-struct Errors: Codable {
+struct Errors: Codable, Hashable {
     var errorWord: String
     var errorType: String
 }

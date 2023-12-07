@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct SentenceGridView: View {
-    let sentenceDataModel = SentenceHistory()
+    // ChartData의 인스턴스 (예: GlobalData.shared.chartData)
+    var chartData = GlobalData.shared.chartData
     
     var body: some View {
-        ZStack{
-            ScrollView{
+        ZStack {
+            ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible())], spacing: 10) {
-                    ForEach(interleavedSentece, id: \.sentence) { sentence in
-                        if sentence.isUserSentence {
-                            sentenceUserView(for: sentence.userSentenceData!)
+                    if let chartData = chartData {
+                        ForEach(chartData.result, id: \.self) { result in
+                            sentenceUserView(for: result.userSentence, errors: result.errors)
                                 .padding()
-                        }else {
-                            sentenceModelView(for: sentence.modelSentenceData!)
+                            sentenceModelView(for: result.modelSentence)
                                 .padding()
                         }
                     }
@@ -33,59 +33,35 @@ struct SentenceGridView: View {
         }
     }
     
-    var interleavedSentece: [InterleavedSetenceData] {
-        var combineSentence = [InterleavedSetenceData]()
-        let maxLength = max(sentenceDataModel.conversationUserSentence.count, sentenceDataModel.conversationModelSentence.count)
-        
-        for index in 0..<maxLength {
-            if index < sentenceDataModel.conversationUserSentence.count {
-                combineSentence.append(InterleavedSetenceData(userSentenceData: sentenceDataModel.conversationUserSentence[index]))
-            }
-            if index < sentenceDataModel.conversationModelSentence.count {
-                combineSentence.append(InterleavedSetenceData(modelSentenceData: sentenceDataModel.conversationModelSentence[index]))
-            }
-        }
-        return combineSentence
-    }
-    
-    ///MARK: - 유저 대화목록 폰트 처리
-    private func makeUserAttributedString(from sentenceUserData: SentenceUserData) -> AttributedString {
-        var attributedString = AttributedString("Me : \(sentenceUserData.sentence)")
+    private func makeAttributedString(for sentence: String, errors: [Errors]) -> AttributedString {
+        var attributedString = AttributedString(sentence)
         attributedString.font = .custom("Goryeong-Strawberry", size: 40)
-        attributedString.foregroundColor = .black
         
-        
-        for error in sentenceUserData.errors {
+        for error in errors {
             if let range = attributedString.range(of: error.errorWord) {
-                attributedString[range].foregroundColor = .red
+                attributedString[range].foregroundColor = .red // 오류 단어에 대한 색상 변경
             }
         }
         return attributedString
     }
     
-    ///MARK: - 모델 대화목록 폰트 처리
-    private func makeModelAttributedString(from sentenceModelData: SentenceModelData) -> AttributedString {
-        var attributedString = AttributedString("\(sentenceModelData.sentence) : You")
-        attributedString.font = .custom("Goryeong-Strawberry", size: 40)
-        attributedString.foregroundColor = .blue
-        
-        return attributedString
-    }
-    
-    private func sentenceUserView(for sentenceUserData: SentenceUserData) -> some View {
-        Text(makeUserAttributedString(from: sentenceUserData))
+    private func sentenceUserView(for sentence: String, errors: [Errors]) -> some View {
+        Text(makeAttributedString(for: "Me : \(sentence)", errors: errors))
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 25)
             .padding(.bottom, 5)
     }
     
-    private func sentenceModelView(for sentenceModelData: SentenceModelData) -> some View {
-        Text(makeModelAttributedString(from: sentenceModelData))
+    private func sentenceModelView(for sentence: String) -> some View {
+        Text("\(sentence) : You")
+            .font(.custom("Goryeong-Strawberry", size: 40))
+            .foregroundColor(.blue)
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding(.trailing, 25)
             .padding(.bottom, 5)
     }
 }
+
 
 
 
