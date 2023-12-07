@@ -52,6 +52,9 @@
 		487CE8512B00E8EE0067C619 /* Hindung-e.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487CE8502B00E8EE0067C619 /* Hindung-e.mp3 */; };
 		487CE8582B0101F50067C619 /* MICButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487CE8572B0101F50067C619 /* MICButton.swift */; };
 		487CE85B2B01084D0067C619 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 487CE85A2B01084D0067C619 /* Alamofire */; };
+		487DF9EB2B21481B00809C98 /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487DF9EA2B21481B00809C98 /* SendButton.swift */; };
+		487DF9ED2B214A7F00809C98 /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487DF9EC2B214A7F00809C98 /* ButtonViewModel.swift */; };
+		487DF9EF2B214EE800809C98 /* Mongmong-e.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487DF9EE2B214EE800809C98 /* Mongmong-e.mp3 */; };
 		487F55852B009D710058124C /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487F55842B009D710058124C /* backgroundMusic.mp3 */; };
 		487F55872B00AACF0058124C /* propeller.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 487F55862B00AACF0058124C /* propeller.mp3 */; };
 		487F55892B00AB550058124C /* AudioPlayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487F55882B00AB550058124C /* AudioPlayModel.swift */; };
@@ -73,7 +76,6 @@
 		48A499492B06341800029138 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A499482B06341800029138 /* PermissionManager.swift */; };
 		48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AF46572AFCC37800C1F98F /* PopupExtension.swift */; };
 		48B120AE2B0BDC31001352EC /* ThirdMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B120AD2B0BDC31001352EC /* ThirdMainViewController.swift */; };
-		48B3F6002B06BFF600AF77E1 /* Mongmong-e.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48B3F5FF2B06BFF600AF77E1 /* Mongmong-e.mp3 */; };
 		48B3F6022B06C94E00AF77E1 /* micButton.wav in Resources */ = {isa = PBXBuildFile; fileRef = 48B3F6012B06C94E00AF77E1 /* micButton.wav */; };
 		48B806C32AEFA45A003AA2C0 /* BottomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */; };
 		48BF0B422ACF684800565FA5 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */; };
@@ -146,6 +148,9 @@
 		487CE84E2B00E3D00067C619 /* selectCharacter.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selectCharacter.wav; sourceTree = "<group>"; };
 		487CE8502B00E8EE0067C619 /* Hindung-e.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Hindung-e.mp3"; sourceTree = "<group>"; };
 		487CE8572B0101F50067C619 /* MICButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MICButton.swift; sourceTree = "<group>"; };
+		487DF9EA2B21481B00809C98 /* SendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButton.swift; sourceTree = "<group>"; };
+		487DF9EC2B214A7F00809C98 /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
+		487DF9EE2B214EE800809C98 /* Mongmong-e.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mongmong-e.mp3"; sourceTree = "<group>"; };
 		487F55842B009D710058124C /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
 		487F55862B00AACF0058124C /* propeller.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = propeller.mp3; sourceTree = "<group>"; };
 		487F55882B00AB550058124C /* AudioPlayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayModel.swift; sourceTree = "<group>"; };
@@ -161,7 +166,6 @@
 		48A499482B06341800029138 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 		48AF46572AFCC37800C1F98F /* PopupExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupExtension.swift; sourceTree = "<group>"; };
 		48B120AD2B0BDC31001352EC /* ThirdMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdMainViewController.swift; sourceTree = "<group>"; };
-		48B3F5FF2B06BFF600AF77E1 /* Mongmong-e.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mongmong-e.mp3"; sourceTree = "<group>"; };
 		48B3F6012B06C94E00AF77E1 /* micButton.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = micButton.wav; sourceTree = "<group>"; };
 		48B806C22AEFA45A003AA2C0 /* BottomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomStackView.swift; sourceTree = "<group>"; };
 		48BF0B412ACF684800565FA5 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -346,7 +350,9 @@
 			isa = PBXGroup;
 			children = (
 				485E54012B01B63B00EC5450 /* ARViewAPI */,
+				487DF9EC2B214A7F00809C98 /* ButtonViewModel.swift */,
 				487CE8572B0101F50067C619 /* MICButton.swift */,
+				487DF9EA2B21481B00809C98 /* SendButton.swift */,
 				48C0C25A2B01220900A6BD67 /* ExitButton.swift */,
 				48635E672B060FB300B3D875 /* SelectedCharacterInfo.swift */,
 				480335E42B0693840042CF95 /* ContentView.swift */,
@@ -364,7 +370,7 @@
 				487F55842B009D710058124C /* backgroundMusic.mp3 */,
 				487CE84E2B00E3D00067C619 /* selectCharacter.wav */,
 				48230AB22B1A3CCB002C084E /* cellButton.wav */,
-				48B3F5FF2B06BFF600AF77E1 /* Mongmong-e.mp3 */,
+				487DF9EE2B214EE800809C98 /* Mongmong-e.mp3 */,
 				487F55862B00AACF0058124C /* propeller.mp3 */,
 				487CE8502B00E8EE0067C619 /* Hindung-e.mp3 */,
 				480335E22B0692E90042CF95 /* Yangyangi.mp3 */,
@@ -508,13 +514,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				487DF9EF2B214EE800809C98 /* Mongmong-e.mp3 in Resources */,
 				48902F622B046AC8006BB141 /* outSound.wav in Resources */,
 				486030C32B1EE75600921620 /* BushTwo.usdz in Resources */,
 				48F63DA02B03F91C0095FC8B /* startSound.wav in Resources */,
 				487F55852B009D710058124C /* backgroundMusic.mp3 in Resources */,
 				48902F6C2B0472DC006BB141 /* Hindung-e.usdz in Resources */,
 				48B3F6022B06C94E00AF77E1 /* micButton.wav in Resources */,
-				48B3F6002B06BFF600AF77E1 /* Mongmong-e.mp3 in Resources */,
 				48902F672B046FC7006BB141 /* Yangyangi.usdz in Resources */,
 				48902F682B046FC7006BB141 /* Mongmong-e.usdz in Resources */,
 				485A998B2ACBFC0600C94740 /* Preview Assets.xcassets in Resources */,
@@ -554,6 +560,7 @@
 				487007D22ACF5088009C6EC9 /* TopView.swift in Sources */,
 				484322092AF4DC37005C064C /* CharacterExtension.swift in Sources */,
 				48AF46582AFCC37800C1F98F /* PopupExtension.swift in Sources */,
+				487DF9ED2B214A7F00809C98 /* ButtonViewModel.swift in Sources */,
 				486030BB2B1EBD8200921620 /* SocialLoginModel.swift in Sources */,
 				485E54032B01B65300EC5450 /* DataModel.swift in Sources */,
 				484F5DE02AF23AC00085CADA /* ScrollExtension.swift in Sources */,
@@ -577,6 +584,7 @@
 				486D459C2ACC71E400D96EB1 /* Extension.swift in Sources */,
 				480335E52B0693840042CF95 /* ContentView.swift in Sources */,
 				483A07172AFC7DEF00009C61 /* PopUpViewController.swift in Sources */,
+				487DF9EB2B21481B00809C98 /* SendButton.swift in Sources */,
 				485A99842ACBFC0500C94740 /* AppDelegate.swift in Sources */,
 				488148622B0209F600B98B8B /* SocialLoginView.swift in Sources */,
 				487F558B2B00B5B10058124C /* PresentMessage.swift in Sources */,

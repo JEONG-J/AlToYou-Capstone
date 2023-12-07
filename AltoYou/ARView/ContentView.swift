@@ -13,6 +13,7 @@ struct ContentView : View {
     @ObservedObject var voiceViewModel = VoiceViewModel()
     @EnvironmentObject var selectedCharacterInfo: SelectedCharacterInfo
     @State private var showARView = true
+    @StateObject private var buttonViewModel = ButtonViewModel()
     var selectedCharater: CharacterInfo?
     
     var body: some View {
@@ -30,8 +31,10 @@ struct ContentView : View {
             }
             VStack{
                 HStack{
-                    ExitButton()
-                        .padding()
+                    if buttonViewModel.showExitButton {
+                        ExitButton(buttonViewModel: buttonViewModel)
+                            .padding()
+                    }
                     Spacer()
                 }
                 Spacer()
@@ -39,6 +42,12 @@ struct ContentView : View {
             
             VStack{
                 Spacer()
+                HStack{
+                    Spacer()
+                    if buttonViewModel.showExitButton == false {
+                        SendButton(buttonViewModel: buttonViewModel)
+                    }
+                }
                 HStack{
                     Spacer()
                     MICButton()

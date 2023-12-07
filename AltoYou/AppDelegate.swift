@@ -29,16 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          
         KakaoSDK.initSDK(appKey: "a25450c80690c073d46d49f06d91b715")
         
-        // 음악 쓰레드로 준비상태
-        DispatchQueue.global(qos: .background).async {
+        
             prepareEffectMusic()
             prepareAudioPlayer()
-        }
-        
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        window.rootViewController = SocialLoginView()
+        window.rootViewController = SecondMainViewController()
         window.makeKeyAndVisible()
         permissionManagger.requestAudioPermission()
 

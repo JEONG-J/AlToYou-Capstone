@@ -120,14 +120,18 @@ func playVoice(from url: String) {
 public func prepareEffectMusic(){
     selectHistoryInit("startSound", "wav")
     
-    let dispatchQueue = DispatchQueue.global(qos: .userInitiated)
-    
-    let soundNames = ["randomText", "selectCharacter", "TapSound", "cellButton", "Mongmong-e", "Yangyangi", "Hindung-e", "outSound", "deleteSound", "propeller", "micButton"]
-    let soundFormats = ["wav", "wav", "wav", "wav", "mp3", "mp3", "mp3", "wav", "wav", "mp3", "wav"]
-    
-    for (idx, sounName) in soundNames.enumerated() {
-        dispatchQueue.async {
-            selectHistoryInit(sounName, soundFormats[idx])
-        }
+    DispatchQueue.global(qos: .userInitiated).async {
+        selectHistoryInit("outSound", "wav")
+        selectHistoryInit("deleteSound", "wav")
+        selectHistoryInit("backgroundMusic", "mp3")
+        selectHistoryInit("selectCharacter", "wav")
+        selectHistoryInit("cellButton", "wav")
+        selectHistoryInit("Mongmong-e", "mp3")
+        selectHistoryInit("propeller", "mp3")
+        selectHistoryInit("Hindung-e", "mp3")
+        selectHistoryInit("Yangyangi", "mp3")
+        selectHistoryInit("randomText", "wav")
+        selectHistoryInit("TapSound", "wav")
+        selectHistoryInit("micButton", "wav")
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ExitButton: View {
+    @ObservedObject var buttonViewModel: ButtonViewModel
+    
     var body: some View{
         Button(action: {
             
