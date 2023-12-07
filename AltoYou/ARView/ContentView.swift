@@ -30,22 +30,15 @@ struct ContentView : View {
                     }
             }
             VStack{
-                HStack{
-                    if buttonViewModel.showExitButton {
-                        ExitButton(buttonViewModel: buttonViewModel)
-                            .padding()
-                    }
-                    Spacer()
-                }
-                Spacer()
-            }
-            
-            VStack{
                 Spacer()
                 HStack{
                     Spacer()
                     if buttonViewModel.showExitButton == false {
                         SendButton(buttonViewModel: buttonViewModel)
+                            .padding()
+                    } else {
+                        ExitButton(buttonViewModel: buttonViewModel)
+                            .padding()
                     }
                 }
                 HStack{
