@@ -120,49 +120,34 @@ class EvaluationHistroyCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    ///MARK: - 셀 초기화
-    public func configuration(model: EvaluationHistoryInfo){
+    // MARK: - 셀 초기화
+    public func configuration(model: EvaluationHistoryInfo) {
         let img = UIImage(named: model.characterName)?.resizeImage(targetSize: CGSize(width: 131, height: 167))
         talkedCharacterImageView.image = img
-        let dateTimeString = model.date
         
-        let combineFormatter = DateFormatter()
-        combineFormatter.locale = Locale(identifier: "ko_KR")
-        combineFormatter.dateFormat = "yy/MM/dd(E) a hh:mm"
-        guard let fullDate = combineFormatter.date(from: dateTimeString) else {
-            fatalError("Failed to parse date and time string")
-        }
-        
-        let dateString = parsingDate(dateString: dateTimeString)
-        let timeString = parsingTime(timeString: dateTimeString)
-        
-        evaluationDateLabel.text = dateString
-        evaluationTimeLabel.text = timeString
-    }
-    
-    ///MARK: - 날짜 파싱
-    private func parsingDate(dateString: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.dateFormat = "yy/MM/dd(E)"
-        guard let date = dateFormatter.date(from: dateString) else {
-            return "Invalid Date"
-        }
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        return dateFormatter.string(from: date)
+        // 날짜와 시간 파싱
+        let dateTimeComponents = parseDateTime(dateTimeString: model.date)
+        evaluationDateLabel.text = dateTimeComponents.date
+        evaluationTimeLabel.text = dateTimeComponents.time
     }
 
-    
-    ///MARK: - 시간 파싱
-    private func parsingTime(timeString: String) -> String {
-        let timeFormatter = DateFormatter()
-        timeFormatter.locale = Locale(identifier: "ko_KR")
-        timeFormatter.dateFormat = "a h:mm"
-        guard let time = timeFormatter.date(from: timeString) else {
-            return "Invalid Time"
+    // 날짜와 시간 파싱
+    private func parseDateTime(dateTimeString: String) -> (date: String, time: String) {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.dateFormat = "yy/MM/dd(E) a hh:mm"
+        
+        guard let date = formatter.date(from: dateTimeString) else {
+            return ("Invalid Date", "Invalid Time")
         }
-        timeFormatter.dateFormat = "HH:mm"
-        return timeFormatter.string(from: time)
+        
+        formatter.dateFormat = "yyyy / MM / dd (E)"
+        let dateString = formatter.string(from: date)
+
+        formatter.dateFormat = "a HH:mm"
+        let timeString = formatter.string(from: date)
+
+        return (dateString, timeString)
     }
 
 

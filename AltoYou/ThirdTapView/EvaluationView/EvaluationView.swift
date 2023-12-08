@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct EvaluationView: View {
     
@@ -51,9 +52,26 @@ struct EvaluationView: View {
                 .ignoresSafeArea()
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
+            .onAppear {
+                getChartInfo()
+            }
         }
    }
 }
+
+func getChartInfo(){
+        let url = "http://13.124.7.35:8080/api/estimation/\(GlobalData.shared.userId ?? "")/\(GlobalData.shared.conversationId ?? "")"
+        
+        AF.request(url).responseDecodable(of: ChartData.self) {response in
+            switch response.result {
+            case.success(let data):
+                print("차트 데이터 주입 성공")
+                GlobalData.shared.chartData = data
+            case.failure(let error):
+                print("겟 차트 error: \(error)")
+            }
+        }
+    }
 
 
 

@@ -15,6 +15,8 @@ class VoiceAPIHandler: ObservableObject {
     @Published var requestSucceeded: Bool = false
     @Published var responseQnAVoice: GetVoice?
     
+//http://13.124.7.35:8080/api
+    
     func beginVoice(completion: @escaping (Result<ResponseBeginVoice, Error>) -> Void) {
         let url = "http://13.124.7.35:8080/api/conversation/start?userId=\(GlobalData.shared.userId ?? "")&characterName=\(GlobalData.shared.characterName ?? "")"
         

@@ -122,28 +122,29 @@ struct ARViewContainer: UIViewRepresentable {
         let stonemodel = "stone.usd"
         
         let treePosition = [
-            SIMD3<Float>(-2.6,-4,-12),
-            SIMD3<Float>(2.6,-4,-12),
-            SIMD3<Float>(0,-4,-15),
-            SIMD3<Float>(-1.6,-4,-15),
-            SIMD3<Float>(1.6,-4,-15)
+            SIMD3<Float>(-2.6,-10,-12),
+            SIMD3<Float>(2.6,-10,-12),
+            SIMD3<Float>(0,-10,-15),
+            SIMD3<Float>(-1.6,-10,-15),
+            SIMD3<Float>(1.6,-10,-15)
         ]
         
         let bushPositions = [
-            SIMD3<Float>(2.6,-4,-12),
-            SIMD3<Float>(1.6,-4,-10),
-            SIMD3<Float>(0.6,-4,-9),
-            SIMD3<Float>(-1.6,-4,-9),
-            SIMD3<Float>(-2.6,-4,-12)
+            SIMD3<Float>(2.6,-10,-12),
+            SIMD3<Float>(1.6,-10,-10),
+            SIMD3<Float>(0.6,-10,-9),
+            SIMD3<Float>(-1.6,-10,-9),
+            SIMD3<Float>(-2.6,-10,-12)
         ]
         
         let stonePosition = [
-            SIMD3<Float>(-1.8,-4,-8),
-            SIMD3<Float>(-1,-4,-8),
-            SIMD3<Float>(-1.5,-4,-7)
+            SIMD3<Float>(-1.8,-10,-8),
+            SIMD3<Float>(-1,-10,-8),
+            SIMD3<Float>(-1.5,-10,-7)
         ]
         
-        let anchor = AnchorEntity(.plane(.horizontal, classification: .any, minimumBounds: SIMD2<Float>(0.3, 0.3)))
+        let anchor = AnchorEntity(.plane(.horizontal, classification: .floor
+                                         , minimumBounds: SIMD2<Float>(0.3, 0.3)))
         
         // 동물 소환
         ModelEntity.loadModelAsync(named: modelName)

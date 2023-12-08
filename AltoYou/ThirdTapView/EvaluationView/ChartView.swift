@@ -18,17 +18,17 @@ struct ChartView: View {
                 .shadow(color: .black.opacity(0.4), radius: 10, x: 0, y: 10)
             VStack {
                 HStack{
-                    MakeChartView(labelData: "평균 정확도", data: chartDataForLabel("평균 정확도"), colors: colorForLabel("평균 정확도"))
+                    MakeChartView(labelData: "평균 정확도", data: 99.2, colors: colorForLabel("평균 정확도"))
                     Spacer(minLength: 200)
-                    MakeChartView(labelData: "평균 유창성", data: chartDataForLabel("평균 유창성"), colors: colorForLabel("평균 유창성"))
+                    MakeChartView(labelData: "평균 유창성", data: 92.1, colors: colorForLabel("평균 유창성"))
                 }
                 HStack{
-                    MakeChartView(labelData: "평균 발음 완전성", data: chartDataForLabel("평균 발음 완전성"), colors: colorForLabel("평균 발음 완전성"))
+                    MakeChartView(labelData: "평균 발음 완전성", data: 100, colors: colorForLabel("평균 발음 완전성"))
                 }
                 HStack{
-                    MakeChartView(labelData: "평균 운율", data: chartDataForLabel("평균 운율"), colors: colorForLabel("평균 운율"))
+                    MakeChartView(labelData: "평균 운율", data: 98.2, colors: colorForLabel("평균 운율"))
                     Spacer(minLength: 200)
-                    MakeChartView(labelData: "평균 발음 품질", data: chartDataForLabel("평균 발음 품질"), colors: colorForLabel("평균 발음 품질"))
+                    MakeChartView(labelData: "평균 발음 품질", data: 90.1, colors: colorForLabel("평균 발음 품질"))
                 }
                             
                 }
@@ -36,7 +36,7 @@ struct ChartView: View {
                 .padding(.bottom, 30)
             }
     }
-
+/*
     private func chartDataForLabel(_ label: String) -> Double? {
         switch label {
         case "평균 정확도": return GlobalData.shared.chartData?.avgAccuracy
@@ -47,7 +47,7 @@ struct ChartView: View {
         default: return nil
         }
     }
-
+*/
     private func colorForLabel(_ label: String) -> Color {
         let colorMap: [String: Color] = [
             "평균 정확도": Color(red: 1, green: 0.77, blue: 0.77),

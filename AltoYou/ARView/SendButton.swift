@@ -16,6 +16,7 @@ struct SendButton: View {
         ZStack{
             Button(action: {
                 chartAPI?.getChartInfo()
+                chartAPI?.fetchDataHistory()
                 voiceAPIHandler?.endVoice()
                 buttonViewModel.showExitButton = true
                 buttonViewModel.showingPopup = true

@@ -14,6 +14,7 @@ class ThirdMainViewController: UIViewController{
     
     var chartAPI: ChartAPI?
     var evaluationHistory: EvaluationHistory?
+    var evaluationInfo = EvaluationInfo()
     
     ///MARk: - 배경이미지 프로퍼티
     private lazy var backgroundImageView: UIImageView = {
@@ -51,7 +52,14 @@ class ThirdMainViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         makeConstraints()
+        fetchDataHistory()
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           fetchDataHistory()
+       }
     
     
     //MARK: - Function
@@ -88,19 +96,21 @@ class ThirdMainViewController: UIViewController{
         }
     }
     
-    private func fetchDataHistory(){
-        let url = "http://13.124.7:8080/api/estimation/\(GlobalData.shared.userId ?? "")/estimations"
+    func fetchDataHistory(){
+        let url = "http://13.124.7.35:8080/api/estimation/\(GlobalData.shared.userId ?? "")/estimations"
         
         AF.request(url).responseDecodable(of: EvaluationHistory.self) { [weak self] response in
             switch response.result {
             case .success(let data):
-                self?.evaluationHistory = data
+                print("컬렉션 뷰 : 데이터 가져오기완료")
+                GlobalData.shared.evaluationHistory = data // Update the global data here
                 self?.historyTable.reloadData()
             case.failure(let error):
                 print("error : \(error)")
             }
         }
     }
+
     
     final func popupSheetView(){
         let UIHostingController = UIHostingController(rootView: EvaluationView())
@@ -113,7 +123,7 @@ class ThirdMainViewController: UIViewController{
             let safeAreaHeight = screenSize.height - safeAreaInsets.top - safeAreaInsets.bottom
             
             UIHostingController.preferredContentSize = CGSize(
-                width: screenSize.width - 100,
+                width: screenSize.width - 20,
                 height: safeAreaHeight
             )
             UIHostingController.modalPresentationStyle = .formSheet

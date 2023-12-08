@@ -14,17 +14,18 @@ struct ResponseBeginVoice: Codable {
     var conversationId: String
     var url: String?
     
-
+    
     enum CodingKeys: String, CodingKey {
         case status, url, message, conversationId
     }
+
 }
 
 struct GetVoice: Codable {
-    var status: Int
+    var status: Bool
     var url: String?
     var message: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case status, url, message
     }
@@ -43,4 +44,5 @@ struct ResponseEndVoice: Codable {
     enum CodingKeys: String, CodingKey {
         case status, message
     }
+    
 }

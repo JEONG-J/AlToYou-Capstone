@@ -13,7 +13,7 @@ import AVFoundation
 private var soundEffectPlayers: [String: AVAudioPlayer] = [:]
 private var soundEffectPlayer: AVAudioPlayer?
 private var characterRequest: AVPlayer?
-private var originalVolume: Float = 0.2
+private var originalVolume: Float = 0.3
 
 public var backgroundMusicPlayer: AVAudioPlayer?
 

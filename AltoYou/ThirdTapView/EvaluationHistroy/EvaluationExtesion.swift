@@ -12,15 +12,17 @@ import FloatingPanel
 
 extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.evaluationHistory?.estimationList.count ?? 0
+        GlobalData.shared.evaluationHistory?.estimationList.count ?? 0
+        //evaluationInfo.evaluationInfo.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EvaluationHistroyCollectionViewCell.identifier, for: indexPath) as? EvaluationHistroyCollectionViewCell else { return UICollectionViewCell() }
         
-        if let esimation = evaluationHistory?.estimationList[indexPath.row] {
+        if let esimation = GlobalData.shared.evaluationHistory?.estimationList[indexPath.row] {
             cell.configuration(model: esimation)
         }
+    //    cell.configuration(model: evaluationInfo.evaluationInfo[indexPath.row])
     
         return cell
     }
@@ -39,9 +41,9 @@ extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDat
         let originalColor = cell.backgroundColor
         let blinkColor = UIColor.gray
         
-        
         let selectEstimationId = self.evaluationHistory?.estimationList[indexPath.row].estimationId
         chartAPI?.cellGetChartInfo(selectEstimationId ?? "")
+        
         
         
         DispatchQueue.main.async {
