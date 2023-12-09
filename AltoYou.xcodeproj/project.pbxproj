@@ -421,10 +421,10 @@
 			children = (
 				486030C22B1EE75600921620 /* BushTwo.usdz */,
 				486030C82B1EF37100921620 /* stone.usd */,
+				48902F652B046FC7006BB141 /* Mongmong-e.usdz */,
 				486030C02B1ED9E700921620 /* Tree.usd */,
 				48902F6B2B0472DC006BB141 /* Hindung-e.usdz */,
 				48902F642B046FC7006BB141 /* Yangyangi.usdz */,
-				48902F652B046FC7006BB141 /* Mongmong-e.usdz */,
 				480EDA882AEF55DD0007DDDF /* toy_biplane_idle.usdz */,
 			);
 			path = "3D Characters";
