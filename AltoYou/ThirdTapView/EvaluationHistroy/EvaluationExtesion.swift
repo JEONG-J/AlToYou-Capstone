@@ -8,12 +8,11 @@
 import Foundation
 import UIKit
 import SwiftUI
-import FloatingPanel
 
 extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         GlobalData.shared.evaluationHistory?.estimationList.count ?? 0
-        //evaluationInfo.evaluationInfo.count
+    //    evaluationInfo.evaluationInfo.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -22,7 +21,7 @@ extension ThirdMainViewController: UICollectionViewDelegate, UICollectionViewDat
         if let esimation = GlobalData.shared.evaluationHistory?.estimationList[indexPath.row] {
             cell.configuration(model: esimation)
         }
-    //    cell.configuration(model: evaluationInfo.evaluationInfo[indexPath.row])
+      //  cell.configuration(model: evaluationInfo.evaluationInfo[indexPath.row])
     
         return cell
     }

@@ -134,7 +134,7 @@ class EvaluationHistroyCollectionViewCell: UICollectionViewCell {
     // 날짜와 시간 파싱
     private func parseDateTime(dateTimeString: String) -> (date: String, time: String) {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US")
+        formatter.locale = Locale(identifier: "ko_KRd")
         formatter.dateFormat = "yy/MM/dd(E) a hh:mm"
         
         guard let date = formatter.date(from: dateTimeString) else {
