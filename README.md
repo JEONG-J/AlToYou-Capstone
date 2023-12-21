@@ -41,10 +41,3 @@ I developed it as an iPad-exclusive application, considering the use of AR and i
 
 ### UML
 ![프론트엔드 drawio](https://github.com/JEONG-J/designPattern_HolubSQL/assets/80624315/d517470c-4234-49ba-8da9-3e0acda307dc)
-
-
-### 실행 이미지
-
-
-
-캡스톤 디자인 23-2 프론트(ios) repo
